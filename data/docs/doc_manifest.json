@@ -1,0 +1,26 @@
+{
+  "restaurants": 500,
+  "files": {
+    "profiles": {
+      "path": "/home/naimish08/Desktop/DineWise/data/docs/restaurant_profiles.txt",
+      "blocks": 500,
+      "chars": 390525,
+      "seconds": 0.05,
+      "sha256": "47584a54925093c671f9c2144fce4d8eb2e1c28a0295807532a5a3f9aa35eb20"
+    },
+    "review_insights": {
+      "path": "/home/naimish08/Desktop/DineWise/data/docs/customer_review_insights.pdf",
+      "entries": 500,
+      "bytes": 359324,
+      "seconds": 0.39,
+      "sha256": "5c521a6639197cb08b2161b6debf432eae1c145e47c94e1981591d7eb1106754"
+    },
+    "policy": {
+      "path": "/home/naimish08/Desktop/DineWise/data/docs/dining_preferences.docx",
+      "sections": 8,
+      "bytes": 37324,
+      "seconds": 0.02,
+      "sha256": "bde43f1b0cfcbff35cf6f818b79a8430d327d100436ab9fc624d4fb0c7b2fbe3"
+    }
+  }
+}

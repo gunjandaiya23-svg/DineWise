@@ -1,0 +1,234 @@
+# Phases and schedule
+
+> Part of the DineWise project plan. P0-P11 acceptance criteria and the 16-week schedule.
+> See [the plan index](README.md) for the full reading order.
+
+---
+
+## 19. Phases and schedule
+
+### 19.1 Phase details and acceptance criteria
+
+#### P0 — Environment and skeleton (week 1, ~0.5 day)
+
+Work:
+
+- create the 3.12 venv with `uv`,
+- install CUDA PyTorch, transformers, sentence-transformers, faiss-cpu, rank-bm25, langchain, langgraph, pypdf, docx2txt, python-docx, reportlab, streamlit, ragas, peft, bitsandbytes,
+- configure `HF_HOME`,
+- create the repo skeleton and config,
+- write the download script with SHA-256 checksums,
+- run a GPU and model smoke test.
+
+Artifacts: `results/env_report.json`, `requirements.lock`, `README.md`.
+
+Acceptance:
+
+- `torch.cuda.is_available()` is true and reports the RTX 4060,
+- all packages import,
+- the download script verifies all six files,
+- a 10-token generation runs on the GPU.
+
+#### P1 — Data layer (week 1, ~2 days)
+
+Work:
+
+- implement the attribute parser with tests,
+- implement the cuisine taxonomy,
+- implement the food-service filter,
+- clean and join the five tables,
+- build `restaurants.parquet`, `reviews.parquet`, and `evidence.parquet`,
+- produce the audit table.
+
+Acceptance:
+
+- 6,033 restaurants in the study corpus (or a documented deviation),
+- 385,065 reviews joined (or a documented deviation),
+- attribute parse success ≥98%,
+- zero duplicate business IDs,
+- 100% referential integrity for review→business and photo→business,
+- audit table generated and summarized in the report.
+
+#### P2 — Document layer (week 2, ~1.5 days)
+
+Work:
+
+- generate the TXT, PDF, and DOCX documents,
+- implement the loaders and metadata attachment,
+- cache extracted PDF text,
+- produce document statistics.
+
+Acceptance:
+
+- all three formats load,
+- zero empty documents,
+- metadata completeness ≥99%,
+- PDF page count and extraction time recorded,
+- documents regenerate deterministically from the same input hash.
+
+#### P3 — Chunking (week 2, ~1.5 days)
+
+Work:
+
+- implement restaurant-aware token chunking,
+- build C1–C4,
+- implement contamination checks,
+- produce chunk statistics.
+
+Acceptance:
+
+- 0% cross-restaurant contamination,
+- metadata completeness 100% for required fields,
+- token length distributions within ±10% of target medians,
+- chunk counts and index sizes recorded for each configuration.
+
+#### P4 — Retrieval and gold set (weeks 3–4, ~4 days)
+
+Work:
+
+- build the FAISS and BM25 indexes,
+- implement collapse, RRF, filters, and reranker,
+- build the prefilled gold-set tool,
+- label 60 queries (v1) and extend to 120 later,
+- run E1–E4.
+
+Acceptance:
+
+- every returned restaurant satisfies hard constraints (100%),
+- E1–E4 table produced by one command,
+- gold-set v1 frozen and versioned,
+- retrieval latency recorded.
+
+#### P5 — Generation and workflow (weeks 5–6, ~4 days)
+
+Work:
+
+- load Qwen2.5-1.5B,
+- implement prompts and JSON schema,
+- implement constrained decoding and repair,
+- implement validators and NLI checks,
+- implement the LangGraph nodes and retry/fallback,
+- run the 120-query generation evaluation.
+
+Acceptance:
+
+- format validity ≥95% after repair,
+- hard-constraint violations = 0,
+- hallucinated restaurants = 0,
+- out-of-scope queries produce correct abstention,
+- retry and fallback paths covered by tests,
+- E7 baseline and E9 results available.
+
+#### P6 — App (week 7, ~2 days)
+
+Work:
+
+- Streamlit chat, profile, visual tab, comparison, debug tab,
+- connect to the Python API.
+
+Acceptance:
+
+- cold start and p95 latency measured,
+- no fabricated fields displayed,
+- sources visible for every recommendation,
+- abstention path demonstrable.
+
+#### P7 — Visual pipeline (weeks 9–10, ~3 days)
+
+Work:
+
+- build the visual text index,
+- implement CLIP zero-shot classification,
+- create the visual gold subset,
+- run E6.
+
+Acceptance:
+
+- visual Success@5 and CLIP top-1/top-5 reported,
+- limitations stated in the UI and report,
+- no claim of image-to-restaurant matching.
+
+#### P8 — LoRA (weeks 11–12, ~4 days)
+
+Work:
+
+- construct 400 examples,
+- review 15% manually,
+- train QLoRA,
+- run E7 and the LoRA-only ablation.
+
+Acceptance:
+
+- zero business-ID overlap between splits,
+- training log and adapter saved,
+- format validity and faithfulness compared across four systems,
+- no claim that LoRA adds factual knowledge.
+
+#### P9 — Efficiency (week 13, ~2 days)
+
+Work:
+
+- run FP16/INT8/INT4/LoRA-4bit,
+- measure TTFT, TPOT, tokens/s, peak VRAM, disk,
+- run the quality comparison on a fixed subset.
+
+Acceptance:
+
+- measurement protocol followed (warm-up, 5 runs, fixed prompts),
+- variance reported,
+- any load failure reported as a result.
+
+#### P10 — Ablations and generalization (week 14, ~3 days)
+
+Work:
+
+- E9 graph ablation,
+- E10 held-out cities,
+- E11 personalization,
+- final statistical tests.
+
+Acceptance:
+
+- paired bootstrap CIs for every comparison,
+- no winner declared when the CI includes zero,
+- all tables generated by script.
+
+#### P11 — Report and demo (weeks 15–16, ~4 days)
+
+Work:
+
+- write the report,
+- generate figures,
+- record a short demo,
+- final reproducibility check.
+
+Acceptance:
+
+- a fresh clone can run `make setup && make data && make index && make eval` to reproduce the tables,
+- every reported number traces to a results file,
+- limitations section covers all items in Section 21.
+
+### 19.2 Sixteen-week schedule
+
+| Week | Focus | Milestone |
+|---:|---|---|
+| 1 | P0 + P1 | Environment verified; clean catalogue |
+| 2 | P2 + P3 | Documents and chunks built; contamination = 0 |
+| 3 | P4 start | Indexes built; gold-set tool ready |
+| 4 | P4 | E1–E4 results; gold-set v1 frozen |
+| 5 | P5 | Qwen loaded; prompts and validators working |
+| 6 | P5 | Full 120-query generation run; E9 baseline |
+| 7 | P6 | Streamlit demo working |
+| 8 | Buffer + mid-project checkpoint | First complete report draft with E0–E5 |
+| 9 | P7 | Visual text index + CLIP zero-shot |
+| 10 | P7 | E6 results; visual gold subset |
+| 11 | P8 | LoRA data + training |
+| 12 | P8 | E7 results; adapter evaluated |
+| 13 | P9 | E8 efficiency results |
+| 14 | P10 | E9–E11, held-out city, statistics |
+| 15 | Report | Full draft, figures, tables |
+| 16 | Buffer | Reproducibility check, demo, submission |
+
+Buffer is deliberate. Dataset download, PDF extraction, and model installation are the most likely sources of schedule slip.
+
+---

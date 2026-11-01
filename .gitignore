@@ -1,0 +1,40 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Data (never commit the raw dataset or generated artifacts)
+data/raw/
+data/processed/
+data/indexes/
+data/docs/*.pdf
+data/docs/*.docx
+data/docs/*.txt
+!data/docs/.gitkeep
+
+# Models and caches
+.cache/
+models/
+HF_HOME/
+
+# Results: keep manifests and tables, ignore large artifacts
+results/runs/**/artifacts/
+results/figures/*.png
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Local secrets
+.env
+.env.*
+*.token
+
+# OS
+.DS_Store
+Thumbs.db

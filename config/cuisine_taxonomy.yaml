@@ -1,0 +1,146 @@
+version: 1
+
+# Order matters: primary cuisine is chosen by the first matching family.
+priority:
+  - Italian
+  - Mexican
+  - Chinese
+  - Southeast Asian
+  - Japanese
+  - Indian
+  - Thai
+  - Korean
+  - Vietnamese
+  - French
+  - Greek
+  - Mediterranean
+  - Spanish
+  - Steakhouse
+  - Seafood
+  - BBQ
+  - Latin/Caribbean
+  - Cajun/Southern
+  - Vegetarian/Vegan
+  - Bakery/Dessert
+  - Breakfast/Brunch
+  - American
+  - Bar/Nightlife
+
+families:
+  Italian:
+    - Italian
+    - Pizza
+    - Sicilian
+    - Pasta Shops
+  Mexican:
+    - Mexican
+    - Tex-Mex
+    - Tacos
+  Latin/Caribbean:
+    - Latin American
+    - Cuban
+    - Caribbean
+    - Puerto Rican
+    - Dominican
+    - Peruvian
+    - Brazilian
+    - Argentinian
+    - Colombian
+    - Venezuelan
+  Cajun/Southern:
+    - Cajun/Creole
+    - Soul Food
+    - Southern
+  Southeast Asian:
+    - Burmese
+    - Indonesian
+    - Singaporean
+    - Cambodian
+    - Malaysian
+    - Filipino
+    - Laotian
+  Chinese:
+    - Chinese
+    - Cantonese
+    - Szechuan
+    - Dim Sum
+  Japanese:
+    - Japanese
+    - Sushi Bars
+    - Sushi
+    - Ramen
+    - Izakaya
+  Indian:
+    - Indian
+    - Pakistani
+    - Bangladeshi
+    - Himalayan/Nepalese
+  Thai:
+    - Thai
+  Korean:
+    - Korean
+  Vietnamese:
+    - Vietnamese
+  French:
+    - French
+    - Creperies
+  Greek:
+    - Greek
+  Mediterranean:
+    - Mediterranean
+    - Middle Eastern
+    - Lebanese
+    - Falafel
+    - Turkish
+    - Persian/Iranian
+  Spanish:
+    - Spanish
+    - Tapas Bars
+  Steakhouse:
+    - Steakhouses
+  Seafood:
+    - Seafood
+    - Fish & Chips
+  BBQ:
+    - Barbeque
+    - Barbecue
+    - Smokehouse
+  Vegetarian/Vegan:
+    - Vegetarian
+    - Vegan
+  Bakery/Dessert:
+    - Bakeries
+    - Desserts
+    - Ice Cream & Frozen Yogurt
+    - Cupcakes
+    - Patisserie/Cake Shop
+    - Donuts
+    - Bakeries
+  Breakfast/Brunch:
+    - Breakfast & Brunch
+    - Cafes
+    - Coffee & Tea
+    - Pancakes
+    - Waffles
+    - Juice Bars & Smoothies
+    - Tea Rooms
+  American:
+    - American (Traditional)
+    - American (New)
+    - Comfort Food
+    - Diners
+    - Sandwiches
+    - Burgers
+    - Hot Dogs
+    - Chicken Wings
+  Bar/Nightlife:
+    - Bars
+    - Cocktail Bars
+    - Sports Bars
+    - Wine Bars
+    - Beer Bar
+    - Pubs
+    - Gastropubs
+    - Breweries
+    - Nightlife
+    - Distilleries

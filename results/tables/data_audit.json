@@ -1,0 +1,35 @@
+{
+  "raw": {
+    "businesses": 16702,
+    "reviews": 837559,
+    "review_summaries": 16702,
+    "photo_summaries": 13289,
+    "photos": 118951
+  },
+  "selection": {
+    "cities": [
+      "Philadelphia"
+    ],
+    "limit": 500,
+    "after_city_filter": 2126,
+    "after_food_service_filter": 1894,
+    "venue_excluded": 17,
+    "selected": 500
+  },
+  "corpus": {
+    "restaurants": 500,
+    "reviews": 75323,
+    "with_review_summary": 500,
+    "with_photo_summary": 490,
+    "with_price": 500,
+    "cuisine_covered": 499
+  },
+  "quality": {
+    "duplicate_business_ids": 0,
+    "duplicate_review_ids": 0,
+    "attribute_parse_rate": 1.0,
+    "missing_price_pct": 0.0,
+    "cuisine_coverage_pct": 99.8,
+    "review_join_coverage_pct": 100.0
+  }
+}

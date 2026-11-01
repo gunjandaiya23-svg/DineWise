@@ -1,0 +1,16 @@
+{
+  "repo_id": "wzehui/Yelp-Multimodal-Recommendation",
+  "base_url": "https://huggingface.co/datasets/wzehui/Yelp-Multimodal-Recommendation/resolve/main",
+  "files": {
+    "business.csv": "9efc69a18367d097c33e48f003d23327abb2005ebd56c61c30cf96a071d8b7bc",
+    "review.csv": "7db779de667ddda5838d5d1f97b3ae2643992d3f2b8ac9cb5871de4685a53e7c",
+    "review_summary.csv": "847b21c0f0c5e04a680a38e39754d00d87f4973a4b17526089fed3602d2a6986",
+    "photo.csv": "bb84ec863549caf7c0ba16ed5a499fcf30b1cc1fc81f5a39861c772fc65288c3",
+    "photo_summay.csv": "64b51e50727e3c1c1e5ac24030422370396f01e5c3f0c2ef0764a1760f13d98a"
+  },
+  "notes": [
+    "photo_summay.csv is misspelled in the upstream repository; keep the real name.",
+    "review.csv has no date column despite the upstream README.",
+    "Files are read with encoding=utf-8-sig because several have a BOM."
+  ]
+}
