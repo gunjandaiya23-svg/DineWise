@@ -14,7 +14,7 @@
 Work:
 
 - create the 3.12 venv with `uv`,
-- install CUDA PyTorch, transformers, sentence-transformers, faiss-cpu, rank-bm25, langchain, langgraph, pypdf, docx2txt, python-docx, reportlab, streamlit, ragas, peft, bitsandbytes,
+- install CUDA PyTorch, transformers, sentence-transformers, qdrant-client, rank-bm25, langchain, langgraph, pypdf, docx2txt, python-docx, reportlab, streamlit, ragas, peft, bitsandbytes,
 - configure `HF_HOME`,
 - create the repo skeleton and config,
 - write the download script with SHA-256 checksums,
@@ -86,7 +86,7 @@ Acceptance:
 
 Work:
 
-- build the FAISS and BM25 indexes,
+- build the Qdrant collections and BM25 index,
 - implement collapse, RRF, filters, and reranker,
 - build the prefilled gold-set tool,
 - label 60 queries (v1) and extend to 120 later,

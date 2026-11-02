@@ -1,0 +1,885 @@
+[
+  {
+    "query_id": "Q01",
+    "facet": "cuisine",
+    "query": "Find Italian restaurants with good reviews in Philadelphia.",
+    "in_scope": true,
+    "scope_reason": null,
+    "constraints": {
+      "city": "Philadelphia",
+      "cuisines": [
+        "Italian"
+      ],
+      "max_price_bucket": null,
+      "min_rating": null,
+      "required_attributes": [],
+      "dietary": [],
+      "intent": "recommendation"
+    },
+    "filter_counts": {
+      "start": 500,
+      "city": 500,
+      "cuisine": 71
+    },
+    "candidates_after_filter": 71,
+    "hits": [
+      {
+        "business_id": "dYinIkKBspHV5hSaukklFg",
+        "name": "L'Angolo Ristorante",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.795
+      },
+      {
+        "business_id": "4_VDvhKpKSsj7jZYdocZYA",
+        "name": "La Viola",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7819
+      },
+      {
+        "business_id": "2WGnykxiM-Mp-qIm2u7iAw",
+        "name": "Maggiano's Little Italy",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7774
+      },
+      {
+        "business_id": "Vnagnur1os0ZduOpvDH27A",
+        "name": "Villa Di Roma",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7766
+      },
+      {
+        "business_id": "9_B5sCqKBOKDAmYpByiFFg",
+        "name": "Branzino Italian Ristorante",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7759
+      }
+    ],
+    "compliance": [
+      {
+        "name": "ids_in_catalogue",
+        "passed": true,
+        "detail": "5 ids"
+      },
+      {
+        "name": "cuisine_satisfied",
+        "passed": true,
+        "detail": "all match"
+      },
+      {
+        "name": "city_satisfied",
+        "passed": true,
+        "detail": "all match"
+      }
+    ],
+    "seconds": 0.14
+  },
+  {
+    "query_id": "Q02",
+    "facet": "budget",
+    "query": "Recommend restaurants under $$ in Philadelphia.",
+    "in_scope": true,
+    "scope_reason": null,
+    "constraints": {
+      "city": "Philadelphia",
+      "cuisines": [],
+      "max_price_bucket": 2,
+      "min_rating": null,
+      "required_attributes": [],
+      "dietary": [],
+      "intent": "recommendation"
+    },
+    "filter_counts": {
+      "start": 500,
+      "city": 500,
+      "price_max": 439
+    },
+    "candidates_after_filter": 439,
+    "hits": [
+      {
+        "business_id": "ILvJAuSP0sYWJKAQ-Goh4Q",
+        "name": "Kensington Quarters",
+        "cuisine": "American",
+        "city": "Philadelphia",
+        "score": 0.7634
+      },
+      {
+        "business_id": "4_VDvhKpKSsj7jZYdocZYA",
+        "name": "La Viola",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7615
+      },
+      {
+        "business_id": "s2JiYzE7i68cXIV6YEcVTw",
+        "name": "Local 44",
+        "cuisine": "Breakfast/Brunch",
+        "city": "Philadelphia",
+        "score": 0.7609
+      },
+      {
+        "business_id": "NUJrCPU51Cvip4ayZD1P5g",
+        "name": "Jose Pistola's",
+        "cuisine": "Mexican",
+        "city": "Philadelphia",
+        "score": 0.7573
+      },
+      {
+        "business_id": "4hv1n1VBzMvE-T4UtIcOcw",
+        "name": "Di Bruno Bros.",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.757
+      }
+    ],
+    "compliance": [
+      {
+        "name": "ids_in_catalogue",
+        "passed": true,
+        "detail": "5 ids"
+      },
+      {
+        "name": "price_satisfied",
+        "passed": true,
+        "detail": "all match"
+      },
+      {
+        "name": "city_satisfied",
+        "passed": true,
+        "detail": "all match"
+      }
+    ],
+    "seconds": 0.02
+  },
+  {
+    "query_id": "Q03",
+    "facet": "review_aspect",
+    "query": "Which restaurants have the best food quality according to reviews?",
+    "in_scope": true,
+    "scope_reason": null,
+    "constraints": {
+      "city": null,
+      "cuisines": [],
+      "max_price_bucket": null,
+      "min_rating": null,
+      "required_attributes": [],
+      "dietary": [],
+      "intent": "recommendation"
+    },
+    "filter_counts": {
+      "start": 500
+    },
+    "candidates_after_filter": 500,
+    "hits": [
+      {
+        "business_id": "3eJMsl41qwhcYlvoTF1ElQ",
+        "name": "a.kitchen",
+        "cuisine": "Breakfast/Brunch",
+        "city": "Philadelphia",
+        "score": 0.6825
+      },
+      {
+        "business_id": "PYUI1OJVksGUbCrteU68bw",
+        "name": "Bourbon & Branch",
+        "cuisine": "Breakfast/Brunch",
+        "city": "Philadelphia",
+        "score": 0.68
+      },
+      {
+        "business_id": "9mA9qYqiv4c0T9ASid3PIQ",
+        "name": "The Capital Grille",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.6737
+      },
+      {
+        "business_id": "9Qe5ib0bCgRITjYn-iA-Bg",
+        "name": "Legal Sea Foods",
+        "cuisine": "Seafood",
+        "city": "Philadelphia",
+        "score": 0.6708
+      },
+      {
+        "business_id": "40O7uKX-uAG_JDrS-OM85w",
+        "name": "Umai Umai",
+        "cuisine": "Japanese",
+        "city": "Philadelphia",
+        "score": 0.6697
+      }
+    ],
+    "compliance": [
+      {
+        "name": "ids_in_catalogue",
+        "passed": true,
+        "detail": "5 ids"
+      }
+    ],
+    "seconds": 0.01
+  },
+  {
+    "query_id": "Q04",
+    "facet": "ambience",
+    "query": "Find restaurants with positive ambience reviews in Philadelphia.",
+    "in_scope": true,
+    "scope_reason": null,
+    "constraints": {
+      "city": "Philadelphia",
+      "cuisines": [],
+      "max_price_bucket": null,
+      "min_rating": null,
+      "required_attributes": [],
+      "dietary": [],
+      "intent": "recommendation"
+    },
+    "filter_counts": {
+      "start": 500,
+      "city": 500
+    },
+    "candidates_after_filter": 500,
+    "hits": [
+      {
+        "business_id": "L_Rwy6oSAnMUY3NCDspxmA",
+        "name": "The Good King Tavern",
+        "cuisine": "French",
+        "city": "Philadelphia",
+        "score": 0.7445
+      },
+      {
+        "business_id": "73UjNbSoQjQAOS45rcihFg",
+        "name": "Cantina Dos Segundos",
+        "cuisine": "Mexican",
+        "city": "Philadelphia",
+        "score": 0.7441
+      },
+      {
+        "business_id": "ELY0HI8GDEx0jkmREVna0A",
+        "name": "Frankford Hall",
+        "cuisine": "Bar/Nightlife",
+        "city": "Philadelphia",
+        "score": 0.739
+      },
+      {
+        "business_id": "dChRGpit9fM_kZK5pafNyA",
+        "name": "The Love",
+        "cuisine": "Breakfast/Brunch",
+        "city": "Philadelphia",
+        "score": 0.7389
+      },
+      {
+        "business_id": "h7n599RGtvFLmLycugT2MQ",
+        "name": "Warmdaddy's",
+        "cuisine": "Cajun/Southern",
+        "city": "Philadelphia",
+        "score": 0.7327
+      }
+    ],
+    "compliance": [
+      {
+        "name": "ids_in_catalogue",
+        "passed": true,
+        "detail": "5 ids"
+      },
+      {
+        "name": "city_satisfied",
+        "passed": true,
+        "detail": "all match"
+      }
+    ],
+    "seconds": 0.01
+  },
+  {
+    "query_id": "Q05",
+    "facet": "personalization",
+    "query": "Recommend a restaurant for a family dinner in Philadelphia.",
+    "in_scope": true,
+    "scope_reason": null,
+    "constraints": {
+      "city": "Philadelphia",
+      "cuisines": [],
+      "max_price_bucket": null,
+      "min_rating": null,
+      "required_attributes": [
+        "good_for_kids",
+        "good_for_meal_dinner"
+      ],
+      "dietary": [],
+      "intent": "recommendation"
+    },
+    "filter_counts": {
+      "start": 500,
+      "city": 500,
+      "attr_good_for_kids": 301,
+      "attr_good_for_meal_dinner": 202
+    },
+    "candidates_after_filter": 202,
+    "hits": [],
+    "compliance": [
+      {
+        "name": "non_empty",
+        "passed": false,
+        "detail": "no candidates retrieved"
+      }
+    ],
+    "seconds": 0.01
+  },
+  {
+    "query_id": "Q06",
+    "facet": "comparison",
+    "query": "Compare two Italian restaurants in Philadelphia based on reviews.",
+    "in_scope": true,
+    "scope_reason": null,
+    "constraints": {
+      "city": "Philadelphia",
+      "cuisines": [
+        "Italian"
+      ],
+      "max_price_bucket": null,
+      "min_rating": null,
+      "required_attributes": [],
+      "dietary": [],
+      "intent": "comparison"
+    },
+    "filter_counts": {
+      "start": 500,
+      "city": 500,
+      "cuisine": 71
+    },
+    "candidates_after_filter": 71,
+    "hits": [
+      {
+        "business_id": "dYinIkKBspHV5hSaukklFg",
+        "name": "L'Angolo Ristorante",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7928
+      },
+      {
+        "business_id": "3lBooCffgkW7tVSG5kILBA",
+        "name": "Porcini",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7852
+      },
+      {
+        "business_id": "4_VDvhKpKSsj7jZYdocZYA",
+        "name": "La Viola",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.78
+      },
+      {
+        "business_id": "2WGnykxiM-Mp-qIm2u7iAw",
+        "name": "Maggiano's Little Italy",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7766
+      },
+      {
+        "business_id": "9_B5sCqKBOKDAmYpByiFFg",
+        "name": "Branzino Italian Ristorante",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7723
+      }
+    ],
+    "compliance": [
+      {
+        "name": "ids_in_catalogue",
+        "passed": true,
+        "detail": "5 ids"
+      },
+      {
+        "name": "cuisine_satisfied",
+        "passed": true,
+        "detail": "all match"
+      },
+      {
+        "name": "city_satisfied",
+        "passed": true,
+        "detail": "all match"
+      }
+    ],
+    "seconds": 0.02
+  },
+  {
+    "query_id": "Q07",
+    "facet": "dessert",
+    "query": "Which restaurants in Philadelphia are praised for their desserts?",
+    "in_scope": true,
+    "scope_reason": null,
+    "constraints": {
+      "city": "Philadelphia",
+      "cuisines": [],
+      "max_price_bucket": null,
+      "min_rating": null,
+      "required_attributes": [],
+      "dietary": [],
+      "intent": "recommendation"
+    },
+    "filter_counts": {
+      "start": 500,
+      "city": 500
+    },
+    "candidates_after_filter": 500,
+    "hits": [
+      {
+        "business_id": "qjGS_7iaQDpbVhS6W8qkHQ",
+        "name": "The Sweet Life Bakeshop",
+        "cuisine": "Bakery/Dessert",
+        "city": "Philadelphia",
+        "score": 0.7047
+      },
+      {
+        "business_id": "jkGQQ4_LgJx3hwPtCFkzbQ",
+        "name": "Max Brenner - Philadelphia",
+        "cuisine": "Bakery/Dessert",
+        "city": "Philadelphia",
+        "score": 0.7042
+      },
+      {
+        "business_id": "vVfy055EfLMdd0yJYHxiMQ",
+        "name": "A La Mousse",
+        "cuisine": "Bakery/Dessert",
+        "city": "Philadelphia",
+        "score": 0.703
+      },
+      {
+        "business_id": "U2y7fsqDgxAXskoJNVxbwg",
+        "name": "Happily Ever After",
+        "cuisine": "Bakery/Dessert",
+        "city": "Philadelphia",
+        "score": 0.6983
+      },
+      {
+        "business_id": "atZ_olNKXOG4rEr6mccN8g",
+        "name": "Beiler's Bakery",
+        "cuisine": "Bakery/Dessert",
+        "city": "Philadelphia",
+        "score": 0.6852
+      }
+    ],
+    "compliance": [
+      {
+        "name": "ids_in_catalogue",
+        "passed": true,
+        "detail": "5 ids"
+      },
+      {
+        "name": "city_satisfied",
+        "passed": true,
+        "detail": "all match"
+      }
+    ],
+    "seconds": 0.02
+  },
+  {
+    "query_id": "Q08",
+    "facet": "dietary",
+    "query": "Find restaurants with vegetarian options in Philadelphia.",
+    "in_scope": true,
+    "scope_reason": null,
+    "constraints": {
+      "city": "Philadelphia",
+      "cuisines": [],
+      "max_price_bucket": null,
+      "min_rating": null,
+      "required_attributes": [],
+      "dietary": [
+        "vegetarian"
+      ],
+      "intent": "recommendation"
+    },
+    "filter_counts": {
+      "start": 500,
+      "city": 500
+    },
+    "candidates_after_filter": 500,
+    "hits": [
+      {
+        "business_id": "2CDI713ATuxHfnB5b-sBdw",
+        "name": "Vedge",
+        "cuisine": "Vegetarian/Vegan",
+        "city": "Philadelphia",
+        "score": 0.7382
+      },
+      {
+        "business_id": "LnZvGYbqozanOSevcftnrw",
+        "name": "HipCityVeg - University City",
+        "cuisine": "Vegetarian/Vegan",
+        "city": "Philadelphia",
+        "score": 0.7237
+      },
+      {
+        "business_id": "JPfe9B-RLrE5Nz75kcKImQ",
+        "name": "Govinda's Vegetarian",
+        "cuisine": "Vegetarian/Vegan",
+        "city": "Philadelphia",
+        "score": 0.723
+      },
+      {
+        "business_id": "phsLOuBeiYI43hglvWK96Q",
+        "name": "P S & Co",
+        "cuisine": "Vegetarian/Vegan",
+        "city": "Philadelphia",
+        "score": 0.7206
+      },
+      {
+        "business_id": "i_FWONQD1ZBqrNE2b-M5Ug",
+        "name": "Talula's Garden",
+        "cuisine": "American",
+        "city": "Philadelphia",
+        "score": 0.7194
+      }
+    ],
+    "compliance": [
+      {
+        "name": "ids_in_catalogue",
+        "passed": true,
+        "detail": "5 ids"
+      },
+      {
+        "name": "city_satisfied",
+        "passed": true,
+        "detail": "all match"
+      }
+    ],
+    "seconds": 0.02
+  },
+  {
+    "query_id": "Q09",
+    "facet": "image",
+    "query": "Show restaurants similar to this uploaded pizza photo in Philadelphia.",
+    "in_scope": true,
+    "scope_reason": null,
+    "constraints": {
+      "city": "Philadelphia",
+      "cuisines": [
+        "Italian"
+      ],
+      "max_price_bucket": null,
+      "min_rating": null,
+      "required_attributes": [],
+      "dietary": [],
+      "intent": "visual"
+    },
+    "filter_counts": {
+      "start": 500,
+      "city": 500,
+      "cuisine": 71
+    },
+    "candidates_after_filter": 71,
+    "hits": [
+      {
+        "business_id": "u7_3L1NBWgxhBM_B-cmmnA",
+        "name": "Pizzeria Vetri",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7148
+      },
+      {
+        "business_id": "wuH4TPUo8oJo4E59xZKsNg",
+        "name": "&pizza - Walnut",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7137
+      },
+      {
+        "business_id": "fN12ywQpLXQ93bpwe1N_Ww",
+        "name": "Pietro's Coal Oven Pizzeria",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7101
+      },
+      {
+        "business_id": "Vnagnur1os0ZduOpvDH27A",
+        "name": "Villa Di Roma",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7074
+      },
+      {
+        "business_id": "gQCKrqkalAc--4cuW_C_Ow",
+        "name": "Tacconelli's Pizzeria",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7057
+      }
+    ],
+    "compliance": [
+      {
+        "name": "ids_in_catalogue",
+        "passed": true,
+        "detail": "5 ids"
+      },
+      {
+        "name": "cuisine_satisfied",
+        "passed": true,
+        "detail": "all match"
+      },
+      {
+        "name": "city_satisfied",
+        "passed": true,
+        "detail": "all match"
+      }
+    ],
+    "seconds": 0.02
+  },
+  {
+    "query_id": "Q10",
+    "facet": "visual",
+    "query": "Find restaurants with attractive interiors in Philadelphia.",
+    "in_scope": true,
+    "scope_reason": null,
+    "constraints": {
+      "city": "Philadelphia",
+      "cuisines": [],
+      "max_price_bucket": null,
+      "min_rating": null,
+      "required_attributes": [],
+      "dietary": [],
+      "intent": "visual"
+    },
+    "filter_counts": {
+      "start": 500,
+      "city": 500
+    },
+    "candidates_after_filter": 500,
+    "hits": [
+      {
+        "business_id": "T_6e0SgNuKotySgVS8O1UQ",
+        "name": "Fond",
+        "cuisine": "Seafood",
+        "city": "Philadelphia",
+        "score": 0.7395
+      },
+      {
+        "business_id": "4_VDvhKpKSsj7jZYdocZYA",
+        "name": "La Viola",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.734
+      },
+      {
+        "business_id": "dChRGpit9fM_kZK5pafNyA",
+        "name": "The Love",
+        "cuisine": "Breakfast/Brunch",
+        "city": "Philadelphia",
+        "score": 0.7338
+      },
+      {
+        "business_id": "3eJMsl41qwhcYlvoTF1ElQ",
+        "name": "a.kitchen",
+        "cuisine": "Breakfast/Brunch",
+        "city": "Philadelphia",
+        "score": 0.733
+      },
+      {
+        "business_id": "mBgaPljP3OYkl_vGKTyFNw",
+        "name": "LaScala's Birra",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7268
+      }
+    ],
+    "compliance": [
+      {
+        "name": "ids_in_catalogue",
+        "passed": true,
+        "detail": "5 ids"
+      },
+      {
+        "name": "city_satisfied",
+        "passed": true,
+        "detail": "all match"
+      }
+    ],
+    "seconds": 0.02
+  },
+  {
+    "query_id": "Q11",
+    "facet": "ranking",
+    "query": "Which restaurant in Philadelphia offers the best value for money?",
+    "in_scope": true,
+    "scope_reason": null,
+    "constraints": {
+      "city": "Philadelphia",
+      "cuisines": [],
+      "max_price_bucket": null,
+      "min_rating": null,
+      "required_attributes": [],
+      "dietary": [],
+      "intent": "recommendation"
+    },
+    "filter_counts": {
+      "start": 500,
+      "city": 500
+    },
+    "candidates_after_filter": 500,
+    "hits": [
+      {
+        "business_id": "cFSyJluKa2SHtgMMvlx6SQ",
+        "name": "Angelo's Pizzeria",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7437
+      },
+      {
+        "business_id": "4hv1n1VBzMvE-T4UtIcOcw",
+        "name": "Di Bruno Bros.",
+        "cuisine": "Italian",
+        "city": "Philadelphia",
+        "score": 0.7336
+      },
+      {
+        "business_id": "T_6e0SgNuKotySgVS8O1UQ",
+        "name": "Fond",
+        "cuisine": "Seafood",
+        "city": "Philadelphia",
+        "score": 0.7317
+      },
+      {
+        "business_id": "oJxsRgj8Un9VAPXpaDuufA",
+        "name": "Bank & Bourbon",
+        "cuisine": "American",
+        "city": "Philadelphia",
+        "score": 0.7304
+      },
+      {
+        "business_id": "NUJrCPU51Cvip4ayZD1P5g",
+        "name": "Jose Pistola's",
+        "cuisine": "Mexican",
+        "city": "Philadelphia",
+        "score": 0.727
+      }
+    ],
+    "compliance": [
+      {
+        "name": "ids_in_catalogue",
+        "passed": true,
+        "detail": "5 ids"
+      },
+      {
+        "name": "city_satisfied",
+        "passed": true,
+        "detail": "all match"
+      }
+    ],
+    "seconds": 0.02
+  },
+  {
+    "query_id": "Q12",
+    "facet": "multi_constraint",
+    "query": "Family-friendly Mexican restaurant in Philadelphia under $$.",
+    "in_scope": true,
+    "scope_reason": null,
+    "constraints": {
+      "city": "Philadelphia",
+      "cuisines": [
+        "Mexican"
+      ],
+      "max_price_bucket": 2,
+      "min_rating": null,
+      "required_attributes": [
+        "good_for_kids"
+      ],
+      "dietary": [],
+      "intent": "recommendation"
+    },
+    "filter_counts": {
+      "start": 500,
+      "city": 500,
+      "cuisine": 32,
+      "price_max": 30,
+      "attr_good_for_kids": 20
+    },
+    "candidates_after_filter": 20,
+    "hits": [
+      {
+        "business_id": "Pl_9HzOa8uy_YOUxgonzGw",
+        "name": "Los Gallos Mexican Taqueria",
+        "cuisine": "Mexican",
+        "city": "Philadelphia",
+        "score": 0.7698
+      },
+      {
+        "business_id": "9PZxjhTIU7OgPIzuGi89Ew",
+        "name": "El Vez",
+        "cuisine": "Mexican",
+        "city": "Philadelphia",
+        "score": 0.7687
+      },
+      {
+        "business_id": "qRgeV1CMZawRblc2qjHo_g",
+        "name": "El Jarocho",
+        "cuisine": "Mexican",
+        "city": "Philadelphia",
+        "score": 0.7629
+      },
+      {
+        "business_id": "434A83c2ig6QxsZjrjclpQ",
+        "name": "Las Margaritas",
+        "cuisine": "Mexican",
+        "city": "Philadelphia",
+        "score": 0.762
+      },
+      {
+        "business_id": "DZglT5FP5VNDQJU3PuRIHw",
+        "name": "La Calaca Feliz",
+        "cuisine": "Mexican",
+        "city": "Philadelphia",
+        "score": 0.7589
+      }
+    ],
+    "compliance": [
+      {
+        "name": "ids_in_catalogue",
+        "passed": true,
+        "detail": "5 ids"
+      },
+      {
+        "name": "cuisine_satisfied",
+        "passed": true,
+        "detail": "all match"
+      },
+      {
+        "name": "price_satisfied",
+        "passed": true,
+        "detail": "all match"
+      },
+      {
+        "name": "city_satisfied",
+        "passed": true,
+        "detail": "all match"
+      }
+    ],
+    "seconds": 0.03
+  },
+  {
+    "query_id": "Q13",
+    "facet": "out_of_scope",
+    "query": "Give me the live availability of Reading Terminal Market tonight.",
+    "in_scope": false,
+    "scope_reason": "live availability",
+    "seconds": 0.0
+  },
+  {
+    "query_id": "Q14",
+    "facet": "out_of_scope",
+    "query": "Recommend a restaurant in Las Vegas.",
+    "in_scope": false,
+    "scope_reason": "'Las Vegas' is not in the dataset, which covers Philadelphia.",
+    "seconds": 0.0
+  },
+  {
+    "query_id": "Q15",
+    "facet": "unsupported",
+    "query": "Which restaurant in Philadelphia has a rooftop pool?",
+    "in_scope": false,
+    "scope_reason": "The dataset does not record information about rooftop areas, pools, so this cannot be answered.",
+    "seconds": 0.0
+  }
+]

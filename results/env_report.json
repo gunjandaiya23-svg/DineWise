@@ -6,7 +6,7 @@
     "torch": "2.11.0+cu128",
     "transformers": "5.22.1",
     "sentence_transformers": "6.2.0",
-    "faiss": "1.15.1",
+    "qdrant_client": "unknown",
     "pandas": "3.1.0",
     "pyarrow": "26.0.0",
     "yaml": "6.0.3",
@@ -22,7 +22,7 @@
   },
   "disk": {
     "total_gb": 290.2,
-    "free_gb": 178.0
+    "free_gb": 176.2
   },
   "paths": {
     "config": "/home/naimish08/Desktop/DineWise/config",
@@ -37,5 +37,16 @@
     "docs": true,
     "src": true,
     "scripts": true
+  },
+  "qdrant": {
+    "url": "http://localhost:6333",
+    "reachable": true,
+    "collections": [
+      "dinewise_chunks_C1",
+      "dinewise_chunks_C2",
+      "dinewise_chunks_C3",
+      "dinewise_chunks_C4",
+      "dinewise_visual"
+    ]
   }
 }

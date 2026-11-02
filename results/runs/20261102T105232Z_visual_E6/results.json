@@ -1,0 +1,322 @@
+{
+  "summary": {
+    "visual_documents": 490,
+    "build_seconds": 4.69,
+    "metrics": {
+      "strict_success@k": 0.4,
+      "strict_precision@k": 0.08,
+      "strict_mrr": 0.125,
+      "ndcg@k": 0.3768,
+      "any_success@k": 1.0,
+      "any_precision@k": 1.0
+    },
+    "label_source": "silver_visual_terms_v1"
+  },
+  "clip": {
+    "status": "skipped"
+  },
+  "queries": [
+    {
+      "query_id": "V01",
+      "query": "romantic interior for a date",
+      "terms": [
+        "romantic",
+        "intimate",
+        "candle",
+        "cozy",
+        "dim"
+      ],
+      "ranked": [
+        "dChRGpit9fM_kZK5pafNyA",
+        "hdtnpHXn-iIFTzPLvoOK0Q",
+        "I2ISRV7IybkMc3HEYKUE9g",
+        "L4kfcADLCU4T33i7Z0CkuA",
+        "oBhJuukGRqPVvYBfTkhuZA"
+      ],
+      "names": [
+        "The Love",
+        "The Dutch",
+        "Audrey Claire",
+        "Bistro Romano",
+        "Square 1682"
+      ],
+      "strict_success@k": 0.0,
+      "strict_precision@k": 0.0,
+      "strict_mrr": 0.0,
+      "ndcg@k": 0.3333,
+      "any_success@k": 1.0,
+      "any_precision@k": 1.0
+    },
+    {
+      "query_id": "V02",
+      "query": "outdoor patio seating",
+      "terms": [
+        "outdoor",
+        "patio",
+        "terrace",
+        "sidewalk",
+        "garden"
+      ],
+      "ranked": [
+        "Uky0DD3LU4C7eyNDhpmOXg",
+        "BWITd9JUXP3gSi1z3Y-z8g",
+        "rVGxva6cx2eID4ghDLVHJg",
+        "_PvljXZHQlUmL8SuOXF8ug",
+        "-v8dtO9BZmKidXLMohiQhQ"
+      ],
+      "names": [
+        "Day By Day",
+        "In Riva",
+        "1225Raw Sushi and Sake Lounge",
+        "New Deck Tavern",
+        "Urban Saloon"
+      ],
+      "strict_success@k": 1.0,
+      "strict_precision@k": 0.2,
+      "strict_mrr": 0.5,
+      "ndcg@k": 0.476,
+      "any_success@k": 1.0,
+      "any_precision@k": 1.0
+    },
+    {
+      "query_id": "V03",
+      "query": "bright modern decor",
+      "terms": [
+        "bright",
+        "modern",
+        "contemporary",
+        "minimalist"
+      ],
+      "ranked": [
+        "UQZ4p6xb_7gY7UXHmBzceg",
+        "PVVFos1LDfD7iETY0w4vaA",
+        "9e_rrzyTolsH1RUXHOvsMA",
+        "lKU_kljhbEQKIPaM1Zbqiw",
+        "1UNorskttXSWuEcgzKzXcA"
+      ],
+      "names": [
+        "Tom's Dim Sum",
+        "Su Xing House",
+        "Circles Contemporary Thai",
+        "Little Nonna's",
+        "Xochitl"
+      ],
+      "strict_success@k": 0.0,
+      "strict_precision@k": 0.0,
+      "strict_mrr": 0.0,
+      "ndcg@k": 0.3333,
+      "any_success@k": 1.0,
+      "any_precision@k": 1.0
+    },
+    {
+      "query_id": "V04",
+      "query": "cozy atmosphere",
+      "terms": [
+        "cozy",
+        "warm",
+        "intimate",
+        "rustic"
+      ],
+      "ranked": [
+        "hdtnpHXn-iIFTzPLvoOK0Q",
+        "RleiW2_QLyxgNjFfqDoZpw",
+        "BWITd9JUXP3gSi1z3Y-z8g",
+        "s2JiYzE7i68cXIV6YEcVTw",
+        "Uky0DD3LU4C7eyNDhpmOXg"
+      ],
+      "names": [
+        "The Dutch",
+        "Modo Mio",
+        "In Riva",
+        "Local 44",
+        "Day By Day"
+      ],
+      "strict_success@k": 1.0,
+      "strict_precision@k": 0.2,
+      "strict_mrr": 0.25,
+      "ndcg@k": 0.4307,
+      "any_success@k": 1.0,
+      "any_precision@k": 1.0
+    },
+    {
+      "query_id": "V05",
+      "query": "industrial style interior",
+      "terms": [
+        "industrial",
+        "exposed",
+        "brick",
+        "warehouse"
+      ],
+      "ranked": [
+        "BWITd9JUXP3gSi1z3Y-z8g",
+        "HngRiL6Z3DFTDnNsXZ0TQw",
+        "fivoAD6x6jXJRiEZwhpcEQ",
+        "jS3affmkXWrBnidXA-DIfQ",
+        "wB1Tin0OW1JRpaKM-E3ZYA"
+      ],
+      "names": [
+        "In Riva",
+        "Stateside",
+        "Amis Trattoria",
+        "Butcher Bar",
+        "National Mechanics"
+      ],
+      "strict_success@k": 0.0,
+      "strict_precision@k": 0.0,
+      "strict_mrr": 0.0,
+      "ndcg@k": 0.3333,
+      "any_success@k": 1.0,
+      "any_precision@k": 1.0
+    },
+    {
+      "query_id": "V06",
+      "query": "elegant fine dining room",
+      "terms": [
+        "elegant",
+        "upscale",
+        "fine dining",
+        "classy"
+      ],
+      "ranked": [
+        "I2ISRV7IybkMc3HEYKUE9g",
+        "tcvNBC65Gsa4cH1_gyucpQ",
+        "y1Z9tymuBGVDZnYZoLk-2Q",
+        "fEqiXG_B-fn__w0aeF3nBQ",
+        "wbDRmtxaKRpBOjutvV6TEA"
+      ],
+      "names": [
+        "Audrey Claire",
+        "Noord",
+        "Fork",
+        "Laurel",
+        "Barclay Prime"
+      ],
+      "strict_success@k": 1.0,
+      "strict_precision@k": 0.2,
+      "strict_mrr": 0.25,
+      "ndcg@k": 0.4307,
+      "any_success@k": 1.0,
+      "any_precision@k": 1.0
+    },
+    {
+      "query_id": "V07",
+      "query": "casual family friendly space",
+      "terms": [
+        "casual",
+        "family",
+        "relaxed",
+        "kid"
+      ],
+      "ranked": [
+        "OAWa1WML2V1ZLJGD6V3nBQ",
+        "Uky0DD3LU4C7eyNDhpmOXg",
+        "LtLbT776NOAjva1ttA2h3w",
+        "D2OcZHMkznF5bbelwZ7TPw",
+        "7lwe7n-Yc-V9E_HfLAeylg"
+      ],
+      "names": [
+        "Middle Child",
+        "Day By Day",
+        "The QUICK FIXX",
+        "Molly Malloy's",
+        "Pub & Kitchen"
+      ],
+      "strict_success@k": 0.0,
+      "strict_precision@k": 0.0,
+      "strict_mrr": 0.0,
+      "ndcg@k": 0.3333,
+      "any_success@k": 1.0,
+      "any_precision@k": 1.0
+    },
+    {
+      "query_id": "V08",
+      "query": "lively bar area",
+      "terms": [
+        "bar",
+        "lively",
+        "energetic",
+        "cocktail"
+      ],
+      "ranked": [
+        "u7cZUEGK6iJP2gvI22xY2A",
+        "HngRiL6Z3DFTDnNsXZ0TQw",
+        "NUJrCPU51Cvip4ayZD1P5g",
+        "6CUkqed0rhHtFwQ2i7Otsw",
+        "L0zMk5SXnqR0JLEe0XY20g"
+      ],
+      "names": [
+        "Memphis Taproom",
+        "Stateside",
+        "Jose Pistola's",
+        "Barcelona Wine Bar Passyunk",
+        "Sassafras Bar"
+      ],
+      "strict_success@k": 1.0,
+      "strict_precision@k": 0.2,
+      "strict_mrr": 0.25,
+      "ndcg@k": 0.4307,
+      "any_success@k": 1.0,
+      "any_precision@k": 1.0
+    },
+    {
+      "query_id": "V09",
+      "query": "colorful interior",
+      "terms": [
+        "colorful",
+        "vibrant",
+        "bold",
+        "bright"
+      ],
+      "ranked": [
+        "1UNorskttXSWuEcgzKzXcA",
+        "BWITd9JUXP3gSi1z3Y-z8g",
+        "HngRiL6Z3DFTDnNsXZ0TQw",
+        "05ev984NYfimRN0UiFrxaA",
+        "yPxNNSmPHKO3m_kq53D4Jg"
+      ],
+      "names": [
+        "Xochitl",
+        "In Riva",
+        "Stateside",
+        "Osteria",
+        "Capogiro Gelato"
+      ],
+      "strict_success@k": 0.0,
+      "strict_precision@k": 0.0,
+      "strict_mrr": 0.0,
+      "ndcg@k": 0.3333,
+      "any_success@k": 1.0,
+      "any_precision@k": 1.0
+    },
+    {
+      "query_id": "V10",
+      "query": "rustic decor",
+      "terms": [
+        "rustic",
+        "wood",
+        "farmhouse",
+        "vintage"
+      ],
+      "ranked": [
+        "7lwe7n-Yc-V9E_HfLAeylg",
+        "M_EpyAH1CZZVlhxfYBLOqg",
+        "K0JZOvCUgYtbPjcDzys_kw",
+        "oqy15jhe1lOXttEvd4Srog",
+        "OdIBX09glfXNVSyd0RnIeg"
+      ],
+      "names": [
+        "Pub & Kitchen",
+        "Nomad Pizza Company",
+        "The Cambridge",
+        "El Poquito",
+        "Monk's Cafe"
+      ],
+      "strict_success@k": 0.0,
+      "strict_precision@k": 0.0,
+      "strict_mrr": 0.0,
+      "ndcg@k": 0.3333,
+      "any_success@k": 1.0,
+      "any_precision@k": 1.0
+    }
+  ]
+}

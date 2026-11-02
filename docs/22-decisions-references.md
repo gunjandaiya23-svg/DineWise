@@ -14,7 +14,7 @@
 | D3 | Five-city study corpus | Tractable PDF, index, and annotation | If results are too narrow; run `--all-cities` sensitivity |
 | D4 | BGE-small for text embeddings | Strong small model, fast on 8 GB | If retrieval quality is poor |
 | D5 | Qwen2.5-1.5B-Instruct | Fits FP16 and 4-bit; supports LoRA | If format validity or quality is unacceptable; try 3B |
-| D6 | FAISS `IndexFlatIP` | Exact search; avoids confounding | If corpus grows beyond ~1M vectors |
+| D6 | Qdrant collections | Server-side filtering, exact/HNSW modes, persistent payloads | If corpus grows beyond ~1M vectors |
 | D7 | BM25 + dense + RRF | Standard hybrid baseline | If hybrid does not help |
 | D8 | Cross-encoder reranker optional | Quality vs latency trade-off | If latency budget is exceeded |
 | D9 | No image-to-restaurant matching | No images exist | If licensed images become available |

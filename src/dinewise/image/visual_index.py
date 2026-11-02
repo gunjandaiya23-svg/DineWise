@@ -1,14 +1,34 @@
-"""Text-to-visual retrieval over photo summaries."""
+"""Text-to-visual retrieval stored in Qdrant."""
 
 from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Any
 
-import faiss
 import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
+
+from ..rag.vectorstore import QdrantStore, jsonable
+
+VISUAL_COLLECTION = "visual"
+
+VISUAL_PAYLOAD_FIELDS = [
+    "business_id",
+    "name",
+    "city",
+    "cuisine_primary",
+    "price_range",
+    "stars",
+    "review_count",
+    "venue_style",
+    "indoor_color_tone",
+    "target_audience",
+    "special_features",
+    "food_style",
+    "drink_style",
+    "photo_summary",
+]
 
 
 def visual_document(row: pd.Series) -> str:
@@ -25,12 +45,16 @@ def visual_document(row: pd.Series) -> str:
     return "\n".join(str(part) for part in parts)
 
 
+def visual_payload(row: pd.Series) -> dict[str, Any]:
+    return {field: jsonable(row.get(field)) for field in VISUAL_PAYLOAD_FIELDS}
+
+
 @dataclass
 class VisualRetriever:
     model: SentenceTransformer
-    index: Any
+    store: QdrantStore
     rows: pd.DataFrame
-    prefix: str
+    prefix: str = ""
 
     def search(self, query: str, k: int = 5) -> list[dict[str, Any]]:
         vector = self.model.encode(
@@ -38,16 +62,17 @@ class VisualRetriever:
             normalize_embeddings=True,
             convert_to_numpy=True,
         ).astype(np.float32)
-        scores, ids = self.index.search(vector, min(k, len(self.rows)))
         return [
-            {"score": float(score), "row": self.rows.iloc[int(index)].to_dict()}
-            for score, index in zip(scores[0], ids[0], strict=False)
-            if int(index) >= 0
+            {"score": hit.score, "row": hit.payload}
+            for hit in self.store.search(VISUAL_COLLECTION, vector, k)
         ]
 
 
 def build_visual_index(
-    restaurants: pd.DataFrame, model: SentenceTransformer
+    restaurants: pd.DataFrame,
+    model: SentenceTransformer,
+    store: QdrantStore,
+    recreate: bool = True,
 ) -> VisualRetriever:
     subset = restaurants[restaurants["photo_summary"].notna()].reset_index(drop=True)
     documents = [visual_document(row) for _, row in subset.iterrows()]
@@ -58,6 +83,18 @@ def build_visual_index(
         convert_to_numpy=True,
         show_progress_bar=False,
     ).astype(np.float32)
-    index = faiss.IndexFlatIP(embeddings.shape[1])
-    index.add(embeddings)
-    return VisualRetriever(model=model, index=index, rows=subset, prefix="")
+
+    store.ensure_collection(VISUAL_COLLECTION, embeddings.shape[1], recreate=recreate)
+    payloads = [visual_payload(row) for _, row in subset.iterrows()]
+    store.upsert(
+        VISUAL_COLLECTION,
+        subset["business_id"].astype(str).tolist(),
+        embeddings,
+        payloads,
+    )
+    count = store.count(VISUAL_COLLECTION)
+    if count != len(subset):
+        raise RuntimeError(
+            f"visual collection has {count} points, expected {len(subset)}"
+        )
+    return VisualRetriever(model=model, store=store, rows=subset)

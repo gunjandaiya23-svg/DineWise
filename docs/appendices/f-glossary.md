@@ -11,7 +11,7 @@
 | **RAG** | Retrieval-Augmented Generation: retrieve context, then generate an answer grounded in it. |
 | **Chunk** | A segment of a document small enough to embed and retrieve. |
 | **Embedding** | A dense vector representation of text or an image. |
-| **FAISS** | A library for efficient similarity search over dense vectors. |
+| **Qdrant** | A vector database with collections, payload filters, and exact/HNSW search. |
 | **BM25** | A lexical ranking function based on term frequency and inverse document frequency. |
 | **RRF** | Reciprocal Rank Fusion: merge ranked lists by summing reciprocal ranks. |
 | **Cross-encoder** | A reranker that scores a query–document pair jointly. |

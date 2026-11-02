@@ -29,6 +29,7 @@ from dinewise.rag.bm25_index import load_bm25  # noqa: E402
 from dinewise.rag.constraints import extract_constraints  # noqa: E402
 from dinewise.rag.pipeline import retrieve_with_config  # noqa: E402
 from dinewise.rag.search import load_retriever  # noqa: E402
+from dinewise.rag.vectorstore import load_chunks  # noqa: E402
 
 ID_PATTERN = re.compile(r"[A-Za-z0-9_\-]{22}")
 LIVE_PATTERN = re.compile(
@@ -95,7 +96,7 @@ def main() -> int:
     cfg = load_config(args.config)
     name = cfg["chunking"]["active"]
     restaurants = pd.read_parquet(data_path(cfg, "processed_dir", "restaurants.parquet"))
-    chunks = pd.read_parquet(data_path(cfg, "index_dir", "faiss", name, "chunks.parquet"))
+    chunks = load_chunks(cfg, name)
     retriever = load_retriever(cfg, name)
     bm25 = load_bm25(cfg, name)
 

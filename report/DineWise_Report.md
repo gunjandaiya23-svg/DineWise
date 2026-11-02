@@ -1,6 +1,6 @@
 # DineWise: A Retrieval-Augmented Framework for Personalized and Explainable Restaurant Recommendations
 
-**Report generated:** 2026-11-02 06:48 UTC
+**Report generated:** 2026-11-02 11:03 UTC
 **Code state:** see the Git commit referenced in `results/runs/`
 **Label status:** retrieval labels are **silver** (rubric-based), not human judgments.
 A manual review sheet is provided at `data/gold/review_sheet.csv`.
@@ -69,13 +69,14 @@ structured dietary fields, and LLM-generated review/photo summaries.
 | VRAM | 8.19 GB |
 | CUDA / torch | 12.8 / 2.11.0+cu128 |
 | Embedding model | BAAI/bge-small-en-v1.5 |
+| Vector store | Qdrant at http://localhost:6333 |
 | Generator | Qwen/Qwen2.5-1.5B-Instruct |
 | Reranker | BAAI/bge-reranker-base |
 | CLIP | openai/clip-vit-base-patch32 |
 
 ## 5. System architecture
 
-Streamlit UI -> LangGraph workflow -> (BM25 + FAISS + structured filters +
+Streamlit UI -> LangGraph workflow -> (BM25 + Qdrant + structured filters +
 RRF) -> optional cross-encoder rerank -> Qwen generation -> programmatic
 validation -> answer, retry, or fallback.
 
@@ -93,33 +94,44 @@ cannot cross a restaurant boundary by construction.
 
 ### E5: chunk-size comparison (hybrid retrieval, silver labels)
 
-| config | size | overlap | chunks | mean_tokens | chunks_with_multiple_markers | strict_success@k | strict_precision@k | strict_mrr | ndcg@k | index_bytes | seconds |
+| config | size | overlap | chunks | mean_tokens | chunks_with_multiple_markers | strict_success@k | strict_precision@k | strict_mrr | ndcg@k | points | seconds |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| C1 | 200 | 30 | 4132 | 211.600 | 0 | 0.333 | 0.117 | 0.229 | 0.420 | 6346797 | 13.260 |
-| C2 | 400 | 60 | 2187 | 379.500 | 0 | 0.500 | 0.100 | 0.350 | 0.421 | 3359277 | 13.380 |
-| C3 | 600 | 90 | 1511 | 534.200 | 0 | 0.500 | 0.150 | 0.306 | 0.437 | 2320941 | 11.490 |
-| C4 | 800 | 120 | 1116 | 701.300 | 0 | 0.583 | 0.150 | 0.267 | 0.426 | 1714221 | 8.940 |
+| C1 | 200 | 30 | 4132 | 211.600 | 0 | 0.333 | 0.117 | 0.229 | 0.417 | 4132 | 19.530 |
+| C2 | 400 | 60 | 2187 | 379.500 | 0 | 0.500 | 0.100 | 0.350 | 0.421 | 2187 | 19.930 |
+| C3 | 600 | 90 | 1511 | 534.200 | 0 | 0.500 | 0.167 | 0.306 | 0.444 | 1511 | 18.000 |
+| C4 | 800 | 120 | 1116 | 701.300 | 0 | 0.583 | 0.150 | 0.271 | 0.427 | 1116 | 14.750 |
 
 Selected: **C3** by nDCG@5.
 
 ## 7. Retrieval
 
-Modes compared: E1 BM25, E2 dense BGE + FAISS, E3 hybrid RRF, E4 hybrid +
+Modes compared: E1 BM25, E2 dense BGE + Qdrant, E3 hybrid RRF, E4 hybrid +
 cross-encoder, and E4 plus a quality prior. Metrics are restaurant-level.
 `strict` means the rubric's top-10; `any` means any constraint-satisfying result.
 
 | Mode | Strict Success@5 | Strict P@5 | Strict MRR | nDCG@5 | Any Success@5 |
 |---|---|---|---|---|---|
-| bm25 | 0.500 | 0.133 | 0.285 | 0.427 | 1.000 |
-| dense | 0.250 | 0.067 | 0.250 | 0.398 | 1.000 |
-| hybrid | 0.500 | 0.100 | 0.350 | 0.421 | 1.000 |
-| hybrid_rerank | 0.500 | 0.117 | 0.218 | 0.406 | 1.000 |
-| hybrid_rerank_quality | 0.500 | 0.117 | 0.292 | 0.418 | 1.000 |
+| bm25 | 0.250 | 0.100 | 0.183 | 0.406 | 1.000 |
+| dense | 0.333 | 0.117 | 0.292 | 0.428 | 1.000 |
+| hybrid | 0.500 | 0.167 | 0.306 | 0.444 | 1.000 |
+| hybrid_rerank | 0.333 | 0.083 | 0.114 | 0.380 | 1.000 |
+| hybrid_rerank_quality | 0.333 | 0.083 | 0.174 | 0.390 | 1.000 |
 
 Interpretation: hybrid retrieval satisfies every hard constraint and improves
 MRR over dense alone. The cross-encoder did not improve nDCG@5 against a
 quality-oriented gold set; this is reported as a negative result rather than tuned
 away. The labels are silver and require human review before strong claims.
+
+### E12: exact vs HNSW storage backend
+
+| Metric | Value |
+|---|---|
+| Collection | dinewise_chunks_C3 |
+| Points | 1511 |
+| Mean Recall@10 vs exact | 1.000 |
+| Mean nDCG@5 (HNSW) | 0.423 |
+| Mean exact latency | 4.51 ms |
+| Mean HNSW latency | 4.08 ms |
 
 ## 8. Generation and workflow
 
@@ -128,18 +140,18 @@ generates, validates, retries once if needed, and falls back otherwise.
 
 | ID | Facet | Outcome | Passed | Retries | Hits | Seconds |
 |---|---|---|---|---|---|---|
-| Q01 | cuisine | answered | True | 0 | 5 | 7.3 |
-| Q02 | budget | answered | True | 0 | 5 | 5.08 |
-| Q03 | review_aspect | answered | True | 0 | 5 | 5.21 |
-| Q04 | ambience | answered | True | 0 | 5 | 5.21 |
-| Q05 | personalization | answered | True | 0 | 5 | 5.25 |
-| Q06 | comparison | answered | True | 0 | 5 | 5.36 |
-| Q07 | dessert | answered | True | 0 | 5 | 5.36 |
-| Q08 | dietary | answered | True | 0 | 5 | 5.33 |
-| Q09 | image | answered | True | 0 | 5 | 5.5 |
-| Q10 | visual | answered | True | 0 | 5 | 5.36 |
-| Q11 | ranking | answered | True | 0 | 5 | 5.74 |
-| Q12 | multi_constraint | answered | True | 0 | 5 | 5.81 |
+| Q01 | cuisine | answered | True | 0 | 5 | 9.18 |
+| Q02 | budget | answered | True | 0 | 5 | 5.43 |
+| Q03 | review_aspect | answered | True | 0 | 5 | 5.35 |
+| Q04 | ambience | answered | True | 0 | 5 | 5.07 |
+| Q05 | personalization | answered | True | 0 | 5 | 5.17 |
+| Q06 | comparison | answered | True | 0 | 5 | 5.24 |
+| Q07 | dessert | answered | True | 0 | 5 | 5.06 |
+| Q08 | dietary | answered | True | 0 | 5 | 4.99 |
+| Q09 | image | answered | True | 0 | 5 | 4.88 |
+| Q10 | visual | answered | True | 0 | 5 | 5.03 |
+| Q11 | ranking | answered | True | 0 | 5 | 4.99 |
+| Q12 | multi_constraint | answered | True | 0 | 5 | 5.05 |
 | Q13 | out_of_scope | refused | False | 0 | 0 | 0.0 |
 | Q14 | out_of_scope | fallback | False | 0 | 0 | 0.0 |
 | Q15 | unsupported | fallback | False | 0 | 0 | 0.0 |
@@ -152,7 +164,7 @@ generates, validates, retries once if needed, and falls back otherwise.
   "fallbacks": 3,
   "validation_passed": 12,
   "retries": 0,
-  "mean_seconds": 4.43
+  "mean_seconds": 4.36
 }
 
 ## 9. Visual retrieval
@@ -207,18 +219,18 @@ new tokens. Batch size is 1 and decoding is greedy.
 
 | ID | Facet | Constraints | Candidates | Top hit | Compliance |
 |---|---|---|---|---|---|
-| Q01 | cuisine | Philadelphia,Italian | 71 | Spasso Italian Grill | ok |
-| Q02 | budget | Philadelphia,$$ max | 439 | Philadelphia Museum of Art | ok |
+| Q01 | cuisine | Philadelphia,Italian | 71 | L'Angolo Ristorante | ok |
+| Q02 | budget | Philadelphia,$$ max | 439 | Kensington Quarters | ok |
 | Q03 | review_aspect | - | 500 | a.kitchen | ok |
-| Q04 | ambience | Philadelphia | 500 | a.kitchen | ok |
-| Q05 | personalization | Philadelphia | 202 | Fare | ok |
-| Q06 | comparison | Philadelphia,Italian | 71 | Porcini | ok |
-| Q07 | dessert | Philadelphia | 500 | Happily Ever After | ok |
-| Q08 | dietary | Philadelphia | 500 | HipCityVeg | ok |
+| Q04 | ambience | Philadelphia | 500 | The Good King Tavern | ok |
+| Q05 | personalization | Philadelphia | 202 | City Tavern Restaurant | ok |
+| Q06 | comparison | Philadelphia,Italian | 71 | L'Angolo Ristorante | ok |
+| Q07 | dessert | Philadelphia | 500 | The Sweet Life Bakeshop | ok |
+| Q08 | dietary | Philadelphia | 500 | Vedge | ok |
 | Q09 | image | Philadelphia,Italian | 71 | Pizzeria Vetri | ok |
-| Q10 | visual | Philadelphia | 500 | Philadelphia Museum of Art | ok |
-| Q11 | ranking | Philadelphia | 500 | Fond | ok |
-| Q12 | multi_constraint | Philadelphia,Mexican,$$ max | 20 | Taqueria La Veracruzana | ok |
+| Q10 | visual | Philadelphia | 500 | Fond | ok |
+| Q11 | ranking | Philadelphia | 500 | Angelo's Pizzeria | ok |
+| Q12 | multi_constraint | Philadelphia,Mexican,$$ max | 20 | Los Gallos Mexican Taqueria | ok |
 | Q13 | out_of_scope | out-of-scope: live availability | - | - | refused |
 | Q14 | out_of_scope | out-of-scope: 'Las Vegas' is not in the dataset, which covers Philadelphia. | - | - | refused |
 | Q15 | unsupported | out-of-scope: The dataset does not record information about rooftop areas, pools, so this cannot be answered. | - | - | refused |
@@ -271,13 +283,14 @@ The next step is to replace silver labels with human judgments and re-run E1-E5.
 ## Reproducibility
 
 ```bash
-make setup && make check
+make setup && make db-up && make check
 make download && make prep && make docs
 make index && make bm25
 make queries && make experiments
 .venv/bin/python scripts/11_build_goldset.py
 .venv/bin/python scripts/12_retrieval_metrics.py
 .venv/bin/python scripts/13_chunking_experiments.py
+.venv/bin/python scripts/21_backend_experiment.py
 .venv/bin/python scripts/14_run_graph.py
 .venv/bin/python scripts/15_visual_experiments.py
 .venv/bin/python scripts/16_build_lora_data.py

@@ -43,9 +43,13 @@ def collapse_to_restaurants(
         business_id = str(row["business_id"])
         if business_id in seen:
             if score > seen[business_id]["score"]:
-                seen[business_id] = {"score": score, "chunk": row.to_dict()}
+                chunk = row.to_dict()
+                chunk["chunk_id"] = chunk_id
+                seen[business_id] = {"score": score, "chunk": chunk}
             continue
-        seen[business_id] = {"score": score, "chunk": row.to_dict()}
+        chunk = row.to_dict()
+        chunk["chunk_id"] = chunk_id
+        seen[business_id] = {"score": score, "chunk": chunk}
         order.append(business_id)
 
     def sort_key(business_id: str) -> tuple:

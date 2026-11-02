@@ -12,7 +12,7 @@
 - Embed the rewritten query with the BGE prefix.
 - Retrieve top 30 chunks by cosine similarity.
 - Collapse chunk hits to restaurants: a restaurant's score is the maximum chunk score, with a small bonus if multiple chunks from the same restaurant appear. The collapse rule is fixed before experiments.
-- Apply metadata filters either pre-search (FAISS `IDSelector`) or post-search. Pre-search is preferred for hard constraints to avoid wasting the candidate budget; the implementation must document which path is used.
+- Apply metadata filters in Qdrant at query time (city, cuisine, price, attributes) and keep a client-side check as a safety net. Server-side pre-filtering avoids wasting the candidate budget.
 
 ### 9.2 BM25 retrieval
 

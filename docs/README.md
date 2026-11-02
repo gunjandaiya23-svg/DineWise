@@ -24,7 +24,7 @@ Documentation is complete. Implementation has started with the minimal end-to-en
 | 05 | [Data engineering](05-data-engineering.md) | Attribute parsing, cuisine taxonomy, price rules, cleaning, derived tables | active |
 | 06 | [Document layer](06-documents.md) | TXT/PDF/DOCX specifications, generation, loaders | active |
 | 07 | [Chunking](07-chunking.md) | Restaurant-aware chunking, C1–C4, metadata, contamination checks | done |
-| 08 | [Embeddings and indexes](08-embeddings-indexing.md) | BGE, FAISS, BM25, CLIP, caching, index metrics | active |
+| 08 | [Embeddings and indexes](08-embeddings-indexing.md) | BGE, Qdrant, BM25, CLIP, caching, index metrics | active |
 | 09 | [Retrieval](09-retrieval.md) | Dense, lexical, filters, RRF, reranking, evidence layer | active |
 | 10 | [Generation](10-generation.md) | Qwen loading, prompts, JSON schema, constrained decoding, validators | active |
 | 11 | [LangGraph workflow](11-workflow.md) | State, nodes, edges, retry, fallback | active |
