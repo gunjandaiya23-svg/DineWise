@@ -27,13 +27,13 @@ Documentation is complete. Implementation has started with the minimal end-to-en
 | 08 | [Embeddings and indexes](08-embeddings-indexing.md) | BGE, FAISS, BM25, CLIP, caching, index metrics | active |
 | 09 | [Retrieval](09-retrieval.md) | Dense, lexical, filters, RRF, reranking, evidence layer | active |
 | 10 | [Generation](10-generation.md) | Qwen loading, prompts, JSON schema, constrained decoding, validators | active |
-| 11 | [LangGraph workflow](11-workflow.md) | State, nodes, edges, retry, fallback | later |
+| 11 | [LangGraph workflow](11-workflow.md) | State, nodes, edges, retry, fallback | active |
 | 12 | [Personalization](12-personalization.md) | Profiles, hard/soft constraints, feedback, evaluation | later |
-| 13 | [Visual pipeline](13-visual.md) | Visual-summary retrieval, CLIP zero-shot, fusion, limits | later |
-| 14 | [LoRA fine-tuning](14-finetuning.md) | Data construction, splits, hyperparameters, training | later |
-| 15 | [Efficiency experiments](15-efficiency.md) | FP16/INT8/INT4, TTFT, TPOT, memory, interpretation | later |
-| 16 | [Evaluation framework](16-evaluation.md) | Gold set, annotation, metrics, validators, RAGAS, statistics | later |
-| 17 | [Experiment matrix](17-experiments.md) | E0–E11, dependencies, ordering | later |
+| 13 | [Visual pipeline](13-visual.md) | Visual-summary retrieval, CLIP zero-shot, fusion, limits | active |
+| 14 | [LoRA fine-tuning](14-finetuning.md) | Data construction, splits, hyperparameters, training | done |
+| 15 | [Efficiency experiments](15-efficiency.md) | FP16/INT8/INT4, TTFT, TPOT, memory, interpretation | done |
+| 16 | [Evaluation framework](16-evaluation.md) | Gold set, annotation, metrics, validators, RAGAS, statistics | active |
+| 17 | [Experiment matrix](17-experiments.md) | E0–E11, dependencies, ordering | active |
 | 18 | [Engineering plan](18-engineering.md) | Repo layout, config, run manifests, tests, notebooks, app | active |
 | 19 | [Phases and schedule](19-roadmap.md) | P0–P11 acceptance criteria, 16-week plan | active |
 | 20 | [Risks, validity and limitations](20-risks-limitations.md) | Risk register, threats to validity, ethics | draft |

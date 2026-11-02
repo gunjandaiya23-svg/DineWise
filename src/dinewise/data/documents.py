@@ -105,7 +105,21 @@ def _boolean_list(row: pd.Series, prefix: str) -> list[str]:
     return labels
 
 
-def build_profile_block(row: pd.Series) -> str:
+def select_reviews(group: pd.DataFrame, limit: int = 8) -> list[dict[str, Any]]:
+    """Pick a deterministic mix of high, low, and long reviews."""
+    if group.empty:
+        return []
+    group = group.dropna(subset=["text"])
+    if group.empty:
+        return []
+    top = group.nlargest(3, "stars")
+    low = group.nsmallest(2, "stars")
+    longest = group.assign(_len=group["text"].str.len()).nlargest(3, "_len")
+    combined = pd.concat([top, low, longest]).drop_duplicates(subset=["review_id"])
+    return combined.head(limit).to_dict("records")
+
+
+def build_profile_block(row: pd.Series, reviews: list[dict[str, Any]] | None = None) -> str:
     name = _text(row.get("name"), "Unknown")
     location = ", ".join(
         part for part in (_text(row.get("city")), _text(row.get("state"))) if part
@@ -136,13 +150,27 @@ def build_profile_block(row: pd.Series) -> str:
         lines.append(f"Review summary: {summary}")
     if visual:
         lines.append(f"Visual summary: {visual}")
-    lines.append("Source: business.csv; review_summary.csv; photo_summay.csv")
+    if reviews:
+        lines.append("Customer review evidence:")
+        for review in reviews:
+            text = _text(review.get("text"))[:700].replace("\n", " ")
+            stars = review.get("stars")
+            lines.append(f"[{review.get('review_id')}] {stars} stars: {text}")
+    lines.append("Source: business.csv; review_summary.csv; photo_summay.csv; review.csv")
     return "\n".join(lines)
 
 
-def write_profiles(restaurants: pd.DataFrame, path: Path) -> dict[str, Any]:
+def write_profiles(
+    restaurants: pd.DataFrame,
+    path: Path,
+    reviews_by_business: dict[str, list[dict[str, Any]]] | None = None,
+) -> dict[str, Any]:
     started = time.perf_counter()
-    blocks = [build_profile_block(row) for _, row in restaurants.iterrows()]
+    reviews_by_business = reviews_by_business or {}
+    blocks = [
+        build_profile_block(row, reviews_by_business.get(str(row["business_id"])))
+        for _, row in restaurants.iterrows()
+    ]
     content = "\n\n".join(blocks) + "\n"
     path.write_text(content, encoding="utf-8")
     elapsed = time.perf_counter() - started
@@ -261,14 +289,24 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def build_documents(restaurants: pd.DataFrame, docs_dir: Path) -> dict[str, Any]:
+def build_documents(
+    restaurants: pd.DataFrame,
+    reviews: pd.DataFrame | None,
+    docs_dir: Path,
+) -> dict[str, Any]:
     docs_dir.mkdir(parents=True, exist_ok=True)
+    reviews_by_business: dict[str, list[dict[str, Any]]] = {}
+    if reviews is not None and not reviews.empty:
+        for business_id, group in reviews.groupby("business_id"):
+            reviews_by_business[str(business_id)] = select_reviews(group)
+
     manifest = {
         "restaurants": int(len(restaurants)),
+        "restaurants_with_review_evidence": len(reviews_by_business),
         "files": {},
     }
     manifest["files"]["profiles"] = write_profiles(
-        restaurants, docs_dir / "restaurant_profiles.txt"
+        restaurants, docs_dir / "restaurant_profiles.txt", reviews_by_business
     )
     manifest["files"]["review_insights"] = write_review_pdf(
         restaurants, docs_dir / "customer_review_insights.pdf"

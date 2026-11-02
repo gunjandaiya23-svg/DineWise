@@ -1,0 +1,60 @@
+{
+  "runs": 2,
+  "rows": [
+    {
+      "config": "M1_fp16",
+      "precision": "fp16",
+      "adapter": false,
+      "load_seconds": 0.86,
+      "ttft_ms": 458.1,
+      "tpot_ms": 16.4,
+      "tokens_per_second": 43.17,
+      "peak_vram_gb": 4.0,
+      "weights_gb": 3.09
+    },
+    {
+      "config": "M2_int8",
+      "precision": "int8",
+      "adapter": false,
+      "load_seconds": 2.67,
+      "ttft_ms": 467.5,
+      "tpot_ms": 72.6,
+      "tokens_per_second": 13.38,
+      "peak_vram_gb": 2.69,
+      "weights_gb": 1.78
+    },
+    {
+      "config": "M3_int4",
+      "precision": "int4",
+      "adapter": false,
+      "load_seconds": 0.78,
+      "ttft_ms": 479.1,
+      "tpot_ms": 17.2,
+      "tokens_per_second": 42.98,
+      "peak_vram_gb": 2.05,
+      "weights_gb": 1.12
+    },
+    {
+      "config": "M4_lora_fp16",
+      "precision": "fp16",
+      "adapter": true,
+      "load_seconds": 1.2,
+      "ttft_ms": 673.6,
+      "tpot_ms": 25.9,
+      "tokens_per_second": 29.67,
+      "peak_vram_gb": 4.03,
+      "weights_gb": 3.12
+    },
+    {
+      "config": "M5_lora_int4",
+      "precision": "int4",
+      "adapter": true,
+      "load_seconds": 1.09,
+      "ttft_ms": 683.7,
+      "tpot_ms": 40.3,
+      "tokens_per_second": 20.78,
+      "peak_vram_gb": 2.09,
+      "weights_gb": 1.16
+    }
+  ]
+}

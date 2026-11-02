@@ -35,6 +35,36 @@ queries:
 experiments:
 	$(PY) scripts/10_retrieval_experiments.py
 
+goldset:
+	$(PY) scripts/11_build_goldset.py
+
+retrieval-eval:
+	$(PY) scripts/12_retrieval_metrics.py
+
+chunking-eval:
+	$(PY) scripts/13_chunking_experiments.py
+
+graph:
+	$(PY) scripts/14_run_graph.py
+
+visual:
+	$(PY) scripts/15_visual_experiments.py
+
+lora-data:
+	$(PY) scripts/16_build_lora_data.py
+
+lora-train:
+	$(PY) scripts/17_train_lora.py
+
+model-eval:
+	$(PY) scripts/18_eval_models.py
+
+efficiency:
+	$(PY) scripts/19_efficiency.py
+
+report:
+	$(PY) scripts/20_build_report.py
+
 app:
 	$(PY) -m streamlit run app/streamlit_app.py
 

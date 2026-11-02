@@ -16,6 +16,7 @@ data/indexes/
 data/docs/*.pdf
 data/docs/*.docx
 data/docs/*.txt
+data/tuning/
 !data/docs/.gitkeep
 
 # Models and caches

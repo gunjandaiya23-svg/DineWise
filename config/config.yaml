@@ -42,7 +42,7 @@ docs:
 
 # --- Chunking ---------------------------------------------------------------
 chunking:
-  active: C2
+  active: C3
   configs:
     C1: {size: 200, overlap: 30, min_size: 80}
     C2: {size: 400, overlap: 60, min_size: 80}

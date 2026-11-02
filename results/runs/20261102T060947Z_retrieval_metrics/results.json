@@ -1,0 +1,1602 @@
+{
+  "summary": {
+    "label_source": "silver_rubric_v1",
+    "needs_manual_review": true,
+    "chunk_config": "C2",
+    "k": 5,
+    "modes": {
+      "bm25": {
+        "success@k": 0.4167,
+        "precision@k": 0.1167,
+        "mrr": 0.1806,
+        "ndcg@k": 0.1049
+      },
+      "dense": {
+        "success@k": 0.3333,
+        "precision@k": 0.1,
+        "mrr": 0.1417,
+        "ndcg@k": 0.0866
+      },
+      "hybrid": {
+        "success@k": 0.3333,
+        "precision@k": 0.1333,
+        "mrr": 0.1736,
+        "ndcg@k": 0.1186
+      }
+    }
+  },
+  "queries": [
+    {
+      "query_id": "Q01",
+      "facet": "cuisine",
+      "gold": [
+        {
+          "business_id": "6ajnOk0GcY9xbb5Ocaw8Gw",
+          "name": "Barbuzzo",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "-cEFKAznWmI0cledNOIQ7w",
+          "name": "Gran Caffe L'Aquila",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "eJaeTZlIdM3HWCq__Ve4Wg",
+          "name": "Tria Cafe Rittenhouse",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "hUmHwBQtGg0iH-PZakQJDw",
+          "name": "Wm Mulherin's Sons",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "ozOneB4jXOD6hv5WBGj4KQ",
+          "name": "Ristorante Pesto",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "M_EpyAH1CZZVlhxfYBLOqg",
+          "name": "Nomad Pizza Company",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "wUnLSg_GKfEIQ5CQQ770_g",
+          "name": "Vetri Cucina",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "Wtr51cNrv1pYyIRg_IawYQ",
+          "name": "The Victor Cafe",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "8P8HIysyyGbG8_94cG1Jyg",
+          "name": "Entree BYOB",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "cFSyJluKa2SHtgMMvlx6SQ",
+          "name": "Angelo's Pizzeria",
+          "grade": 1,
+          "reason": "constraints only"
+        }
+      ],
+      "modes": {
+        "bm25": {
+          "ranked": [
+            "fN12ywQpLXQ93bpwe1N_Ww",
+            "RZtGWDLCAtuipwaZ-UfjmQ",
+            "3lBooCffgkW7tVSG5kILBA",
+            "gQCKrqkalAc--4cuW_C_Ow",
+            "DRr5xdfHtqgWfhmdTU1B8Q"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ranked": [
+            "arKiXax3ScSM_z3O-0CIyw",
+            "sVZb87xjhbCWHQ2UXOGLrA",
+            "2WGnykxiM-Mp-qIm2u7iAw",
+            "cFSyJluKa2SHtgMMvlx6SQ",
+            "lKU_kljhbEQKIPaM1Zbqiw"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.2,
+          "mrr": 0.25,
+          "ndcg@k": 0.1461,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ranked": [
+            "3lBooCffgkW7tVSG5kILBA",
+            "2WGnykxiM-Mp-qIm2u7iAw",
+            "9_B5sCqKBOKDAmYpByiFFg",
+            "arKiXax3ScSM_z3O-0CIyw",
+            "_LOJW0XkOpj4O348GVRDeQ"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        }
+      }
+    },
+    {
+      "query_id": "Q02",
+      "facet": "budget",
+      "gold": [
+        {
+          "business_id": "qjGS_7iaQDpbVhS6W8qkHQ",
+          "name": "The Sweet Life Bakeshop",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "ytynqOUb3hjKeJfRj5Tshw",
+          "name": "Reading Terminal Market",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "6ajnOk0GcY9xbb5Ocaw8Gw",
+          "name": "Barbuzzo",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "Sv1MEZP-mMfp8SmE0hwYEA",
+          "name": "Terakawa Ramen",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "LM54ufrINJWoTN5imV8Etw",
+          "name": "John's Roast Pork",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "K7KHmHzxNwzqiijSJeKe_A",
+          "name": "Cafe La Maude",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "atZ_olNKXOG4rEr6mccN8g",
+          "name": "Beiler's Bakery",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "30cpm1uq6xcQCmN6JTrB8w",
+          "name": "Luke's Lobster Rittenhouse",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "-cEFKAznWmI0cledNOIQ7w",
+          "name": "Gran Caffe L'Aquila",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "iksVwRfpWymIUUFqw0tXpw",
+          "name": "Chubby Cattle",
+          "grade": 1,
+          "reason": "constraints only"
+        }
+      ],
+      "modes": {
+        "bm25": {
+          "ranked": [
+            "zU5PPd9j4bYC_MepNSEDcA",
+            "7pAgxBMUjrVPH7xh3fn-gw",
+            "mVV95BIwhFOa7TNH9pVMGA",
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "jxEMFqwDJXjCxmcm5t5jVQ"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ranked": [
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "Gr6nYrQ_-3p4LcE4M84lTw",
+            "s2JiYzE7i68cXIV6YEcVTw",
+            "KHQXmUFiAD0FHvrMSakJBA",
+            "jxEMFqwDJXjCxmcm5t5jVQ"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ranked": [
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "jxEMFqwDJXjCxmcm5t5jVQ",
+            "Gr6nYrQ_-3p4LcE4M84lTw",
+            "trwHwsXOVV-ZmF-MtP98BA",
+            "3lBooCffgkW7tVSG5kILBA"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        }
+      }
+    },
+    {
+      "query_id": "Q03",
+      "facet": "review_aspect",
+      "gold": [
+        {
+          "business_id": "qjGS_7iaQDpbVhS6W8qkHQ",
+          "name": "The Sweet Life Bakeshop",
+          "grade": 2,
+          "reason": "evidence: quality"
+        },
+        {
+          "business_id": "ytynqOUb3hjKeJfRj5Tshw",
+          "name": "Reading Terminal Market",
+          "grade": 2,
+          "reason": "evidence: food, fresh"
+        },
+        {
+          "business_id": "ctHjyadbDQAtUFfkcAFEHw",
+          "name": "Zahav",
+          "grade": 2,
+          "reason": "evidence: food, quality, flavor"
+        },
+        {
+          "business_id": "6ajnOk0GcY9xbb5Ocaw8Gw",
+          "name": "Barbuzzo",
+          "grade": 2,
+          "reason": "evidence: food, quality"
+        },
+        {
+          "business_id": "i_FWONQD1ZBqrNE2b-M5Ug",
+          "name": "Talula's Garden",
+          "grade": 2,
+          "reason": "evidence: food, quality, flavor"
+        },
+        {
+          "business_id": "6_T2xzR74JqGCTPefAD8Tw",
+          "name": "Morimoto",
+          "grade": 2,
+          "reason": "evidence: food, quality, excellent"
+        },
+        {
+          "business_id": "Sv1MEZP-mMfp8SmE0hwYEA",
+          "name": "Terakawa Ramen",
+          "grade": 2,
+          "reason": "evidence: food, quality, flavor"
+        },
+        {
+          "business_id": "LM54ufrINJWoTN5imV8Etw",
+          "name": "John's Roast Pork",
+          "grade": 2,
+          "reason": "evidence: food, quality, flavor"
+        },
+        {
+          "business_id": "K7KHmHzxNwzqiijSJeKe_A",
+          "name": "Cafe La Maude",
+          "grade": 2,
+          "reason": "evidence: food, quality, flavor, excellent"
+        },
+        {
+          "business_id": "2CDI713ATuxHfnB5b-sBdw",
+          "name": "Vedge",
+          "grade": 2,
+          "reason": "evidence: food, quality, flavor, excellent"
+        }
+      ],
+      "modes": {
+        "bm25": {
+          "ranked": [
+            "0oSSjekU-3GR8gselReWnA",
+            "mf0OyZ6DX2iKUFIV9TqFRQ",
+            "gQCKrqkalAc--4cuW_C_Ow",
+            "uJZgom8HpK74xz8IojpT0A",
+            "qcn10016DUkbgCbQi9L1WA"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ranked": [
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "dChRGpit9fM_kZK5pafNyA",
+            "bjPUhanWoinHi2kywvVzBA",
+            "khH0QtNyUjcExh9i2CwGfg",
+            "trwHwsXOVV-ZmF-MtP98BA"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ranked": [
+            "6zEWIsb6Lhr3BeoC3gm1lw",
+            "Ea4G-2lAbodTM7FBaSO-tQ",
+            "0oSSjekU-3GR8gselReWnA",
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "dChRGpit9fM_kZK5pafNyA"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        }
+      }
+    },
+    {
+      "query_id": "Q04",
+      "facet": "ambience",
+      "gold": [
+        {
+          "business_id": "qjGS_7iaQDpbVhS6W8qkHQ",
+          "name": "The Sweet Life Bakeshop",
+          "grade": 2,
+          "reason": "evidence: cozy"
+        },
+        {
+          "business_id": "ytynqOUb3hjKeJfRj5Tshw",
+          "name": "Reading Terminal Market",
+          "grade": 2,
+          "reason": "evidence: atmosphere"
+        },
+        {
+          "business_id": "ctHjyadbDQAtUFfkcAFEHw",
+          "name": "Zahav",
+          "grade": 2,
+          "reason": "evidence: atmosphere, intimate, decor"
+        },
+        {
+          "business_id": "6ajnOk0GcY9xbb5Ocaw8Gw",
+          "name": "Barbuzzo",
+          "grade": 2,
+          "reason": "evidence: cozy"
+        },
+        {
+          "business_id": "i_FWONQD1ZBqrNE2b-M5Ug",
+          "name": "Talula's Garden",
+          "grade": 2,
+          "reason": "evidence: atmosphere, cozy, decor"
+        },
+        {
+          "business_id": "6_T2xzR74JqGCTPefAD8Tw",
+          "name": "Morimoto",
+          "grade": 2,
+          "reason": "evidence: atmosphere, romantic"
+        },
+        {
+          "business_id": "Sv1MEZP-mMfp8SmE0hwYEA",
+          "name": "Terakawa Ramen",
+          "grade": 2,
+          "reason": "evidence: atmosphere, cozy, decor"
+        },
+        {
+          "business_id": "LM54ufrINJWoTN5imV8Etw",
+          "name": "John's Roast Pork",
+          "grade": 2,
+          "reason": "evidence: atmosphere, decor"
+        },
+        {
+          "business_id": "K7KHmHzxNwzqiijSJeKe_A",
+          "name": "Cafe La Maude",
+          "grade": 2,
+          "reason": "evidence: atmosphere, cozy, decor"
+        },
+        {
+          "business_id": "2CDI713ATuxHfnB5b-sBdw",
+          "name": "Vedge",
+          "grade": 2,
+          "reason": "evidence: atmosphere, cozy, decor"
+        }
+      ],
+      "modes": {
+        "bm25": {
+          "ranked": [
+            "0oSSjekU-3GR8gselReWnA",
+            "Jg9kkOl4sx2AXJVohbpSiw",
+            "XQWZQjC73fCTRGWnD18-Eg",
+            "rgeuy1qbw6Z8B6CSVANHIA",
+            "d28lZlSps97FHhXZazJ8zA"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ranked": [
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "T_6e0SgNuKotySgVS8O1UQ",
+            "L_Rwy6oSAnMUY3NCDspxmA",
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "s2JiYzE7i68cXIV6YEcVTw"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ranked": [
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "jxEMFqwDJXjCxmcm5t5jVQ",
+            "0oSSjekU-3GR8gselReWnA",
+            "Jg9kkOl4sx2AXJVohbpSiw",
+            "T_6e0SgNuKotySgVS8O1UQ"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        }
+      }
+    },
+    {
+      "query_id": "Q05",
+      "facet": "personalization",
+      "gold": [
+        {
+          "business_id": "6_T2xzR74JqGCTPefAD8Tw",
+          "name": "Morimoto",
+          "grade": 2,
+          "reason": "evidence: good_for_kids"
+        },
+        {
+          "business_id": "Sv1MEZP-mMfp8SmE0hwYEA",
+          "name": "Terakawa Ramen",
+          "grade": 2,
+          "reason": "evidence: good_for_kids"
+        },
+        {
+          "business_id": "-cEFKAznWmI0cledNOIQ7w",
+          "name": "Gran Caffe L'Aquila",
+          "grade": 2,
+          "reason": "evidence: good_for_kids"
+        },
+        {
+          "business_id": "iksVwRfpWymIUUFqw0tXpw",
+          "name": "Chubby Cattle",
+          "grade": 2,
+          "reason": "evidence: good_for_kids"
+        },
+        {
+          "business_id": "vUrTGX_7HxqeoQ_6QCVz6g",
+          "name": "Suraya",
+          "grade": 2,
+          "reason": "evidence: good_for_kids"
+        },
+        {
+          "business_id": "-0TffRSXXIlBYVbb5AwfTg",
+          "name": "IndeBlue Modern Indian Food & Spirits",
+          "grade": 2,
+          "reason": "evidence: good_for_kids"
+        },
+        {
+          "business_id": "TunmRrfZb7bt53T6HJi4UQ",
+          "name": "Bleu Sushi",
+          "grade": 2,
+          "reason": "evidence: good_for_kids"
+        },
+        {
+          "business_id": "E_h2yNoagLK-3ODYwMPErw",
+          "name": "V Street",
+          "grade": 2,
+          "reason": "evidence: good_for_kids"
+        },
+        {
+          "business_id": "_UOg5_pk9IhKee91eWrT4A",
+          "name": "Sweet Lucy's Smokehouse",
+          "grade": 2,
+          "reason": "evidence: good_for_kids"
+        },
+        {
+          "business_id": "6_LnAQQ0-mml8YgpfRjGuA",
+          "name": "Saad's Halal Restaurant",
+          "grade": 2,
+          "reason": "evidence: good_for_kids"
+        }
+      ],
+      "modes": {
+        "bm25": {
+          "ranked": [
+            "zU5PPd9j4bYC_MepNSEDcA",
+            "7pAgxBMUjrVPH7xh3fn-gw",
+            "rgSHLh2Le0Un82FDxbq0mg",
+            "JHRlwxxKY0JJcU97rJ-Bug",
+            "9-tZDrMjJYBbpCJoU3WXAQ"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ranked": [
+            "KHQXmUFiAD0FHvrMSakJBA",
+            "2WGnykxiM-Mp-qIm2u7iAw",
+            "7pAgxBMUjrVPH7xh3fn-gw",
+            "zRjUMHQJ5gAmFhcXZtLacA",
+            "R0JUjyjGEzUlY3auVhY_tg"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ranked": [
+            "7pAgxBMUjrVPH7xh3fn-gw",
+            "R3FDYMQBrMpkUquwE-eniQ",
+            "zU5PPd9j4bYC_MepNSEDcA",
+            "KHQXmUFiAD0FHvrMSakJBA",
+            "rgSHLh2Le0Un82FDxbq0mg"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        }
+      }
+    },
+    {
+      "query_id": "Q06",
+      "facet": "comparison",
+      "gold": [
+        {
+          "business_id": "6ajnOk0GcY9xbb5Ocaw8Gw",
+          "name": "Barbuzzo",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "-cEFKAznWmI0cledNOIQ7w",
+          "name": "Gran Caffe L'Aquila",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "eJaeTZlIdM3HWCq__Ve4Wg",
+          "name": "Tria Cafe Rittenhouse",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "hUmHwBQtGg0iH-PZakQJDw",
+          "name": "Wm Mulherin's Sons",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "ozOneB4jXOD6hv5WBGj4KQ",
+          "name": "Ristorante Pesto",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "M_EpyAH1CZZVlhxfYBLOqg",
+          "name": "Nomad Pizza Company",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "wUnLSg_GKfEIQ5CQQ770_g",
+          "name": "Vetri Cucina",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "Wtr51cNrv1pYyIRg_IawYQ",
+          "name": "The Victor Cafe",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "8P8HIysyyGbG8_94cG1Jyg",
+          "name": "Entree BYOB",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "cFSyJluKa2SHtgMMvlx6SQ",
+          "name": "Angelo's Pizzeria",
+          "grade": 1,
+          "reason": "constraints only"
+        }
+      ],
+      "modes": {
+        "bm25": {
+          "ranked": [
+            "3lBooCffgkW7tVSG5kILBA",
+            "Wtr51cNrv1pYyIRg_IawYQ",
+            "9_B5sCqKBOKDAmYpByiFFg",
+            "elSnD7Vuxnlg5_9gTqBqmA",
+            "I1H5s9cVCGh1nH-4bhsSDA"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.2,
+          "mrr": 0.5,
+          "ndcg@k": 0.214,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ranked": [
+            "3lBooCffgkW7tVSG5kILBA",
+            "erz6oUEJdx787WyOlxMARw",
+            "9_B5sCqKBOKDAmYpByiFFg",
+            "2WGnykxiM-Mp-qIm2u7iAw",
+            "sVZb87xjhbCWHQ2UXOGLrA"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ranked": [
+            "3lBooCffgkW7tVSG5kILBA",
+            "9_B5sCqKBOKDAmYpByiFFg",
+            "arKiXax3ScSM_z3O-0CIyw",
+            "I1H5s9cVCGh1nH-4bhsSDA",
+            "sVZb87xjhbCWHQ2UXOGLrA"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        }
+      }
+    },
+    {
+      "query_id": "Q07",
+      "facet": "dessert",
+      "gold": [
+        {
+          "business_id": "qjGS_7iaQDpbVhS6W8qkHQ",
+          "name": "The Sweet Life Bakeshop",
+          "grade": 2,
+          "reason": "evidence: dessert, cake, sweet, bakery"
+        },
+        {
+          "business_id": "6ajnOk0GcY9xbb5Ocaw8Gw",
+          "name": "Barbuzzo",
+          "grade": 2,
+          "reason": "evidence: dessert, cake"
+        },
+        {
+          "business_id": "atZ_olNKXOG4rEr6mccN8g",
+          "name": "Beiler's Bakery",
+          "grade": 2,
+          "reason": "evidence: sweet, bakery"
+        },
+        {
+          "business_id": "Ipkx4Sa7ybn8C6LtTqTztw",
+          "name": "Double Knot",
+          "grade": 2,
+          "reason": "evidence: ice cream"
+        },
+        {
+          "business_id": "-cEFKAznWmI0cledNOIQ7w",
+          "name": "Gran Caffe L'Aquila",
+          "grade": 2,
+          "reason": "evidence: good_for_meal_dessert"
+        },
+        {
+          "business_id": "iksVwRfpWymIUUFqw0tXpw",
+          "name": "Chubby Cattle",
+          "grade": 2,
+          "reason": "evidence: good_for_meal_dessert"
+        },
+        {
+          "business_id": "vUrTGX_7HxqeoQ_6QCVz6g",
+          "name": "Suraya",
+          "grade": 2,
+          "reason": "evidence: good_for_meal_dessert"
+        },
+        {
+          "business_id": "44Xh-IjWDSn7XTw1hzO50g",
+          "name": "Dutch Eating Place",
+          "grade": 2,
+          "reason": "evidence: dessert, cake"
+        },
+        {
+          "business_id": "wbDRmtxaKRpBOjutvV6TEA",
+          "name": "Barclay Prime",
+          "grade": 2,
+          "reason": "evidence: cake"
+        },
+        {
+          "business_id": "_UOg5_pk9IhKee91eWrT4A",
+          "name": "Sweet Lucy's Smokehouse",
+          "grade": 2,
+          "reason": "evidence: sweet"
+        }
+      ],
+      "modes": {
+        "bm25": {
+          "ranked": [
+            "0oSSjekU-3GR8gselReWnA",
+            "qjGS_7iaQDpbVhS6W8qkHQ",
+            "vVfy055EfLMdd0yJYHxiMQ",
+            "jkGQQ4_LgJx3hwPtCFkzbQ",
+            "ZewrmVIdr77Kinj-njv6RQ"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.2,
+          "mrr": 0.5,
+          "ndcg@k": 0.214,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ranked": [
+            "U2y7fsqDgxAXskoJNVxbwg",
+            "vVfy055EfLMdd0yJYHxiMQ",
+            "jkGQQ4_LgJx3hwPtCFkzbQ",
+            "qcguEeAMP0XwFLYqhwX2hg",
+            "qjGS_7iaQDpbVhS6W8qkHQ"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.2,
+          "mrr": 0.2,
+          "ndcg@k": 0.1312,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ranked": [
+            "vVfy055EfLMdd0yJYHxiMQ",
+            "qjGS_7iaQDpbVhS6W8qkHQ",
+            "jkGQQ4_LgJx3hwPtCFkzbQ",
+            "qcguEeAMP0XwFLYqhwX2hg",
+            "6ajnOk0GcY9xbb5Ocaw8Gw"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.4,
+          "mrr": 0.5,
+          "ndcg@k": 0.3452,
+          "compliance_failed": []
+        }
+      }
+    },
+    {
+      "query_id": "Q08",
+      "facet": "dietary",
+      "gold": [
+        {
+          "business_id": "ctHjyadbDQAtUFfkcAFEHw",
+          "name": "Zahav",
+          "grade": 2,
+          "reason": "evidence: vegetarian"
+        },
+        {
+          "business_id": "2CDI713ATuxHfnB5b-sBdw",
+          "name": "Vedge",
+          "grade": 2,
+          "reason": "evidence: vegan"
+        },
+        {
+          "business_id": "E_h2yNoagLK-3ODYwMPErw",
+          "name": "V Street",
+          "grade": 2,
+          "reason": "evidence: vegetarian cuisine"
+        },
+        {
+          "business_id": "hkirr3WzSTx2d9cdP_NKSQ",
+          "name": "Mama's Vegetarian",
+          "grade": 2,
+          "reason": "evidence: vegetarian"
+        },
+        {
+          "business_id": "QGYzYUMsQe6k7__LD91E5w",
+          "name": "QT Vietnamese Sandwich",
+          "grade": 2,
+          "reason": "evidence: vegetarian, vegan"
+        },
+        {
+          "business_id": "mlrzM-jUkKot28XJhScuuA",
+          "name": "Goldie",
+          "grade": 2,
+          "reason": "evidence: veggie"
+        },
+        {
+          "business_id": "-OIUunijjcq_ZzyyQhPPFQ",
+          "name": "Zorba's Taverna",
+          "grade": 2,
+          "reason": "evidence: veggie"
+        },
+        {
+          "business_id": "oGMwCmV1EQZgCdylAbK9ow",
+          "name": "Rex at the Royal",
+          "grade": 2,
+          "reason": "evidence: gluten-free"
+        },
+        {
+          "business_id": "BryQISFnkCdcJET-tpAx3w",
+          "name": "Isot Mediterranean Cuisine",
+          "grade": 2,
+          "reason": "evidence: vegetarian"
+        },
+        {
+          "business_id": "OAWa1WML2V1ZLJGD6V3nBQ",
+          "name": "Middle Child",
+          "grade": 2,
+          "reason": "evidence: vegetarian"
+        }
+      ],
+      "modes": {
+        "bm25": {
+          "ranked": [
+            "0oSSjekU-3GR8gselReWnA",
+            "hkirr3WzSTx2d9cdP_NKSQ",
+            "YqmClmk7oLcDzPWKHzgA-Q",
+            "LgAuYz5cQe3zTxuteJ4VyQ",
+            "QhgrhVKlXZtSY6gRThf8zA"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.2,
+          "mrr": 0.5,
+          "ndcg@k": 0.214,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ranked": [
+            "Dv6RfXLYe1atjgz3Xf4GGw",
+            "muCelHtTlX5PrJd8JKkf_w",
+            "wuH4TPUo8oJo4E59xZKsNg",
+            "JPfe9B-RLrE5Nz75kcKImQ",
+            "bgxDswHIdFP0Go0pNfyAAw"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ranked": [
+            "hkirr3WzSTx2d9cdP_NKSQ",
+            "muCelHtTlX5PrJd8JKkf_w",
+            "wuH4TPUo8oJo4E59xZKsNg",
+            "2CDI713ATuxHfnB5b-sBdw",
+            "LgAuYz5cQe3zTxuteJ4VyQ"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.4,
+          "mrr": 1.0,
+          "ndcg@k": 0.4852,
+          "compliance_failed": []
+        }
+      }
+    },
+    {
+      "query_id": "Q09",
+      "facet": "image",
+      "gold": [
+        {
+          "business_id": "6ajnOk0GcY9xbb5Ocaw8Gw",
+          "name": "Barbuzzo",
+          "grade": 2,
+          "reason": "evidence: pizza, italian"
+        },
+        {
+          "business_id": "-cEFKAznWmI0cledNOIQ7w",
+          "name": "Gran Caffe L'Aquila",
+          "grade": 2,
+          "reason": "evidence: italian, pasta"
+        },
+        {
+          "business_id": "ozOneB4jXOD6hv5WBGj4KQ",
+          "name": "Ristorante Pesto",
+          "grade": 2,
+          "reason": "evidence: italian, pasta"
+        },
+        {
+          "business_id": "M_EpyAH1CZZVlhxfYBLOqg",
+          "name": "Nomad Pizza Company",
+          "grade": 2,
+          "reason": "evidence: pizza"
+        },
+        {
+          "business_id": "Wtr51cNrv1pYyIRg_IawYQ",
+          "name": "The Victor Cafe",
+          "grade": 2,
+          "reason": "evidence: italian, pasta"
+        },
+        {
+          "business_id": "8P8HIysyyGbG8_94cG1Jyg",
+          "name": "Entree BYOB",
+          "grade": 2,
+          "reason": "evidence: pasta"
+        },
+        {
+          "business_id": "cFSyJluKa2SHtgMMvlx6SQ",
+          "name": "Angelo's Pizzeria",
+          "grade": 2,
+          "reason": "evidence: pizza"
+        },
+        {
+          "business_id": "dYinIkKBspHV5hSaukklFg",
+          "name": "L'Angolo Ristorante",
+          "grade": 2,
+          "reason": "evidence: italian, pasta"
+        },
+        {
+          "business_id": "wuH4TPUo8oJo4E59xZKsNg",
+          "name": "&pizza - Walnut",
+          "grade": 2,
+          "reason": "evidence: pizza"
+        },
+        {
+          "business_id": "tf2nzjkP8XGIeU-lg767XA",
+          "name": "Tredici Enoteca",
+          "grade": 2,
+          "reason": "evidence: pasta"
+        }
+      ],
+      "modes": {
+        "bm25": {
+          "ranked": [
+            "FD7gMovIYQmhdn23Iq91zQ",
+            "g2zwbLIqxtN9nGGuL43trg",
+            "wuH4TPUo8oJo4E59xZKsNg",
+            "M_EpyAH1CZZVlhxfYBLOqg",
+            "I1H5s9cVCGh1nH-4bhsSDA"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.4,
+          "mrr": 0.3333,
+          "ndcg@k": 0.3156,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ranked": [
+            "u7_3L1NBWgxhBM_B-cmmnA",
+            "I1H5s9cVCGh1nH-4bhsSDA",
+            "gQCKrqkalAc--4cuW_C_Ow",
+            "cFSyJluKa2SHtgMMvlx6SQ",
+            "wuH4TPUo8oJo4E59xZKsNg"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.4,
+          "mrr": 0.25,
+          "ndcg@k": 0.2773,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ranked": [
+            "g2zwbLIqxtN9nGGuL43trg",
+            "FD7gMovIYQmhdn23Iq91zQ",
+            "I1H5s9cVCGh1nH-4bhsSDA",
+            "wuH4TPUo8oJo4E59xZKsNg",
+            "fN12ywQpLXQ93bpwe1N_Ww"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.2,
+          "mrr": 0.25,
+          "ndcg@k": 0.1461,
+          "compliance_failed": []
+        }
+      }
+    },
+    {
+      "query_id": "Q10",
+      "facet": "visual",
+      "gold": [
+        {
+          "business_id": "qjGS_7iaQDpbVhS6W8qkHQ",
+          "name": "The Sweet Life Bakeshop",
+          "grade": 2,
+          "reason": "evidence: design, bright, cozy"
+        },
+        {
+          "business_id": "ytynqOUb3hjKeJfRj5Tshw",
+          "name": "Reading Terminal Market",
+          "grade": 2,
+          "reason": "evidence: atmosphere"
+        },
+        {
+          "business_id": "ctHjyadbDQAtUFfkcAFEHw",
+          "name": "Zahav",
+          "grade": 2,
+          "reason": "evidence: interior, decor, atmosphere"
+        },
+        {
+          "business_id": "6ajnOk0GcY9xbb5Ocaw8Gw",
+          "name": "Barbuzzo",
+          "grade": 2,
+          "reason": "evidence: interior, cozy"
+        },
+        {
+          "business_id": "i_FWONQD1ZBqrNE2b-M5Ug",
+          "name": "Talula's Garden",
+          "grade": 2,
+          "reason": "evidence: decor, atmosphere, cozy"
+        },
+        {
+          "business_id": "6_T2xzR74JqGCTPefAD8Tw",
+          "name": "Morimoto",
+          "grade": 2,
+          "reason": "evidence: interior, atmosphere, design"
+        },
+        {
+          "business_id": "Sv1MEZP-mMfp8SmE0hwYEA",
+          "name": "Terakawa Ramen",
+          "grade": 2,
+          "reason": "evidence: interior, decor, atmosphere, cozy"
+        },
+        {
+          "business_id": "LM54ufrINJWoTN5imV8Etw",
+          "name": "John's Roast Pork",
+          "grade": 2,
+          "reason": "evidence: decor, atmosphere"
+        },
+        {
+          "business_id": "K7KHmHzxNwzqiijSJeKe_A",
+          "name": "Cafe La Maude",
+          "grade": 2,
+          "reason": "evidence: interior, decor, atmosphere, cozy"
+        },
+        {
+          "business_id": "2CDI713ATuxHfnB5b-sBdw",
+          "name": "Vedge",
+          "grade": 2,
+          "reason": "evidence: interior, decor, atmosphere, cozy"
+        }
+      ],
+      "modes": {
+        "bm25": {
+          "ranked": [
+            "hkirr3WzSTx2d9cdP_NKSQ",
+            "0oSSjekU-3GR8gselReWnA",
+            "PYUI1OJVksGUbCrteU68bw",
+            "jxEMFqwDJXjCxmcm5t5jVQ",
+            "gQCKrqkalAc--4cuW_C_Ow"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ranked": [
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "T_6e0SgNuKotySgVS8O1UQ",
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "U2y7fsqDgxAXskoJNVxbwg",
+            "7lwe7n-Yc-V9E_HfLAeylg"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ranked": [
+            "jxEMFqwDJXjCxmcm5t5jVQ",
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "hkirr3WzSTx2d9cdP_NKSQ",
+            "0oSSjekU-3GR8gselReWnA",
+            "T_6e0SgNuKotySgVS8O1UQ"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        }
+      }
+    },
+    {
+      "query_id": "Q11",
+      "facet": "ranking",
+      "gold": [
+        {
+          "business_id": "qjGS_7iaQDpbVhS6W8qkHQ",
+          "name": "The Sweet Life Bakeshop",
+          "grade": 2,
+          "reason": "evidence: cheap and highly rated"
+        },
+        {
+          "business_id": "ytynqOUb3hjKeJfRj5Tshw",
+          "name": "Reading Terminal Market",
+          "grade": 2,
+          "reason": "evidence: cheap and highly rated"
+        },
+        {
+          "business_id": "6ajnOk0GcY9xbb5Ocaw8Gw",
+          "name": "Barbuzzo",
+          "grade": 2,
+          "reason": "evidence: cheap and highly rated"
+        },
+        {
+          "business_id": "Sv1MEZP-mMfp8SmE0hwYEA",
+          "name": "Terakawa Ramen",
+          "grade": 2,
+          "reason": "evidence: cheap and highly rated"
+        },
+        {
+          "business_id": "LM54ufrINJWoTN5imV8Etw",
+          "name": "John's Roast Pork",
+          "grade": 2,
+          "reason": "evidence: cheap and highly rated"
+        },
+        {
+          "business_id": "K7KHmHzxNwzqiijSJeKe_A",
+          "name": "Cafe La Maude",
+          "grade": 2,
+          "reason": "evidence: cheap and highly rated"
+        },
+        {
+          "business_id": "atZ_olNKXOG4rEr6mccN8g",
+          "name": "Beiler's Bakery",
+          "grade": 2,
+          "reason": "evidence: cheap and highly rated"
+        },
+        {
+          "business_id": "30cpm1uq6xcQCmN6JTrB8w",
+          "name": "Luke's Lobster Rittenhouse",
+          "grade": 2,
+          "reason": "evidence: cheap and highly rated"
+        },
+        {
+          "business_id": "-cEFKAznWmI0cledNOIQ7w",
+          "name": "Gran Caffe L'Aquila",
+          "grade": 2,
+          "reason": "evidence: cheap and highly rated"
+        },
+        {
+          "business_id": "iksVwRfpWymIUUFqw0tXpw",
+          "name": "Chubby Cattle",
+          "grade": 2,
+          "reason": "evidence: cheap and highly rated"
+        }
+      ],
+      "modes": {
+        "bm25": {
+          "ranked": [
+            "_V6hl1oGkTV2KbGeax_HPA",
+            "_LOJW0XkOpj4O348GVRDeQ",
+            "YN4Kk751tmdvoarGo8z7_A",
+            "IcLm9Z1zphLnzUvrFK6aiA",
+            "5nqWNo7uVU1Zxm4tjnvkUw"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ranked": [
+            "T_6e0SgNuKotySgVS8O1UQ",
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "dChRGpit9fM_kZK5pafNyA",
+            "vtSisxaozZ7HWpBl_W7VaQ"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ranked": [
+            "_LOJW0XkOpj4O348GVRDeQ",
+            "pVHbXwsqLxNzAx9rdwy2EA",
+            "T_6e0SgNuKotySgVS8O1UQ",
+            "_V6hl1oGkTV2KbGeax_HPA",
+            "Qw7tz-UkPrpXaVidWuab4Q"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 0.0,
+          "precision@k": 0.0,
+          "mrr": 0.0,
+          "ndcg@k": 0.0,
+          "compliance_failed": []
+        }
+      }
+    },
+    {
+      "query_id": "Q12",
+      "facet": "multi_constraint",
+      "gold": [
+        {
+          "business_id": "Jg9kkOl4sx2AXJVohbpSiw",
+          "name": "South Philly Barbacoa",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "Pl_9HzOa8uy_YOUxgonzGw",
+          "name": "Los Gallos Mexican Taqueria",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "qaDImxPguQz0jToNYvB1Eg",
+          "name": "Caf\u00e9 y Chocolate",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "VwZ5NDbIu3elGQI6MzcXBA",
+          "name": "Blue Corn",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "9PZxjhTIU7OgPIzuGi89Ew",
+          "name": "El Vez",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "DZglT5FP5VNDQJU3PuRIHw",
+          "name": "La Calaca Feliz",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "G9LZoNlCfRH941q87_JLIg",
+          "name": "Mission Taqueria",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "RadvqFuRTZNEfSZ_avPRog",
+          "name": "Honest Tom's Plant Based Taco Shop",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "jULIPydhMj18KOI5OHTwfA",
+          "name": "Buena Onda",
+          "grade": 1,
+          "reason": "constraints only"
+        },
+        {
+          "business_id": "f2RHDdXezLHILvM7v1xOVA",
+          "name": "Taqueria La Veracruzana",
+          "grade": 1,
+          "reason": "constraints only"
+        }
+      ],
+      "modes": {
+        "bm25": {
+          "ranked": [
+            "I5KZm-NnxYeEQsmp6nK5_w",
+            "qRgeV1CMZawRblc2qjHo_g",
+            "VwZ5NDbIu3elGQI6MzcXBA",
+            "i6DlLLxZ2iwQRxhUDx3TTg",
+            "Pl_9HzOa8uy_YOUxgonzGw"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.4,
+          "mrr": 0.3333,
+          "ndcg@k": 0.3008,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ranked": [
+            "f2RHDdXezLHILvM7v1xOVA",
+            "qRgeV1CMZawRblc2qjHo_g",
+            "oqy15jhe1lOXttEvd4Srog",
+            "Pl_9HzOa8uy_YOUxgonzGw",
+            "j6usntbtSzFyuwx4n2mn1g"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.4,
+          "mrr": 1.0,
+          "ndcg@k": 0.4852,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ranked": [
+            "qRgeV1CMZawRblc2qjHo_g",
+            "I5KZm-NnxYeEQsmp6nK5_w",
+            "f2RHDdXezLHILvM7v1xOVA",
+            "Pl_9HzOa8uy_YOUxgonzGw",
+            "VwZ5NDbIu3elGQI6MzcXBA"
+          ],
+          "names": [
+            "None",
+            "None",
+            "None",
+            "None",
+            "None"
+          ],
+          "success@k": 1.0,
+          "precision@k": 0.6,
+          "mrr": 0.3333,
+          "ndcg@k": 0.4469,
+          "compliance_failed": []
+        }
+      }
+    }
+  ]
+}

@@ -15,6 +15,7 @@ from .bm25_index import BM25Index
 from .constraints import Constraints, extract_constraints
 from .filters import apply_filters
 from .fusion import collapse_to_restaurants, rrf_fuse
+from .rerank import quality_prior
 from .search import Retriever
 
 
@@ -85,6 +86,21 @@ def retrieve_filtered(
     }
 
 
+def scope_refusal(constraints: Constraints, catalogue: pd.DataFrame) -> str | None:
+    """Return a refusal reason for unknown places or unrecorded amenities."""
+    if constraints.unknown_city:
+        return (
+            f"'{constraints.unknown_city}' is not in the dataset, which covers "
+            f"{', '.join(sorted(catalogue['city'].dropna().unique().tolist()))}."
+        )
+    if constraints.unsupported_terms:
+        return (
+            "The dataset does not record information about "
+            f"{', '.join(constraints.unsupported_terms)}, so this cannot be answered."
+        )
+    return None
+
+
 def _restrict_to_allowed(
     chunk_ranking: list[str],
     chunk_table: pd.DataFrame,
@@ -120,15 +136,30 @@ def retrieve_with_config(
     pool: int = 30,
     k: int = 5,
     rrf_k: int = 60,
+    reranker: Any | None = None,
+    rerank_pool: int = 20,
 ) -> dict[str, Any]:
     """Run one retrieval configuration with per-stage timings.
 
-    mode is one of "dense" (E2), "bm25" (E1), or "hybrid" (E3, RRF fusion).
+    mode is one of "dense" (E2), "bm25" (E1), "hybrid" (E3, RRF fusion),
+    "hybrid_rerank" (E4), or "hybrid_rerank_quality" (E4 + quality prior).
     Returns the same diagnostics shape as retrieve_filtered plus timings.
     """
     constraints = constraints or extract_constraints(
         query, known_cities=sorted(catalogue["city"].dropna().unique().tolist())
     )
+    refusal = scope_refusal(constraints, catalogue)
+    if refusal:
+        return {
+            "mode": mode,
+            "constraints": constraints,
+            "refused": True,
+            "reason": refusal,
+            "filter_counts": {"start": len(catalogue)},
+            "candidates_after_filter": 0,
+            "timings": {},
+            "hits": [],
+        }
     allowed, filter_counts = apply_filters(catalogue, constraints)
     allowed_ids = set(allowed["business_id"])
     timings: dict[str, float] = {}
@@ -170,6 +201,50 @@ def retrieve_with_config(
         ]
         hits = collapse_to_restaurants(allowed_chunks, chunks, top_k=k)
         timings["fusion"] = time.perf_counter() - started
+    elif mode in {"hybrid_rerank", "hybrid_rerank_quality"}:
+        started = time.perf_counter()
+        dense_hits = retriever.search(query, k=pool)
+        timings["dense"] = time.perf_counter() - started
+        started = time.perf_counter()
+        lexical_hits = bm25.search(query, k=pool)
+        timings["bm25"] = time.perf_counter() - started
+        started = time.perf_counter()
+        fused = rrf_fuse(
+            [
+                [str(hit["chunk"]["chunk_id"]) for hit in dense_hits],
+                [hit["chunk_id"] for hit in lexical_hits],
+            ],
+            k=rrf_k,
+        )
+        table = chunks.set_index("chunk_id")
+        allowed_chunks = [
+            (chunk_id, score)
+            for chunk_id, score in fused
+            if chunk_id in table.index
+            and str(table.loc[chunk_id]["business_id"]) in allowed_ids
+        ]
+        timings["fusion"] = time.perf_counter() - started
+
+        if reranker is None:
+            raise ValueError(f"mode {mode} requires a reranker")
+
+        started = time.perf_counter()
+        shortlist = allowed_chunks[:rerank_pool]
+        texts = [str(table.loc[chunk_id]["text"]) for chunk_id, _ in shortlist]
+        scores = reranker.score(query, texts)
+        reranked = sorted(
+            zip([chunk_id for chunk_id, _ in shortlist], scores, strict=False),
+            key=lambda item: (-item[1], item[0]),
+        )
+        hits = collapse_to_restaurants(
+            reranked, chunks, top_k=k * 2 if mode.endswith("quality") else k
+        )
+        timings["rerank"] = time.perf_counter() - started
+
+        if mode.endswith("quality"):
+            started = time.perf_counter()
+            hits = quality_prior(hits, catalogue)[:k]
+            timings["quality_prior"] = time.perf_counter() - started
     else:
         raise ValueError(f"unknown retrieval mode: {mode}")
 

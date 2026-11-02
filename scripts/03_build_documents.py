@@ -28,7 +28,9 @@ def main() -> int:
         raise SystemExit(f"missing {restaurants_path}; run scripts/02_prepare_data.py first")
 
     restaurants = pd.read_parquet(restaurants_path)
-    manifest = build_documents(restaurants, data_path(cfg, "docs_dir"))
+    reviews_path = data_path(cfg, "processed_dir", "reviews.parquet")
+    reviews = pd.read_parquet(reviews_path) if reviews_path.exists() else None
+    manifest = build_documents(restaurants, reviews, data_path(cfg, "docs_dir"))
     print(json.dumps(manifest, indent=2))
     return 0
 

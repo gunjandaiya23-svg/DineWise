@@ -14,32 +14,39 @@ This is a research prototype over a static dataset. It is **not** a booking syst
 | P0 Environment | Done: Python 3.12, torch 2.11 + CUDA 12.8, GPU verified |
 | P1 Data layer | Done for the 500-restaurant pilot corpus |
 | P2 Documents | Done: TXT, PDF, DOCX generated |
-| P3 Chunking + index | Done: C2 chunks, BGE embeddings, FAISS |
+| P3 Chunking + index | Done: C1–C4 evaluated; C3 active (1,511 chunks), BGE + FAISS |
 | P4 Retrieval + generation | Done: filtered retrieval, Qwen answer, validators, 15-query suite |
-| P5 BM25 + hybrid + reranker | BM25 + RRF done (E1–E3 harness); reranker not started |
-| P6 Gold set + metrics | Harness ready; relevance judgments not started |
-| P7 LangGraph + Streamlit | Not started |
+| P5 BM25 + hybrid + reranker | Done: BM25, RRF, cross-encoder, quality prior (E1–E4) |
+| P6 Gold set + metrics | Done: silver gold set + Success/P@5/MRR/nDCG (manual review pending) |
+| P7 LangGraph | Done: classify → retrieve → generate → validate → retry/fallback (E9) |
+| P8 Visual | Done: visual-summary retrieval + CLIP zero-shot (E6) |
+| P9 LoRA + efficiency | Done: QLoRA trained, E7 + E8 measured |
+| P10 Streamlit app | Done: working local app |
 
-### Pilot results (500 Philadelphia restaurants, filtered retrieval)
+### Final results
 
-| Metric | Value |
-|---|---:|
-| Restaurants | 500 (17 venues excluded, 99.8% cuisine coverage) |
-| Reviews | 75,323 |
-| Chunks (C2, 400/60) | 500, 0 cross-restaurant |
-| 15-query suite | 12 answered, 3 correctly refused (live availability, Las Vegas, rooftop pool) |
-| E1/E2/E3 comparison | BM25 vs dense Jaccard 0.128; dense vs hybrid 0.33; compliance 12/12 all modes |
-| Retrieval compliance | All answered queries satisfy hard constraints |
-| Generation check | Sampled answer: validation PASSED |
+| Experiment | Result |
+|---|---|
+| Data | 500 restaurants, 75,323 reviews, 99.8% cuisine coverage, 100% attribute parse |
+| E5 chunking | C3 (600/90) selected: 1,511 chunks, nDCG@5 0.437, 0 marker contamination |
+| E1 BM25 | nDCG@5 0.427, strict Success@5 0.500, any-success 1.000 |
+| E2 dense | nDCG@5 0.398, strict Success@5 0.250, any-success 1.000 |
+| E3 hybrid RRF | nDCG@5 0.421, strict Success@5 0.500, MRR 0.350 |
+| E4 rerank | nDCG@5 0.406 (negative result), quality prior 0.418 |
+| E6 visual | 490 docs; strict Success@5 0.400; CLIP top-1 82.2%, top-5 95.0%, mapped cuisine 84.1% |
+| E7 LoRA | 400 examples, eval loss 0.122; RAG grounded 80%, hard-pass 100%; no-RAG grounded 0% |
+| E8 efficiency | FP16 3.09 GB / 43.2 tok/s; INT4 1.12 GB / 43.0 tok/s; INT8 1.78 GB / 13.4 tok/s; LoRA-INT4 1.16 GB / 20.8 tok/s |
+| E9 graph | 12/15 answered, 3 correctly refused, 12/12 validation passed, 4.43 s mean |
+| Tests | 67 passing, ruff clean |
 
 ### Known gaps
 
-- Philadelphia Museum of Art still surfaces (venue with a cafe, kept deliberately).
-- Dense retrieval only; no BM25, RRF, or reranker.
-- Dietary preferences are soft, not evidence-checked.
-- No relevance judgments yet, so no Precision/nDCG numbers.
-- 500 restaurants, not the full study corpus.
-- No LangGraph, no Streamlit.
+- Retrieval labels are **silver** (rubric), not human judgments. `data/gold/review_sheet.csv` is the review sheet.
+- One city, 500 restaurants; E10 held-out-city and E11 personalization not run.
+- Reranking did not improve nDCG against the quality-oriented silver set.
+- Dietary constraints are soft, not safety guarantees.
+- Philadelphia Museum of Art still surfaces (venue with a cafe).
+- CLIP is evaluated on external Food-101 images, not restaurant photos.
 
 ## Quickstart
 
