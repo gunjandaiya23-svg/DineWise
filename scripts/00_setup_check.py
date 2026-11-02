@@ -16,7 +16,7 @@ PACKAGES = [
     "torch",
     "transformers",
     "sentence_transformers",
-    "qdrant_client",
+    "faiss",
     "pandas",
     "pyarrow",
     "yaml",
@@ -69,23 +69,6 @@ def main() -> int:
     }
     report["paths_exist"] = {name: (ROOT / name).exists() for name in report["paths"]}
 
-    try:
-        from qdrant_client import QdrantClient
-
-        from dinewise.config import load_config
-
-        cfg = load_config()
-        url = cfg["vector_store"]["url"]
-        client = QdrantClient(url=url, timeout=3)
-        collections = [item.name for item in client.get_collections().collections]
-        report["qdrant"] = {
-            "url": url,
-            "reachable": True,
-            "collections": collections,
-        }
-    except Exception as exc:  # noqa: BLE001
-        report["qdrant"] = {"reachable": False, "error": str(exc)}
-
     output = ROOT / "results" / "env_report.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
@@ -97,9 +80,6 @@ def main() -> int:
         return 1
     if not report["cuda"].get("available"):
         print("\nFAIL CUDA is not available")
-        return 1
-    if not report["qdrant"].get("reachable"):
-        print("\nFAIL Qdrant is not reachable; run `make db-up`")
         return 1
     print("\nOK environment is ready")
     return 0

@@ -1,0 +1,467 @@
+{
+  "summary": {
+    "mode": "llm",
+    "queries": 15,
+    "answered": 12,
+    "refused": 1,
+    "fallbacks": 3,
+    "validation_passed": 12,
+    "retries": 0,
+    "mean_seconds": 5.54
+  },
+  "results": [
+    {
+      "query_id": "Q01",
+      "facet": "cuisine",
+      "query": "Find Italian restaurants with good reviews in Philadelphia.",
+      "answer": "1. **La Viola**\n   - **Business ID:** 4_VDvhKpKSsj7jZYdocZYA\n   - **Why it matches the question:** La Viola is listed as an Italian restaurant in Philadelphia, PA, and it has a good rating based on the provided data. The record mentions that it receives mixed reviews, indicating a balance between positive and negative feedback.\n   \n2. **Villa Di Roma**\n   - **Business ID:** Vnagnur1os0ZduOpvDH27A\n   - **Why it matches the question:** Villa Di Roma is described as an Italian restaurant in Philadelphia, PA, with a high rating of 5.0 stars. The review suggests that it provides quality food, a good atmosphere, and friendly service, aligning with the criteria of finding Italian restaurants with good reviews in Philadelphia.\n\n3. **Ristorante Pesto**\n   - **Business ID:** ozOneB4jXOD6hv5WBGj4KQ\n   - **Why it matches the question:** Ristorante Pesto is identified as an Italian restaurant in Philadelphia, PA, with a high rating of 4.5 out of 5 stars. The review highlights its authenticity",
+      "passed": true,
+      "fallback": false,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": false,
+      "n_hits": 5,
+      "validation": {
+        "passed": true,
+        "hard_failures": [],
+        "soft_failures": [
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Business ID:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Why it matches the question:"
+          }
+        ]
+      },
+      "trace": [
+        "constraints:city=Philadelphia,cuisines=['Italian'],max_price=None",
+        "retrieved:5",
+        "generated",
+        "validated:pass"
+      ],
+      "seconds": 11.03
+    },
+    {
+      "query_id": "Q02",
+      "facet": "budget",
+      "query": "Recommend restaurants under $$ in Philadelphia.",
+      "answer": "1. **Sazon Restaurant & Cafe**\n   - **Business ID:** 8yZzf0gdWpSmY6ziyq7hKQ\n   - **Why it matches the question:** Sazon Restaurant & Cafe is located in Philadelphia, PA, and falls within the \"$$\" price range. It is described as a Latin/Caribbean restaurant with vegetarian options, bakery/dessert, breakfast/brunch, and outdoor seating.\n   - **Dataset value:** Rating: 4.0 out of 5, Price: $$ (dataset bucket 2 of 4)\n\n2. **Kensington Quarters**\n   - **Business ID:** ILvJAuSP0sYWJKAQ-Goh4Q\n   - **Why it matches the question:** Kensington Quarters is located in Philadelphia, PA, and falls within the \"$$\" price range. It is described as an American restaurant with excellent potatoes, kale, drinks, service, biscuits, and ambiance.\n   - **Dataset value:** Rating: 3.5 out of 5, Price: $$ (dataset bucket 2 of 4)\n\n3. **La Viola**\n   - **Business ID:** 4_VDvhKpKSsj7j",
+      "passed": true,
+      "fallback": false,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": false,
+      "n_hits": 5,
+      "validation": {
+        "passed": true,
+        "hard_failures": [],
+        "soft_failures": [
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Business ID:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Why it matches the question:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Dataset value:"
+          }
+        ]
+      },
+      "trace": [
+        "constraints:city=Philadelphia,cuisines=[],max_price=2",
+        "retrieved:5",
+        "generated",
+        "validated:pass"
+      ],
+      "seconds": 5.51
+    },
+    {
+      "query_id": "Q03",
+      "facet": "review_aspect",
+      "query": "Which restaurants have the best food quality according to reviews?",
+      "answer": "Restaurant Recommendations:\n\n1. **Chickie's and Pete's**\n   - Business ID: 6zEWIsb6Lhr3BeoC3gm1lw\n   - Why it matches: Chickie's and Pete's is described as a seafood restaurant with a mix of reviews, including praise for their Crab Fries and criticism for the cheesesteak and food quality. The record supports the idea that it might have high-quality food despite some negative feedback.\n\n2. **La Calaca Feliz**\n   - Business ID: DZglT5FP5VNDQJU3PuRIHw\n   - Why it matches: La Calaca Feliz is noted for its exceptional food quality, particularly its guacamole and tacos. The restaurant is described as highly praised and known for its guacamole and tacos, making it a strong candidate based on the provided information.\n\n3. **a.kitchen**\n   - Business ID: 3eJMsl41qwhcYlvoTF1ElQ\n   - Why it matches: a.kitchen is described as a breakfast/brunch restaurant with a focus on inventive food, great service, and excellent atmosphere. The restaurant received mostly positive reviews for its inventive food,",
+      "passed": true,
+      "fallback": false,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": false,
+      "n_hits": 5,
+      "validation": {
+        "passed": true,
+        "hard_failures": [],
+        "soft_failures": []
+      },
+      "trace": [
+        "constraints:city=None,cuisines=[],max_price=None",
+        "retrieved:5",
+        "generated",
+        "validated:pass"
+      ],
+      "seconds": 6.68
+    },
+    {
+      "query_id": "Q04",
+      "facet": "ambience",
+      "query": "Find restaurants with positive ambience reviews in Philadelphia.",
+      "answer": "1. **Restaurant Name:** a.kitchen  \n   **Business ID:** 3eJMsl41qwhcYlvoTF1ElQ  \n   **Why it matches the question:** a.kitchen received mostly positive reviews for its inventive food, great service, and excellent atmosphere, particularly during Restaurant Week. The ambience summary mentions a romantic ambience, though it's noted as \"no.\" Despite this, the overall positive feedback aligns with the query seeking restaurants with positive ambience reviews in Philadelphia.\n\n2. **Restaurant Name:** Nom Wah Philadelphia  \n   **Business ID:** VP8HMhVt-pKmqGNmDW4-TQ  \n   **Why it matches the question:** Nom Wah Philadelphia is described as receiving mixed reviews, with praise for its exceptional French-inspired dishes, extensive wine list, and cozy atmosphere. While the ambience is noted as \"unknown,\" the combination of positive aspects makes it suitable for the query.\n\n3. **Restaurant Name:** The Good King Tavern  \n   **Business ID:** L_Rwy6oSAnMUY3NCDspxmA  \n   **Why it matches the question:** The Good King Tavern is highly praised for its exceptional French-inspired dishes, extensive wine list, and cozy atmosphere. The amb",
+      "passed": true,
+      "fallback": false,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": false,
+      "n_hits": 5,
+      "validation": {
+        "passed": true,
+        "hard_failures": [],
+        "soft_failures": [
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Restaurant Name:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Why it matches the question:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Business ID:"
+          }
+        ]
+      },
+      "trace": [
+        "constraints:city=Philadelphia,cuisines=[],max_price=None",
+        "retrieved:5",
+        "generated",
+        "validated:pass"
+      ],
+      "seconds": 5.98
+    },
+    {
+      "query_id": "Q05",
+      "facet": "personalization",
+      "query": "Recommend a restaurant for a family dinner in Philadelphia.",
+      "answer": "The Little Lion\nBusiness ID: rgSHLh2Le0Un82FDxbq0mg\nWhy it matches: The Little Lion is recommended due to its unique dining experience, family-friendly atmosphere, and excellent service. It offers a variety of dishes, including Southern-inspired items and a stylish, modern interior with bold colors and elegant lighting. The restaurant is known for its consistent quality and has received high praise from multiple customer reviews.\n\nKhmer Kitchen\nBusiness ID: 7yPzOek7Af2dKWGYKpcHWA\nWhy it matches: Khmer Kitchen is recommended due to its authentic Italian charm, high-quality traditional dishes, and cozy ambiance. The restaurant has a long history and is located in the Italian Market section of South Philadelphia. Customers appreciate the attention to detail and the opportunity to learn about the preparation process through the presentation of dishes by the chefs.\n\nRalphs Italian Restaurant\nBusiness ID: j99PtxlKTW_u5alE4jiqHQ\nWhy it matches: Ralphs Italian Restaurant is recommended due to its authentic Italian cuisine, cozy ambiance, and high-quality traditional dishes. The restaurant has a long-standing reputation and is known for its exceptional service. Despite some reservations regarding noise levels and seating",
+      "passed": true,
+      "fallback": false,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": false,
+      "n_hits": 5,
+      "validation": {
+        "passed": true,
+        "hard_failures": [],
+        "soft_failures": []
+      },
+      "trace": [
+        "constraints:city=Philadelphia,cuisines=[],max_price=None",
+        "retrieved:5",
+        "generated",
+        "validated:pass"
+      ],
+      "seconds": 6.61
+    },
+    {
+      "query_id": "Q06",
+      "facet": "comparison",
+      "query": "Compare two Italian restaurants in Philadelphia based on reviews.",
+      "answer": "Based on the provided information, here are three potential Italian restaurants in Philadelphia:\n\n1. **La Viola**\n   - **Business ID:** 4_VDvhKpKSsj7jZYdocZYA\n   - **Why it matches the question:** La Viola is described as an Italian restaurant in Philadelphia, PA, with a $$ price range, and it has received mixed reviews, including positive comments about the food and atmosphere.\n   - **Dataset value:** Rating: 3.5 out of 5 (average, 524 reviews)\n\n2. **Villa Di Roma**\n   - **Business ID:** Vnagnur1os0ZduOpvDH27A\n   - **Why it matches the question:** Villa Di Roma is identified as an Italian restaurant in Philadelphia, PA, with a $$ price range, and it has received mixed reviews, including positive comments about the food and atmosphere.\n   - **Dataset value:** Rating: 4.0 out of 5 (average, 578 reviews)\n\n3. **Ristorante Pesto**\n   - **Business ID:** ozOneB4jXOD6hv5WBGj4KQ\n   - **Why it matches the question",
+      "passed": true,
+      "fallback": false,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": false,
+      "n_hits": 5,
+      "validation": {
+        "passed": true,
+        "hard_failures": [],
+        "soft_failures": [
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Business ID:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Why it matches the question:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Dataset value:"
+          }
+        ]
+      },
+      "trace": [
+        "constraints:city=Philadelphia,cuisines=['Italian'],max_price=None",
+        "retrieved:5",
+        "generated",
+        "validated:pass"
+      ],
+      "seconds": 7.02
+    },
+    {
+      "query_id": "Q07",
+      "facet": "dessert",
+      "query": "Which restaurants in Philadelphia are praised for their desserts?",
+      "answer": "1. **The Sweet Life Bakeshop**\n   - **Business ID:** qjGS_7iaQDpbVhS6W8qkHQ\n   - **Why it matches the question:** The Sweet Life Bakeshop is praised for its exceptional banana pudding, moist cupcakes, and outstanding customer service. These qualities align with the desire for desserts.\n   - **Dataset Rating:** 5.0 out of 5 (average, 316 reviews)\n\n2. **A La Mousse**\n   - **Business ID:** vVfy055EfLMdd0yJYHxiMQ\n   - **Why it matches the question:** A La Mousse is known for its unique matcha-based desserts, particularly the Green Tea Mille Crepe, and offers a quaint atmosphere with excellent service. Its emphasis on desserts makes it a suitable choice for dessert lovers.\n   - **Dataset Rating:** 4.5 out of 5 (average, 691 reviews)\n\n3. **Sweet Freedom Bakery**\n   - **Business ID:** qcguEeAMP0XwFLYqhwX2hg\n   - **Why it matches the question:** Sweet Freedom Bakery is highly praised for its delicious and diverse baked",
+      "passed": true,
+      "fallback": false,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": false,
+      "n_hits": 5,
+      "validation": {
+        "passed": true,
+        "hard_failures": [],
+        "soft_failures": [
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Business ID:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Why it matches the question:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Dataset Rating:"
+          }
+        ]
+      },
+      "trace": [
+        "constraints:city=Philadelphia,cuisines=[],max_price=None",
+        "retrieved:5",
+        "generated",
+        "validated:pass"
+      ],
+      "seconds": 6.8
+    },
+    {
+      "query_id": "Q08",
+      "facet": "dietary",
+      "query": "Find restaurants with vegetarian options in Philadelphia.",
+      "answer": "1. **Restaurant**: Mama's Vegetarian\n   - **Business ID**: hkirr3WzSTx2d9cdP_NKSQ\n   - **Why it matches**: Mama's Vegetarian is described as serving Mediterranean cuisine, which includes vegetarian options. Its falafel sandwiches are highly praised for their crisp exterior and soft interiors, making them a standout item among vegetarian dishes.\n   - **Ratings and Prices**:\n     - Rating: 4.5 out of 5 (average rating from 592 reviews)\n     - Price: $ (dataset bucket 1 of 4)\n\n2. **Restaurant**: New Harmony Vegetarian Restaurant\n   - **Business ID**: muCelHtTlX5PrJd8JKkf_w\n   - **Why it matches**: New Harmony Vegetarian Restaurant specializes in Chinese cuisine with a strong emphasis on vegetarian and vegan options. It is noted for its authentic mock meats and generous portions, appealing to both vegetarians and vegans.\n   - **Ratings and Prices**:\n     - Rating: 4.0 out of 5 (average rating from 327 reviews)\n     - Price: $$ (dataset bucket 2 of 4)\n\n3. **Restaurant**:",
+      "passed": true,
+      "fallback": false,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": false,
+      "n_hits": 5,
+      "validation": {
+        "passed": true,
+        "hard_failures": [],
+        "soft_failures": [
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Ratings and Prices"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Business ID"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Why it matches"
+          }
+        ]
+      },
+      "trace": [
+        "constraints:city=Philadelphia,cuisines=[],max_price=None",
+        "retrieved:5",
+        "generated",
+        "validated:pass"
+      ],
+      "seconds": 7.09
+    },
+    {
+      "query_id": "Q09",
+      "facet": "image",
+      "query": "Show restaurants similar to this uploaded pizza photo in Philadelphia.",
+      "answer": "Restaurant Recommendations:\n\n1. **&pizza - Walnut**\n   - Business ID: wuH4TPUo8oJo4E59xZKsNg\n   - Why it matches: &pizza is described as a \"Next Generation of Pizza,\" which aligns with the user's interest in finding new and innovative pizza options. Its proximity to the museum also suggests it could offer a unique dining experience.\n\n2. **Pietro's Coal Oven Pizzeria**\n   - Business ID: fN12ywQpLXQ93bpwe1N_Ww\n   - Why it matches: Pietro's is noted for its \"unique and creative toppings\" and \"thin crust pizzas.\" Its popularity among locals and frequent visits suggest it caters to those seeking a distinctive pizza experience.\n\n3. **Lorenzo & Sons Pizza**\n   - Business ID: FD7gMovIYQmhdn23Iq91zQ\n   - Why it matches: Lorenzo's Pizza is known for its \"plain slice\" that is considered \"bomb.com!\" and its large slices. The high number of positive reviews indicate strong customer satisfaction, matching the user's desire for a memorable dining experience.",
+      "passed": true,
+      "fallback": false,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": false,
+      "n_hits": 5,
+      "validation": {
+        "passed": true,
+        "hard_failures": [],
+        "soft_failures": []
+      },
+      "trace": [
+        "constraints:city=Philadelphia,cuisines=['Italian'],max_price=None",
+        "retrieved:5",
+        "generated",
+        "validated:pass"
+      ],
+      "seconds": 6.64
+    },
+    {
+      "query_id": "Q10",
+      "facet": "visual",
+      "query": "Find restaurants with attractive interiors in Philadelphia.",
+      "answer": "1. **Fond**\n   - **Business ID:** T_6e0SgNuKotySgVS8O1UQ\n   - **Why it matches the question:** Fond is described as having \"attractive interiors\" and is located in Philadelphia, PA. The record mentions that the restaurant received high praise for its ambiance and service, aligning with the description of attractive interiors.\n   - **Rating & Price:** 5.0 stars, $ (dataset bucket 1 of 4)\n\n2. **La Viola**\n   - **Business ID:** 4_VDvhKpKSsj7jZYdocZYA\n   - **Why it matches the question:** La Viola is noted for its romantic ambiance, outdoor seating, and BYOB option. The interior is described as vibrant and energetic, fitting the criteria of attractive interiors.\n   - **Rating & Price:** 3.5 out of 5 (dataset average, 524 reviews), $$ (dataset bucket 2 of 4)\n\n3. **Noord**\n   - **Business ID:** tcvNBC65Gsa4cH1_gyucpQ\n   - **Why it matches the question:** Noord is characterized by",
+      "passed": true,
+      "fallback": false,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": false,
+      "n_hits": 5,
+      "validation": {
+        "passed": true,
+        "hard_failures": [],
+        "soft_failures": [
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Business ID:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Why it matches the question:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Rating & Price:"
+          }
+        ]
+      },
+      "trace": [
+        "constraints:city=Philadelphia,cuisines=[],max_price=None",
+        "retrieved:5",
+        "generated",
+        "validated:pass"
+      ],
+      "seconds": 7.03
+    },
+    {
+      "query_id": "Q11",
+      "facet": "ranking",
+      "query": "Which restaurant in Philadelphia offers the best value for money?",
+      "answer": "1. **Zavino**\n   - **Business ID:** _LOJW0XkOpj4O348GVRDeQ_\n   - **Why it matches the question:** Zavino is praised for its high-quality Italian cuisine, particularly its pizzas and pasta dishes, along with an excellent wine selection and great atmosphere. The restaurant offers good value for money, though some guests mention minor drawbacks like slow service during peak times.\n   - **Dataset Rating:** 4.0 out of 5 (average rating)\n\n2. **Little Fish**\n   - **Business ID:** jXtaxB2b64nA4uy13i024A\n   - **Why it matches the question:** Little Fish is highly praised for its delicious and authentic Thai dishes, excellent service, and great value. Customers consistently highlight popular items like green curry, red curry, drunken noodles, pad thai, and sticky rice as standout favorites.\n   - **Dataset Rating:** 4.5 out of 5 (average rating)\n\n3. **Di Bruno Bros.**\n   - **Business ID:** 4hv1n1VBzMvE-T4UtIcOcw\n   - **Why it matches the question:** Di Bruno",
+      "passed": true,
+      "fallback": false,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": false,
+      "n_hits": 5,
+      "validation": {
+        "passed": true,
+        "hard_failures": [],
+        "soft_failures": [
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Business ID:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Why it matches the question:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Dataset Rating:"
+          }
+        ]
+      },
+      "trace": [
+        "constraints:city=Philadelphia,cuisines=[],max_price=None",
+        "retrieved:5",
+        "generated",
+        "validated:pass"
+      ],
+      "seconds": 6.13
+    },
+    {
+      "query_id": "Q12",
+      "facet": "multi_constraint",
+      "query": "Family-friendly Mexican restaurant in Philadelphia under $$.",
+      "answer": "1. **La Calaca Feliz**\n   - **Business ID:** DZglT5FP5VNDQJU3PuRIHw\n   - **Why it matches the question:** La Calaca Feliz is described as a family-friendly Mexican restaurant in Philadelphia under $$, matching the criteria of being family-friendly, located in Philadelphia, offering Mexican cuisine, and having a price range of $$.\n   \n2. **Las Margaritas**\n   - **Business ID:** 434A83c2ig6QxsZjrjclpQ\n   - **Why it matches the question:** Las Margaritas is described as a Mexican restaurant in Philadelphia under $$, matching the criteria of being a Mexican restaurant, located in Philadelphia, offering Mexican cuisine, and having a price range of $$.\n   \n3. **El Jarocho**\n   - **Business ID:** qRgeV1CMZawRblc2qjHo_g\n   - **Why it matches the question:** El Jarocho is described as a Mexican restaurant in Philadelphia under $$, matching the criteria of being a Mexican restaurant, located in Philadelphia, offering Mexican cuisine, and having a price range of $$.\n   \nNote: There are other restaurants",
+      "passed": true,
+      "fallback": false,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": false,
+      "n_hits": 5,
+      "validation": {
+        "passed": true,
+        "hard_failures": [],
+        "soft_failures": [
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Business ID:"
+          },
+          {
+            "name": "names_match",
+            "detail": "name not in candidates: Why it matches the question:"
+          }
+        ]
+      },
+      "trace": [
+        "constraints:city=Philadelphia,cuisines=['Mexican'],max_price=2",
+        "retrieved:5",
+        "generated",
+        "validated:pass"
+      ],
+      "seconds": 6.62
+    },
+    {
+      "query_id": "Q13",
+      "facet": "out_of_scope",
+      "query": "Give me the live availability of Reading Terminal Market tonight.",
+      "answer": "I can't answer that from this dataset. DineWise uses static restaurant records and reviews, and it has no live availability, booking, wait-time, or current-price data. I can still help you find restaurants by cuisine, budget bucket, location, rating, or review evidence.",
+      "passed": false,
+      "fallback": true,
+      "retry_count": 0,
+      "out_of_scope": true,
+      "refused": false,
+      "n_hits": 0,
+      "validation": {},
+      "trace": [
+        "out_of_scope:live availability",
+        "fallback"
+      ],
+      "seconds": 0.0
+    },
+    {
+      "query_id": "Q14",
+      "facet": "out_of_scope",
+      "query": "Recommend a restaurant in Las Vegas.",
+      "answer": "I can't answer that from this dataset. 'Las Vegas' is not in the dataset, which covers Philadelphia. I can still help with cuisine, budget bucket, rating, or review evidence.",
+      "passed": false,
+      "fallback": true,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": true,
+      "n_hits": 0,
+      "validation": {},
+      "trace": [
+        "constraints:city=None,cuisines=[],max_price=None",
+        "refused:'Las Vegas' is not in the dataset, which covers Philadelphia.",
+        "fallback"
+      ],
+      "seconds": 0.0
+    },
+    {
+      "query_id": "Q15",
+      "facet": "unsupported",
+      "query": "Which restaurant in Philadelphia has a rooftop pool?",
+      "answer": "I can't answer that from this dataset. The dataset does not record information about rooftop areas, pools, so this cannot be answered. I can still help with cuisine, budget bucket, rating, or review evidence.",
+      "passed": false,
+      "fallback": true,
+      "retry_count": 0,
+      "out_of_scope": false,
+      "refused": true,
+      "n_hits": 0,
+      "validation": {},
+      "trace": [
+        "constraints:city=Philadelphia,cuisines=[],max_price=None",
+        "refused:The dataset does not record information about rooftop areas, pools, so this cannot be answered.",
+        "fallback"
+      ],
+      "seconds": 0.0
+    }
+  ]
+}

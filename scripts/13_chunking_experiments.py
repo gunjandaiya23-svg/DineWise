@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 """E5: chunk-size comparison (C1-C4) with hybrid retrieval.
 
-For each configuration this rebuilds chunks and the Qdrant collection, then
-rebuilds BM25 and scores the same 12 gold queries. Only the chunk
-configuration changes.
+For each configuration this rebuilds chunks, FAISS, and BM25, then scores
+the same 12 gold queries. Only the chunk configuration changes.
 """
 
 from __future__ import annotations
@@ -15,6 +14,7 @@ import time
 from datetime import UTC, datetime
 from pathlib import Path
 
+import faiss
 import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
@@ -33,11 +33,6 @@ from dinewise.rag.chunking import (  # noqa: E402
 from dinewise.rag.constraints import Constraints  # noqa: E402
 from dinewise.rag.pipeline import retrieve_with_config  # noqa: E402
 from dinewise.rag.search import Retriever  # noqa: E402
-from dinewise.rag.vectorstore import (  # noqa: E402
-    ingest_chunks,
-    store_from_config,
-    write_chunks_cache,
-)
 
 
 def build_config(
@@ -48,7 +43,6 @@ def build_config(
     profiles_text: str,
     tokenizer,
     encoder: SentenceTransformer,
-    store,
 ) -> dict:
     started = time.perf_counter()
     chunker = TokenChunker(
@@ -60,6 +54,8 @@ def build_config(
     chunks = build_chunks(restaurants, profiles_text, chunker, config_name=name)
     chunks.to_parquet(data_path(cfg, "processed_dir", f"chunks_{name}.parquet"), index=False)
 
+    index_dir = data_path(cfg, "index_dir", "faiss", name)
+    index_dir.mkdir(parents=True, exist_ok=True)
     embeddings = encoder.encode(
         chunks["text"].tolist(),
         batch_size=int(cfg["embedding"]["batch_size"]),
@@ -67,8 +63,18 @@ def build_config(
         convert_to_numpy=True,
         show_progress_bar=False,
     ).astype(np.float32)
-    ingest_chunks(store, f"chunks_{name}", chunks, embeddings, recreate=True)
-    write_chunks_cache(cfg, name, chunks)
+    index = faiss.IndexFlatIP(embeddings.shape[1])
+    index.add(embeddings)
+    faiss.write_index(index, str(index_dir / "index.faiss"))
+    chunks.to_parquet(index_dir / "chunks.parquet", index=False)
+    (index_dir / "index_meta.json").write_text(
+        json.dumps(
+            {"model": cfg["embedding"]["model"], "chunk_config": name,
+             "chunks": len(chunks), "dimension": int(embeddings.shape[1])},
+            indent=2,
+        )
+        + "\n"
+    )
 
     bm25 = build_bm25(chunks)
     save_bm25(bm25, data_path(cfg, "index_dir", "bm25", name))
@@ -79,11 +85,11 @@ def build_config(
             "size": settings["size"],
             "overlap": settings["overlap"],
             "mean_tokens": round(float(chunks["token_count"].mean()), 1),
-            "points": store.count(f"chunks_{name}"),
+            "index_bytes": (index_dir / "index.faiss").stat().st_size,
             "seconds": round(time.perf_counter() - started, 2),
         }
     )
-    return {"chunks": chunks, "bm25": bm25, "report": report}
+    return {"chunks": chunks, "index": index, "bm25": bm25, "report": report}
 
 
 def main() -> int:
@@ -109,21 +115,20 @@ def main() -> int:
     from transformers import AutoTokenizer
 
     tokenizer = AutoTokenizer.from_pretrained(cfg["embedding"]["model"])
-    store = store_from_config(cfg)
 
     rows = []
+    details: dict[str, list[dict]] = {}
     for name, settings in cfg["chunking"]["configs"].items():
         print(f"building {name} ({settings['size']}/{settings['overlap']}) ...")
         built = build_config(
-            cfg, name, settings, restaurants, profiles_text, tokenizer, encoder, store
+            cfg, name, settings, restaurants, profiles_text, tokenizer, encoder
         )
         chunks = built["chunks"]
         retriever = Retriever(
             model=encoder,
-            store=store,
+            index=built["index"],
             chunks=chunks,
             prefix=cfg["embedding"]["query_prefix"],
-            collection=f"chunks_{name}",
         )
         metrics = []
         for record in gold:
@@ -135,6 +140,7 @@ def main() -> int:
             ranked = [str(hit["chunk"]["business_id"]) for hit in outcome["hits"]]
             metrics.append(evaluate_ranking(ranked, record["gold"], k=5))
         summary = mean_metrics(metrics)
+        details[name] = metrics
         row = {**built["report"], **summary}
         rows.append(row)
         print(
@@ -160,7 +166,7 @@ def main() -> int:
     columns = [
         "config", "size", "overlap", "chunks", "mean_tokens",
         "chunks_with_multiple_markers", "strict_success@k", "strict_precision@k",
-        "strict_mrr", "ndcg@k", "points", "seconds",
+        "strict_mrr", "ndcg@k", "index_bytes", "seconds",
     ]
     lines = [
         "| " + " | ".join(columns) + " |",

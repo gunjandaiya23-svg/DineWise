@@ -1,25 +1,12 @@
 PY := .venv/bin/python
 PIP := uv pip install --python $(PY)
 
-.PHONY: setup check db-up db-down db-status db-reset download prep docs index app test lint clean
+.PHONY: setup check download prep docs index app test lint clean
 
 setup:
 	UV_HTTP_TIMEOUT=600 uv venv --python 3.12 .venv
 	UV_HTTP_TIMEOUT=600 $(PIP) torch --index-url https://download.pytorch.org/whl/cu128
 	UV_HTTP_TIMEOUT=600 $(PIP) -e ".[dev]"
-
-db-up:
-	docker compose up -d qdrant
-
-db-down:
-	docker compose down
-
-db-status:
-	curl -s http://localhost:6333/collections
-
-db-reset:
-	docker compose down -v
-	rm -rf data/qdrant
 
 check:
 	$(PY) scripts/00_setup_check.py
@@ -74,9 +61,6 @@ model-eval:
 
 efficiency:
 	$(PY) scripts/19_efficiency.py
-
-backend-eval:
-	$(PY) scripts/21_backend_experiment.py
 
 report:
 	$(PY) scripts/20_build_report.py

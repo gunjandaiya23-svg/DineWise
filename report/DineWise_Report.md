@@ -1,6 +1,6 @@
 # DineWise: A Retrieval-Augmented Framework for Personalized and Explainable Restaurant Recommendations
 
-**Report generated:** 2026-11-02 11:03 UTC
+**Report generated:** 2026-11-02 11:41 UTC
 **Code state:** see the Git commit referenced in `results/runs/`
 **Label status:** retrieval labels are **silver** (rubric-based), not human judgments.
 A manual review sheet is provided at `data/gold/review_sheet.csv`.
@@ -69,14 +69,13 @@ structured dietary fields, and LLM-generated review/photo summaries.
 | VRAM | 8.19 GB |
 | CUDA / torch | 12.8 / 2.11.0+cu128 |
 | Embedding model | BAAI/bge-small-en-v1.5 |
-| Vector store | Qdrant at http://localhost:6333 |
 | Generator | Qwen/Qwen2.5-1.5B-Instruct |
 | Reranker | BAAI/bge-reranker-base |
 | CLIP | openai/clip-vit-base-patch32 |
 
 ## 5. System architecture
 
-Streamlit UI -> LangGraph workflow -> (BM25 + Qdrant + structured filters +
+Streamlit UI -> LangGraph workflow -> (BM25 + FAISS + structured filters +
 RRF) -> optional cross-encoder rerank -> Qwen generation -> programmatic
 validation -> answer, retry, or fallback.
 
@@ -94,18 +93,18 @@ cannot cross a restaurant boundary by construction.
 
 ### E5: chunk-size comparison (hybrid retrieval, silver labels)
 
-| config | size | overlap | chunks | mean_tokens | chunks_with_multiple_markers | strict_success@k | strict_precision@k | strict_mrr | ndcg@k | points | seconds |
+| config | size | overlap | chunks | mean_tokens | chunks_with_multiple_markers | strict_success@k | strict_precision@k | strict_mrr | ndcg@k | index_bytes | seconds |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| C1 | 200 | 30 | 4132 | 211.600 | 0 | 0.333 | 0.117 | 0.229 | 0.417 | 4132 | 19.530 |
-| C2 | 400 | 60 | 2187 | 379.500 | 0 | 0.500 | 0.100 | 0.350 | 0.421 | 2187 | 19.930 |
-| C3 | 600 | 90 | 1511 | 534.200 | 0 | 0.500 | 0.167 | 0.306 | 0.444 | 1511 | 18.000 |
-| C4 | 800 | 120 | 1116 | 701.300 | 0 | 0.583 | 0.150 | 0.271 | 0.427 | 1116 | 14.750 |
+| C1 | 200 | 30 | 4132 | 211.600 | 0 | 0.333 | 0.117 | 0.229 | 0.420 | 6346797 | 17.620 |
+| C2 | 400 | 60 | 2187 | 379.500 | 0 | 0.500 | 0.100 | 0.350 | 0.421 | 3359277 | 17.660 |
+| C3 | 600 | 90 | 1511 | 534.200 | 0 | 0.500 | 0.150 | 0.306 | 0.437 | 2320941 | 14.260 |
+| C4 | 800 | 120 | 1116 | 701.300 | 0 | 0.583 | 0.150 | 0.271 | 0.427 | 1714221 | 10.760 |
 
 Selected: **C3** by nDCG@5.
 
 ## 7. Retrieval
 
-Modes compared: E1 BM25, E2 dense BGE + Qdrant, E3 hybrid RRF, E4 hybrid +
+Modes compared: E1 BM25, E2 dense BGE + FAISS, E3 hybrid RRF, E4 hybrid +
 cross-encoder, and E4 plus a quality prior. Metrics are restaurant-level.
 `strict` means the rubric's top-10; `any` means any constraint-satisfying result.
 
@@ -113,7 +112,7 @@ cross-encoder, and E4 plus a quality prior. Metrics are restaurant-level.
 |---|---|---|---|---|---|
 | bm25 | 0.250 | 0.100 | 0.183 | 0.406 | 1.000 |
 | dense | 0.333 | 0.117 | 0.292 | 0.428 | 1.000 |
-| hybrid | 0.500 | 0.167 | 0.306 | 0.444 | 1.000 |
+| hybrid | 0.500 | 0.150 | 0.306 | 0.437 | 1.000 |
 | hybrid_rerank | 0.333 | 0.083 | 0.114 | 0.380 | 1.000 |
 | hybrid_rerank_quality | 0.333 | 0.083 | 0.174 | 0.390 | 1.000 |
 
@@ -122,17 +121,6 @@ MRR over dense alone. The cross-encoder did not improve nDCG@5 against a
 quality-oriented gold set; this is reported as a negative result rather than tuned
 away. The labels are silver and require human review before strong claims.
 
-### E12: exact vs HNSW storage backend
-
-| Metric | Value |
-|---|---|
-| Collection | dinewise_chunks_C3 |
-| Points | 1511 |
-| Mean Recall@10 vs exact | 1.000 |
-| Mean nDCG@5 (HNSW) | 0.423 |
-| Mean exact latency | 4.51 ms |
-| Mean HNSW latency | 4.08 ms |
-
 ## 8. Generation and workflow
 
 The LangGraph workflow classifies scope, extracts constraints, retrieves, filters,
@@ -140,18 +128,18 @@ generates, validates, retries once if needed, and falls back otherwise.
 
 | ID | Facet | Outcome | Passed | Retries | Hits | Seconds |
 |---|---|---|---|---|---|---|
-| Q01 | cuisine | answered | True | 0 | 5 | 9.18 |
-| Q02 | budget | answered | True | 0 | 5 | 5.43 |
-| Q03 | review_aspect | answered | True | 0 | 5 | 5.35 |
-| Q04 | ambience | answered | True | 0 | 5 | 5.07 |
-| Q05 | personalization | answered | True | 0 | 5 | 5.17 |
-| Q06 | comparison | answered | True | 0 | 5 | 5.24 |
-| Q07 | dessert | answered | True | 0 | 5 | 5.06 |
-| Q08 | dietary | answered | True | 0 | 5 | 4.99 |
-| Q09 | image | answered | True | 0 | 5 | 4.88 |
-| Q10 | visual | answered | True | 0 | 5 | 5.03 |
-| Q11 | ranking | answered | True | 0 | 5 | 4.99 |
-| Q12 | multi_constraint | answered | True | 0 | 5 | 5.05 |
+| Q01 | cuisine | answered | True | 0 | 5 | 11.03 |
+| Q02 | budget | answered | True | 0 | 5 | 5.51 |
+| Q03 | review_aspect | answered | True | 0 | 5 | 6.68 |
+| Q04 | ambience | answered | True | 0 | 5 | 5.98 |
+| Q05 | personalization | answered | True | 0 | 5 | 6.61 |
+| Q06 | comparison | answered | True | 0 | 5 | 7.02 |
+| Q07 | dessert | answered | True | 0 | 5 | 6.8 |
+| Q08 | dietary | answered | True | 0 | 5 | 7.09 |
+| Q09 | image | answered | True | 0 | 5 | 6.64 |
+| Q10 | visual | answered | True | 0 | 5 | 7.03 |
+| Q11 | ranking | answered | True | 0 | 5 | 6.13 |
+| Q12 | multi_constraint | answered | True | 0 | 5 | 6.62 |
 | Q13 | out_of_scope | refused | False | 0 | 0 | 0.0 |
 | Q14 | out_of_scope | fallback | False | 0 | 0 | 0.0 |
 | Q15 | unsupported | fallback | False | 0 | 0 | 0.0 |
@@ -164,7 +152,7 @@ generates, validates, retries once if needed, and falls back otherwise.
   "fallbacks": 3,
   "validation_passed": 12,
   "retries": 0,
-  "mean_seconds": 4.36
+  "mean_seconds": 5.54
 }
 
 ## 9. Visual retrieval
@@ -283,14 +271,13 @@ The next step is to replace silver labels with human judgments and re-run E1-E5.
 ## Reproducibility
 
 ```bash
-make setup && make db-up && make check
+make setup && make check
 make download && make prep && make docs
 make index && make bm25
 make queries && make experiments
 .venv/bin/python scripts/11_build_goldset.py
 .venv/bin/python scripts/12_retrieval_metrics.py
 .venv/bin/python scripts/13_chunking_experiments.py
-.venv/bin/python scripts/21_backend_experiment.py
 .venv/bin/python scripts/14_run_graph.py
 .venv/bin/python scripts/15_visual_experiments.py
 .venv/bin/python scripts/16_build_lora_data.py

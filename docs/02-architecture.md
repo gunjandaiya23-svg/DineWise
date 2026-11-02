@@ -31,7 +31,7 @@
         │                       │                        │
 ┌───────▼────────┐   ┌──────────▼─────────┐   ┌──────────▼─────────┐
 │ Retrieval      │   │ Evidence layer     │   │ Generation         │
-│ Qdrant (BGE)   │   │ BM25 over candidate│   │ Qwen2.5-1.5B       │
+│ FAISS (BGE)    │   │ BM25 over candidate│   │ Qwen2.5-1.5B       │
 │ BM25 (rank)    │   │ restaurants' raw   │   │ schema-constrained │
 │ attribute      │   │ reviews → quotes   │   │ decoding + repair  │
 │ filters        │   │ with review_id     │   │                    │
@@ -40,7 +40,7 @@
         │                       │                        │
 ┌───────▼───────────────────────▼────────────────────────▼─────────┐
 │ Data layer                                                        │
-│ restaurants.parquet · reviews.parquet · doc chunks · Qdrant collections   │
+│ restaurants.parquet · reviews.parquet · doc chunks · FAISS index   │
 │ · BM25 corpus · CLIP text index · photo metadata                   │
 └───────────────────────────────────────────────────────────────────┘
 ```

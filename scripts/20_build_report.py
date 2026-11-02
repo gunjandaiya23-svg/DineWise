@@ -25,7 +25,6 @@ TABLES = {
     "efficiency": "efficiency_E8_latest.md",
     "graph": "graph_E9_latest.md",
     "queries": "query15_latest.md",
-    "backend": "backend_E12_latest.md",
 }
 
 
@@ -119,14 +118,13 @@ structured dietary fields, and LLM-generated review/photo summaries.
 | VRAM | {env.get('cuda', {}).get('total_memory_gb', 'n/a')} GB |
 | CUDA / torch | {env.get('cuda', {}).get('torch_cuda', 'n/a')} / {env.get('packages', {}).get('torch', 'n/a')} |
 | Embedding model | {cfg['embedding']['model']} |
-| Vector store | Qdrant at {cfg['vector_store']['url']} |
 | Generator | {cfg['models']['llm']} |
 | Reranker | {cfg['models']['reranker']} |
 | CLIP | {cfg['models']['clip']} |
 
 ## 5. System architecture
 
-Streamlit UI -> LangGraph workflow -> (BM25 + Qdrant + structured filters +
+Streamlit UI -> LangGraph workflow -> (BM25 + FAISS + structured filters +
 RRF) -> optional cross-encoder rerank -> Qwen generation -> programmatic
 validation -> answer, retry, or fallback.
 
@@ -148,7 +146,7 @@ cannot cross a restaurant boundary by construction.
 
 ## 7. Retrieval
 
-Modes compared: E1 BM25, E2 dense BGE + Qdrant, E3 hybrid RRF, E4 hybrid +
+Modes compared: E1 BM25, E2 dense BGE + FAISS, E3 hybrid RRF, E4 hybrid +
 cross-encoder, and E4 plus a quality prior. Metrics are restaurant-level.
 `strict` means the rubric's top-10; `any` means any constraint-satisfying result.
 
@@ -158,10 +156,6 @@ Interpretation: hybrid retrieval satisfies every hard constraint and improves
 MRR over dense alone. The cross-encoder did not improve nDCG@5 against a
 quality-oriented gold set; this is reported as a negative result rather than tuned
 away. The labels are silver and require human review before strong claims.
-
-### E12: exact vs HNSW storage backend
-
-{read_table('backend')}
 
 ## 8. Generation and workflow
 
@@ -249,14 +243,13 @@ The next step is to replace silver labels with human judgments and re-run E1-E5.
 ## Reproducibility
 
 ```bash
-make setup && make db-up && make check
+make setup && make check
 make download && make prep && make docs
 make index && make bm25
 make queries && make experiments
 .venv/bin/python scripts/11_build_goldset.py
 .venv/bin/python scripts/12_retrieval_metrics.py
 .venv/bin/python scripts/13_chunking_experiments.py
-.venv/bin/python scripts/21_backend_experiment.py
 .venv/bin/python scripts/14_run_graph.py
 .venv/bin/python scripts/15_visual_experiments.py
 .venv/bin/python scripts/16_build_lora_data.py

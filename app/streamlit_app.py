@@ -17,7 +17,6 @@ from dinewise.image.visual_index import build_visual_index  # noqa: E402
 from dinewise.llm.generator import Generator  # noqa: E402
 from dinewise.rag.bm25_index import load_bm25  # noqa: E402
 from dinewise.rag.search import load_retriever  # noqa: E402
-from dinewise.rag.vectorstore import load_chunks, store_from_config  # noqa: E402
 
 CITIES = ["Philadelphia"]
 CUISINES = [
@@ -31,7 +30,7 @@ def load_assets():
     cfg = load_config()
     name = cfg["chunking"]["active"]
     restaurants = pd.read_parquet(data_path(cfg, "processed_dir", "restaurants.parquet"))
-    chunks = load_chunks(cfg, name)
+    chunks = pd.read_parquet(data_path(cfg, "index_dir", "faiss", name, "chunks.parquet"))
     retriever = load_retriever(cfg, name)
     bm25 = load_bm25(cfg, name)
     return cfg, restaurants, chunks, retriever, bm25
@@ -47,9 +46,7 @@ def load_graph(use_llm: bool):
 @st.cache_resource(show_spinner="Building visual index ...")
 def load_visual():
     cfg, restaurants, _, _, _ = load_assets()
-    return build_visual_index(
-        restaurants, load_retriever(cfg).model, store_from_config(cfg)
-    )
+    return build_visual_index(restaurants, load_retriever(cfg).model)
 
 
 def effective_query(query: str, profile: dict) -> str:

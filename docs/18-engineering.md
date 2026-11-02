@@ -28,7 +28,7 @@ DineWise/
 │   ├── raw/                  # downloaded CSVs, gitignored
 │   ├── processed/            # parquet tables, gitignored
 │   ├── docs/                 # TXT, PDF, DOCX
-│   └── indexes/              # Qdrant manifests, BM25, chunk cache
+│   └── indexes/              # FAISS, BM25, embeddings cache
 ├── src/dinewise/
 │   ├── __init__.py
 │   ├── config.py
@@ -45,7 +45,7 @@ DineWise/
 │   │   ├── loaders.py
 │   │   ├── chunking.py
 │   │   ├── embeddings.py
-│   │   ├── vectorstore.py
+│   │   ├── faiss_index.py
 │   │   ├── bm25_index.py
 │   │   ├── collapse.py
 │   │   ├── fusion.py
@@ -194,7 +194,7 @@ Every script that produces results writes `results/runs/<run_id>/manifest.json`:
   "config_hash": "sha256:...",
   "git_commit": "...",
   "python": "3.12.x",
-  "packages": {"torch": "...", "transformers": "...", "qdrant-client": "..."},
+  "packages": {"torch": "...", "transformers": "...", "faiss-cpu": "..."},
   "gpu": "NVIDIA GeForce RTX 4060 Laptop",
   "seed": 42,
   "dataset_hash": "sha256:...",

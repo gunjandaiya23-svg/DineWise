@@ -25,7 +25,6 @@ from dinewise.rag.bm25_index import load_bm25  # noqa: E402
 from dinewise.rag.constraints import Constraints  # noqa: E402
 from dinewise.rag.pipeline import retrieve_with_config  # noqa: E402
 from dinewise.rag.search import load_retriever  # noqa: E402
-from dinewise.rag.vectorstore import load_chunks  # noqa: E402
 
 CONFIGS = [
     ("M1_fp16", "fp16", False),
@@ -66,7 +65,7 @@ def main() -> int:
     cfg = load_config(args.config)
     name = cfg["chunking"]["active"]
     restaurants = pd.read_parquet(data_path(cfg, "processed_dir", "restaurants.parquet"))
-    chunks = load_chunks(cfg, name)
+    chunks = pd.read_parquet(data_path(cfg, "index_dir", "faiss", name, "chunks.parquet"))
     retriever = load_retriever(cfg, name)
     bm25 = load_bm25(cfg, name)
 

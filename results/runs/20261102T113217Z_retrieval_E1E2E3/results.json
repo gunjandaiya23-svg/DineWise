@@ -1,0 +1,1021 @@
+{
+  "experiment": "E1/E2/E3",
+  "chunk_config": "C3",
+  "pool": 30,
+  "k": 5,
+  "queries": [
+    {
+      "query_id": "Q01",
+      "facet": "cuisine",
+      "query": "Find Italian restaurants with good reviews in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "4_VDvhKpKSsj7jZYdocZYA",
+            "j99PtxlKTW_u5alE4jiqHQ",
+            "Vnagnur1os0ZduOpvDH27A",
+            "erz6oUEJdx787WyOlxMARw",
+            "ozOneB4jXOD6hv5WBGj4KQ"
+          ],
+          "names": [
+            "La Viola",
+            "Ralphs Italian Restaurant",
+            "Villa Di Roma",
+            "Dante & Luigi's",
+            "Ristorante Pesto"
+          ],
+          "timings": {
+            "search": 0.0021448900001814764
+          },
+          "wall_seconds": 0.013,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "dYinIkKBspHV5hSaukklFg",
+            "4_VDvhKpKSsj7jZYdocZYA",
+            "2WGnykxiM-Mp-qIm2u7iAw",
+            "Vnagnur1os0ZduOpvDH27A",
+            "9_B5sCqKBOKDAmYpByiFFg"
+          ],
+          "names": [
+            "L'Angolo Ristorante",
+            "La Viola",
+            "Maggiano's Little Italy",
+            "Villa Di Roma",
+            "Branzino Italian Ristorante"
+          ],
+          "timings": {
+            "search": 0.122061948999999
+          },
+          "wall_seconds": 0.129,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "4_VDvhKpKSsj7jZYdocZYA",
+            "Vnagnur1os0ZduOpvDH27A",
+            "ozOneB4jXOD6hv5WBGj4KQ",
+            "j99PtxlKTW_u5alE4jiqHQ",
+            "2WGnykxiM-Mp-qIm2u7iAw"
+          ],
+          "names": [
+            "La Viola",
+            "Villa Di Roma",
+            "Ristorante Pesto",
+            "Ralphs Italian Restaurant",
+            "Maggiano's Little Italy"
+          ],
+          "timings": {
+            "dense": 0.006368782000208739,
+            "bm25": 0.0021854019996681018,
+            "fusion": 0.005493263000062143
+          },
+          "wall_seconds": 0.02,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.25,
+        "dense_hybrid_jaccard": 0.429,
+        "bm25_hybrid_jaccard": 0.667,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q02",
+      "facet": "budget",
+      "query": "Recommend restaurants under $$ in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "8yZzf0gdWpSmY6ziyq7hKQ",
+            "-UJ7ZTb3zfmqZogmy3fnGg",
+            "GWv1-6HFvZf4cOy1J6_CKQ",
+            "lWedWkinrM5j13pyimbpbA",
+            "KVFUBgmPEHGUaJNkpMGcLw"
+          ],
+          "names": [
+            "Sazon Restaurant & Cafe",
+            "Bellini",
+            "Taqueria Feliz",
+            "Miles Table",
+            "Opa"
+          ],
+          "timings": {
+            "search": 0.0011976869996033201
+          },
+          "wall_seconds": 0.006,
+          "candidates_after_filter": 439,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "ILvJAuSP0sYWJKAQ-Goh4Q",
+            "4_VDvhKpKSsj7jZYdocZYA",
+            "s2JiYzE7i68cXIV6YEcVTw",
+            "NUJrCPU51Cvip4ayZD1P5g",
+            "4hv1n1VBzMvE-T4UtIcOcw"
+          ],
+          "names": [
+            "Kensington Quarters",
+            "La Viola",
+            "Local 44",
+            "Jose Pistola's",
+            "Di Bruno Bros."
+          ],
+          "timings": {
+            "search": 0.0063338969998767425
+          },
+          "wall_seconds": 0.01,
+          "candidates_after_filter": 439,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "8yZzf0gdWpSmY6ziyq7hKQ",
+            "ILvJAuSP0sYWJKAQ-Goh4Q",
+            "4_VDvhKpKSsj7jZYdocZYA",
+            "-UJ7ZTb3zfmqZogmy3fnGg",
+            "GWv1-6HFvZf4cOy1J6_CKQ"
+          ],
+          "names": [
+            "Sazon Restaurant & Cafe",
+            "Kensington Quarters",
+            "La Viola",
+            "Bellini",
+            "Taqueria Feliz"
+          ],
+          "timings": {
+            "dense": 0.006014741999933904,
+            "bm25": 0.0011661240000648831,
+            "fusion": 0.006279165999785619
+          },
+          "wall_seconds": 0.016,
+          "candidates_after_filter": 439,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.0,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.429,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q03",
+      "facet": "review_aspect",
+      "query": "Which restaurants have the best food quality according to reviews?",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "DZglT5FP5VNDQJU3PuRIHw",
+            "mtvT7uRey3F395STFRM1Tg",
+            "S8ZFYEgMejpChID8tzKo9A",
+            "oziGQYLaEWOpNmPKrZP86g",
+            "G9LZoNlCfRH941q87_JLIg"
+          ],
+          "names": [
+            "La Calaca Feliz",
+            "Vernick Food & Drink",
+            "Amada",
+            "Isgro Pastries",
+            "Mission Taqueria"
+          ],
+          "timings": {
+            "search": 0.0021841339998900366
+          },
+          "wall_seconds": 0.004,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "PYUI1OJVksGUbCrteU68bw",
+            "9mA9qYqiv4c0T9ASid3PIQ",
+            "9Qe5ib0bCgRITjYn-iA-Bg",
+            "40O7uKX-uAG_JDrS-OM85w"
+          ],
+          "names": [
+            "a.kitchen",
+            "Bourbon & Branch",
+            "The Capital Grille",
+            "Legal Sea Foods",
+            "Umai Umai"
+          ],
+          "timings": {
+            "search": 0.006318874000044161
+          },
+          "wall_seconds": 0.008,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "6zEWIsb6Lhr3BeoC3gm1lw",
+            "dQZlvOEVNke30MY5iTiy1g",
+            "gjFUrbSMo1rA1jgG5IhA2A",
+            "DZglT5FP5VNDQJU3PuRIHw",
+            "3eJMsl41qwhcYlvoTF1ElQ"
+          ],
+          "names": [
+            "Chickie's and Pete's",
+            "Davios",
+            "Chima Steakhouse",
+            "La Calaca Feliz",
+            "a.kitchen"
+          ],
+          "timings": {
+            "dense": 0.00608777800016469,
+            "bm25": 0.0021608950000882032,
+            "fusion": 0.0067193949998909375
+          },
+          "wall_seconds": 0.016,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.0,
+        "dense_hybrid_jaccard": 0.111,
+        "bm25_hybrid_jaccard": 0.111,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q04",
+      "facet": "ambience",
+      "query": "Find restaurants with positive ambience reviews in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "VP8HMhVt-pKmqGNmDW4-TQ",
+            "ldr7iDtxFXX-q7tJuXqlGQ",
+            "YqmClmk7oLcDzPWKHzgA-Q",
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "3ldp8B52AOzNSFnPMAY0ww"
+          ],
+          "names": [
+            "Nom Wah Philadelphia",
+            "Revolution House",
+            "South Philadelphia Tap Room",
+            "a.kitchen",
+            "Fette Sau"
+          ],
+          "timings": {
+            "search": 0.002036641999893618
+          },
+          "wall_seconds": 0.004,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "L_Rwy6oSAnMUY3NCDspxmA",
+            "73UjNbSoQjQAOS45rcihFg",
+            "ELY0HI8GDEx0jkmREVna0A",
+            "dChRGpit9fM_kZK5pafNyA",
+            "h7n599RGtvFLmLycugT2MQ"
+          ],
+          "names": [
+            "The Good King Tavern",
+            "Cantina Dos Segundos",
+            "Frankford Hall",
+            "The Love",
+            "Warmdaddy's"
+          ],
+          "timings": {
+            "search": 0.00638636099984069
+          },
+          "wall_seconds": 0.008,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "VP8HMhVt-pKmqGNmDW4-TQ",
+            "L_Rwy6oSAnMUY3NCDspxmA",
+            "73UjNbSoQjQAOS45rcihFg",
+            "ldr7iDtxFXX-q7tJuXqlGQ"
+          ],
+          "names": [
+            "a.kitchen",
+            "Nom Wah Philadelphia",
+            "The Good King Tavern",
+            "Cantina Dos Segundos",
+            "Revolution House"
+          ],
+          "timings": {
+            "dense": 0.00637188500013508,
+            "bm25": 0.0020934979997946357,
+            "fusion": 0.0073987340001622215
+          },
+          "wall_seconds": 0.017,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.0,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.429,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q05",
+      "facet": "personalization",
+      "query": "Recommend a restaurant for a family dinner in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "ozOneB4jXOD6hv5WBGj4KQ",
+            "RZtGWDLCAtuipwaZ-UfjmQ",
+            "T8NWs6flR26edfhhwJNhNA",
+            "Ldch7Nc5gaZrhcIRd7mcjw",
+            "rgSHLh2Le0Un82FDxbq0mg"
+          ],
+          "names": [
+            "Ristorante Pesto",
+            "LaScala's",
+            "Sahara Grill",
+            "Kabuki Sushi",
+            "The Little Lion"
+          ],
+          "timings": {
+            "search": 0.0018754889997580904
+          },
+          "wall_seconds": 0.007,
+          "candidates_after_filter": 202,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "HPqTJ_yF2ZJw87yHWnSzSg",
+            "2WGnykxiM-Mp-qIm2u7iAw",
+            "KHQXmUFiAD0FHvrMSakJBA",
+            "rgSHLh2Le0Un82FDxbq0mg",
+            "7pAgxBMUjrVPH7xh3fn-gw"
+          ],
+          "names": [
+            "City Tavern Restaurant",
+            "Maggiano's Little Italy",
+            "Fare",
+            "The Little Lion",
+            "Oh Brother Philly"
+          ],
+          "timings": {
+            "search": 0.006724602000304003
+          },
+          "wall_seconds": 0.012,
+          "candidates_after_filter": 202,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "rgSHLh2Le0Un82FDxbq0mg",
+            "KHQXmUFiAD0FHvrMSakJBA",
+            "j99PtxlKTW_u5alE4jiqHQ",
+            "7yPzOek7Af2dKWGYKpcHWA",
+            "ozOneB4jXOD6hv5WBGj4KQ"
+          ],
+          "names": [
+            "The Little Lion",
+            "Fare",
+            "Ralphs Italian Restaurant",
+            "Khmer Kitchen",
+            "Ristorante Pesto"
+          ],
+          "timings": {
+            "dense": 0.006382626999766217,
+            "bm25": 0.0017823460002546199,
+            "fusion": 0.004809788000329718
+          },
+          "wall_seconds": 0.017,
+          "candidates_after_filter": 202,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.111,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.25,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q06",
+      "facet": "comparison",
+      "query": "Compare two Italian restaurants in Philadelphia based on reviews.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "4_VDvhKpKSsj7jZYdocZYA",
+            "Vnagnur1os0ZduOpvDH27A",
+            "AlxnbBd2JNkozNvI0OvRLQ",
+            "j99PtxlKTW_u5alE4jiqHQ",
+            "erz6oUEJdx787WyOlxMARw"
+          ],
+          "names": [
+            "La Viola",
+            "Villa Di Roma",
+            "Murph's Bar",
+            "Ralphs Italian Restaurant",
+            "Dante & Luigi's"
+          ],
+          "timings": {
+            "search": 0.0022829590002402256
+          },
+          "wall_seconds": 0.009,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "dYinIkKBspHV5hSaukklFg",
+            "3lBooCffgkW7tVSG5kILBA",
+            "4_VDvhKpKSsj7jZYdocZYA",
+            "2WGnykxiM-Mp-qIm2u7iAw",
+            "9_B5sCqKBOKDAmYpByiFFg"
+          ],
+          "names": [
+            "L'Angolo Ristorante",
+            "Porcini",
+            "La Viola",
+            "Maggiano's Little Italy",
+            "Branzino Italian Ristorante"
+          ],
+          "timings": {
+            "search": 0.006585937999716407
+          },
+          "wall_seconds": 0.013,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "4_VDvhKpKSsj7jZYdocZYA",
+            "Vnagnur1os0ZduOpvDH27A",
+            "ozOneB4jXOD6hv5WBGj4KQ",
+            "Wtr51cNrv1pYyIRg_IawYQ",
+            "AlxnbBd2JNkozNvI0OvRLQ"
+          ],
+          "names": [
+            "La Viola",
+            "Villa Di Roma",
+            "Ristorante Pesto",
+            "The Victor Cafe",
+            "Murph's Bar"
+          ],
+          "timings": {
+            "dense": 0.006554405000315455,
+            "bm25": 0.0022027079999134003,
+            "fusion": 0.0055972879999899305
+          },
+          "wall_seconds": 0.02,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.111,
+        "dense_hybrid_jaccard": 0.111,
+        "bm25_hybrid_jaccard": 0.429,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q07",
+      "facet": "dessert",
+      "query": "Which restaurants in Philadelphia are praised for their desserts?",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "G9LZoNlCfRH941q87_JLIg",
+            "vVfy055EfLMdd0yJYHxiMQ",
+            "QWZuvqTYTMncVdhulUU73A",
+            "gEX_kEhYgvLKGJtlY45BmQ",
+            "u7_3L1NBWgxhBM_B-cmmnA"
+          ],
+          "names": [
+            "Mission Taqueria",
+            "A La Mousse",
+            "Miel Patisserie",
+            "Rangoon Burmese Restaurant",
+            "Pizzeria Vetri"
+          ],
+          "timings": {
+            "search": 0.0013804179998260224
+          },
+          "wall_seconds": 0.003,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "qjGS_7iaQDpbVhS6W8qkHQ",
+            "jkGQQ4_LgJx3hwPtCFkzbQ",
+            "vVfy055EfLMdd0yJYHxiMQ",
+            "U2y7fsqDgxAXskoJNVxbwg",
+            "atZ_olNKXOG4rEr6mccN8g"
+          ],
+          "names": [
+            "The Sweet Life Bakeshop",
+            "Max Brenner - Philadelphia",
+            "A La Mousse",
+            "Happily Ever After",
+            "Beiler's Bakery"
+          ],
+          "timings": {
+            "search": 0.00637964199995622
+          },
+          "wall_seconds": 0.008,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "qjGS_7iaQDpbVhS6W8qkHQ",
+            "vVfy055EfLMdd0yJYHxiMQ",
+            "U2y7fsqDgxAXskoJNVxbwg",
+            "qcguEeAMP0XwFLYqhwX2hg",
+            "I2ISRV7IybkMc3HEYKUE9g"
+          ],
+          "names": [
+            "The Sweet Life Bakeshop",
+            "A La Mousse",
+            "Happily Ever After",
+            "Sweet Freedom Bakery",
+            "Audrey Claire"
+          ],
+          "timings": {
+            "dense": 0.006055400000150257,
+            "bm25": 0.0014696999996886007,
+            "fusion": 0.13828544099987994
+          },
+          "wall_seconds": 0.147,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.111,
+        "dense_hybrid_jaccard": 0.429,
+        "bm25_hybrid_jaccard": 0.111,
+        "same_top1_dense_hybrid": true,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q08",
+      "facet": "dietary",
+      "query": "Find restaurants with vegetarian options in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "YN4Kk751tmdvoarGo8z7_A",
+            "UQZ4p6xb_7gY7UXHmBzceg",
+            "oyA87-Q_vqnmxVOn_auJQQ",
+            "YqmClmk7oLcDzPWKHzgA-Q",
+            "muCelHtTlX5PrJd8JKkf_w"
+          ],
+          "names": [
+            "New Delhi Indian Restaurant",
+            "Tom's Dim Sum",
+            "Spice C",
+            "South Philadelphia Tap Room",
+            "New Harmony Vegetarian Restaurant"
+          ],
+          "timings": {
+            "search": 0.0017178709999825514
+          },
+          "wall_seconds": 0.004,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "2CDI713ATuxHfnB5b-sBdw",
+            "LnZvGYbqozanOSevcftnrw",
+            "JPfe9B-RLrE5Nz75kcKImQ",
+            "phsLOuBeiYI43hglvWK96Q",
+            "i_FWONQD1ZBqrNE2b-M5Ug"
+          ],
+          "names": [
+            "Vedge",
+            "HipCityVeg - University City",
+            "Govinda's Vegetarian",
+            "P S & Co",
+            "Talula's Garden"
+          ],
+          "timings": {
+            "search": 0.006311122999704821
+          },
+          "wall_seconds": 0.008,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "LnZvGYbqozanOSevcftnrw",
+            "2CDI713ATuxHfnB5b-sBdw",
+            "LgAuYz5cQe3zTxuteJ4VyQ",
+            "muCelHtTlX5PrJd8JKkf_w",
+            "hkirr3WzSTx2d9cdP_NKSQ"
+          ],
+          "names": [
+            "HipCityVeg - University City",
+            "Vedge",
+            "Fuel Center City",
+            "New Harmony Vegetarian Restaurant",
+            "Mama's Vegetarian"
+          ],
+          "timings": {
+            "dense": 0.006098353999732353,
+            "bm25": 0.0017564559998390905,
+            "fusion": 0.006674862000181747
+          },
+          "wall_seconds": 0.016,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.0,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.111,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q09",
+      "facet": "image",
+      "query": "Show restaurants similar to this uploaded pizza photo in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "M_EpyAH1CZZVlhxfYBLOqg",
+            "mBgaPljP3OYkl_vGKTyFNw",
+            "elSnD7Vuxnlg5_9gTqBqmA",
+            "wuH4TPUo8oJo4E59xZKsNg",
+            "u7_3L1NBWgxhBM_B-cmmnA"
+          ],
+          "names": [
+            "Nomad Pizza Company",
+            "LaScala's Birra",
+            "Barra Rossa Ristorante",
+            "&pizza - Walnut",
+            "Pizzeria Vetri"
+          ],
+          "timings": {
+            "search": 0.0021586569996543403
+          },
+          "wall_seconds": 0.009,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "u7_3L1NBWgxhBM_B-cmmnA",
+            "wuH4TPUo8oJo4E59xZKsNg",
+            "fN12ywQpLXQ93bpwe1N_Ww",
+            "Vnagnur1os0ZduOpvDH27A",
+            "gQCKrqkalAc--4cuW_C_Ow"
+          ],
+          "names": [
+            "Pizzeria Vetri",
+            "&pizza - Walnut",
+            "Pietro's Coal Oven Pizzeria",
+            "Villa Di Roma",
+            "Tacconelli's Pizzeria"
+          ],
+          "timings": {
+            "search": 0.006607803999941098
+          },
+          "wall_seconds": 0.014,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "u7_3L1NBWgxhBM_B-cmmnA",
+            "wuH4TPUo8oJo4E59xZKsNg",
+            "fN12ywQpLXQ93bpwe1N_Ww",
+            "g2zwbLIqxtN9nGGuL43trg",
+            "FD7gMovIYQmhdn23Iq91zQ"
+          ],
+          "names": [
+            "Pizzeria Vetri",
+            "&pizza - Walnut",
+            "Pietro's Coal Oven Pizzeria",
+            "Pizza Brain",
+            "Lorenzo & Sons Pizza"
+          ],
+          "timings": {
+            "dense": 0.006389581999883376,
+            "bm25": 0.0020994510000491573,
+            "fusion": 0.005088307999812969
+          },
+          "wall_seconds": 0.019,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.25,
+        "dense_hybrid_jaccard": 0.429,
+        "bm25_hybrid_jaccard": 0.25,
+        "same_top1_dense_hybrid": true,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q10",
+      "facet": "visual",
+      "query": "Find restaurants with attractive interiors in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "T_6e0SgNuKotySgVS8O1UQ",
+            "hkirr3WzSTx2d9cdP_NKSQ",
+            "tcvNBC65Gsa4cH1_gyucpQ",
+            "q1VOESxR99qJvpubnNxyJQ",
+            "PYUI1OJVksGUbCrteU68bw"
+          ],
+          "names": [
+            "Fond",
+            "Mama's Vegetarian",
+            "Noord",
+            "Caribou Cafe",
+            "Bourbon & Branch"
+          ],
+          "timings": {
+            "search": 0.0017404670002179046
+          },
+          "wall_seconds": 0.004,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "T_6e0SgNuKotySgVS8O1UQ",
+            "4_VDvhKpKSsj7jZYdocZYA",
+            "dChRGpit9fM_kZK5pafNyA",
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "mBgaPljP3OYkl_vGKTyFNw"
+          ],
+          "names": [
+            "Fond",
+            "La Viola",
+            "The Love",
+            "a.kitchen",
+            "LaScala's Birra"
+          ],
+          "timings": {
+            "search": 0.006197639000220079
+          },
+          "wall_seconds": 0.008,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "T_6e0SgNuKotySgVS8O1UQ",
+            "hkirr3WzSTx2d9cdP_NKSQ",
+            "4_VDvhKpKSsj7jZYdocZYA",
+            "tcvNBC65Gsa4cH1_gyucpQ",
+            "dChRGpit9fM_kZK5pafNyA"
+          ],
+          "names": [
+            "Fond",
+            "Mama's Vegetarian",
+            "La Viola",
+            "Noord",
+            "The Love"
+          ],
+          "timings": {
+            "dense": 0.006370606000018597,
+            "bm25": 0.0017440159999750904,
+            "fusion": 0.007175792999987607
+          },
+          "wall_seconds": 0.016,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.111,
+        "dense_hybrid_jaccard": 0.429,
+        "bm25_hybrid_jaccard": 0.429,
+        "same_top1_dense_hybrid": true,
+        "same_top1_bm25_dense": true
+      }
+    },
+    {
+      "query_id": "Q11",
+      "facet": "ranking",
+      "query": "Which restaurant in Philadelphia offers the best value for money?",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "_LOJW0XkOpj4O348GVRDeQ",
+            "vuE1iseFrgNPumUEfHIZZQ",
+            "IcLm9Z1zphLnzUvrFK6aiA",
+            "_V6hl1oGkTV2KbGeax_HPA",
+            "YN4Kk751tmdvoarGo8z7_A"
+          ],
+          "names": [
+            "Zavino",
+            "JJ Thai Cuisine",
+            "Erawan Thai Cuisine",
+            "Sang Kee Peking Duck House",
+            "New Delhi Indian Restaurant"
+          ],
+          "timings": {
+            "search": 0.0019865480003318225
+          },
+          "wall_seconds": 0.004,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "cFSyJluKa2SHtgMMvlx6SQ",
+            "4hv1n1VBzMvE-T4UtIcOcw",
+            "T_6e0SgNuKotySgVS8O1UQ",
+            "oJxsRgj8Un9VAPXpaDuufA",
+            "NUJrCPU51Cvip4ayZD1P5g"
+          ],
+          "names": [
+            "Angelo's Pizzeria",
+            "Di Bruno Bros.",
+            "Fond",
+            "Bank & Bourbon",
+            "Jose Pistola's"
+          ],
+          "timings": {
+            "search": 0.00632611499986524
+          },
+          "wall_seconds": 0.008,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "_LOJW0XkOpj4O348GVRDeQ",
+            "jXtaxB2b64nA4uy13i024A",
+            "cFSyJluKa2SHtgMMvlx6SQ",
+            "vuE1iseFrgNPumUEfHIZZQ",
+            "4hv1n1VBzMvE-T4UtIcOcw"
+          ],
+          "names": [
+            "Zavino",
+            "Little Fish",
+            "Angelo's Pizzeria",
+            "JJ Thai Cuisine",
+            "Di Bruno Bros."
+          ],
+          "timings": {
+            "dense": 0.005988082999920152,
+            "bm25": 0.002002914999593486,
+            "fusion": 0.0071022570000423
+          },
+          "wall_seconds": 0.016,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.0,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.25,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q12",
+      "facet": "multi_constraint",
+      "query": "Family-friendly Mexican restaurant in Philadelphia under $$.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "jULIPydhMj18KOI5OHTwfA",
+            "qaDImxPguQz0jToNYvB1Eg",
+            "kVTHnhgYUw-Pmr7wgDB4_g",
+            "DZglT5FP5VNDQJU3PuRIHw",
+            "i6DlLLxZ2iwQRxhUDx3TTg"
+          ],
+          "names": [
+            "Buena Onda",
+            "Caf\u00e9 y Chocolate",
+            "Distrito",
+            "La Calaca Feliz",
+            "The Adobe Cafe"
+          ],
+          "timings": {
+            "search": 0.0018415519998598029
+          },
+          "wall_seconds": 0.012,
+          "candidates_after_filter": 20,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "Pl_9HzOa8uy_YOUxgonzGw",
+            "9PZxjhTIU7OgPIzuGi89Ew",
+            "qRgeV1CMZawRblc2qjHo_g",
+            "434A83c2ig6QxsZjrjclpQ",
+            "DZglT5FP5VNDQJU3PuRIHw"
+          ],
+          "names": [
+            "Los Gallos Mexican Taqueria",
+            "El Vez",
+            "El Jarocho",
+            "Las Margaritas",
+            "La Calaca Feliz"
+          ],
+          "timings": {
+            "search": 0.006475449999925331
+          },
+          "wall_seconds": 0.016,
+          "candidates_after_filter": 20,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "DZglT5FP5VNDQJU3PuRIHw",
+            "434A83c2ig6QxsZjrjclpQ",
+            "qRgeV1CMZawRblc2qjHo_g",
+            "Pl_9HzOa8uy_YOUxgonzGw",
+            "I5KZm-NnxYeEQsmp6nK5_w"
+          ],
+          "names": [
+            "La Calaca Feliz",
+            "Las Margaritas",
+            "El Jarocho",
+            "Los Gallos Mexican Taqueria",
+            "Las Cazuelas Restaurant BYOB"
+          ],
+          "timings": {
+            "dense": 0.006706425999709609,
+            "bm25": 0.0018147030000363884,
+            "fusion": 0.004865491000145994
+          },
+          "wall_seconds": 0.022,
+          "candidates_after_filter": 20,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.111,
+        "dense_hybrid_jaccard": 0.667,
+        "bm25_hybrid_jaccard": 0.111,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    }
+  ],
+  "summary": {
+    "modes": {
+      "bm25": {
+        "mean_wall_seconds": 0.007,
+        "max_wall_seconds": 0.013,
+        "queries_with_compliance_failure": 0,
+        "queries_with_empty_result": 0
+      },
+      "dense": {
+        "mean_wall_seconds": 0.02,
+        "max_wall_seconds": 0.129,
+        "queries_with_compliance_failure": 0,
+        "queries_with_empty_result": 0
+      },
+      "hybrid": {
+        "mean_wall_seconds": 0.028,
+        "max_wall_seconds": 0.147,
+        "queries_with_compliance_failure": 0,
+        "queries_with_empty_result": 0
+      }
+    },
+    "agreement_means": {
+      "bm25_dense_jaccard": 0.088,
+      "dense_hybrid_jaccard": 0.321,
+      "bm25_hybrid_jaccard": 0.298,
+      "same_top1_dense_hybrid": 3,
+      "same_top1_bm25_dense": 1
+    }
+  }
+}

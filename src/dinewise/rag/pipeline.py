@@ -17,7 +17,6 @@ from .filters import apply_filters
 from .fusion import collapse_to_restaurants, rrf_fuse
 from .rerank import quality_prior
 from .search import Retriever
-from .vectorstore import to_qdrant_filter
 
 
 def retrieve_filtered(
@@ -61,7 +60,7 @@ def retrieve_filtered(
     allowed, filter_counts = apply_filters(catalogue, constraints)
     allowed_ids = set(allowed["business_id"])
 
-    hits = retriever.search(query, k=pool, query_filter=to_qdrant_filter(constraints))
+    hits = retriever.search(query, k=pool)
     ranked: list[dict[str, Any]] = []
     seen: set[str] = set()
     skipped = 0
@@ -120,9 +119,7 @@ def _restrict_to_allowed(
         if business_id in seen or business_id not in allowed_ids:
             continue
         seen.add(business_id)
-        chunk = row.to_dict()
-        chunk["chunk_id"] = chunk_id
-        ranked.append({"score": 0.0, "chunk": chunk})
+        ranked.append({"score": 0.0, "chunk": row.to_dict()})
         if len(ranked) >= k:
             break
     return ranked
@@ -169,7 +166,7 @@ def retrieve_with_config(
 
     if mode == "dense":
         started = time.perf_counter()
-        chunk_hits = retriever.search(query, k=pool, query_filter=to_qdrant_filter(constraints))
+        chunk_hits = retriever.search(query, k=pool)
         timings["search"] = time.perf_counter() - started
         ranking = [str(hit["chunk"]["chunk_id"]) for hit in chunk_hits]
         hits = _restrict_to_allowed(ranking, chunks, allowed_ids, k)
@@ -181,7 +178,7 @@ def retrieve_with_config(
         hits = _restrict_to_allowed(ranking, chunks, allowed_ids, k)
     elif mode == "hybrid":
         started = time.perf_counter()
-        dense_hits = retriever.search(query, k=pool, query_filter=to_qdrant_filter(constraints))
+        dense_hits = retriever.search(query, k=pool)
         timings["dense"] = time.perf_counter() - started
         started = time.perf_counter()
         lexical_hits = bm25.search(query, k=pool)
@@ -206,7 +203,7 @@ def retrieve_with_config(
         timings["fusion"] = time.perf_counter() - started
     elif mode in {"hybrid_rerank", "hybrid_rerank_quality"}:
         started = time.perf_counter()
-        dense_hits = retriever.search(query, k=pool, query_filter=to_qdrant_filter(constraints))
+        dense_hits = retriever.search(query, k=pool)
         timings["dense"] = time.perf_counter() - started
         started = time.perf_counter()
         lexical_hits = bm25.search(query, k=pool)

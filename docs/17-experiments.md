@@ -13,7 +13,7 @@ Every experiment changes one major component. The corpus, gold set, and remainin
 |---|---|---|---|---|
 | E0 | Data pipeline (no model) | — | audit table, parse rate, coverage | Data quality baseline |
 | E1 | BM25 only | Corpus, queries | Success@5, P@5, MRR, nDCG@5, latency | Lexical baseline |
-| E2 | Dense only (BGE + Qdrant) | Same | Same | Semantic retrieval benefit |
+| E2 | Dense only (BGE + FAISS) | Same | Same | Semantic retrieval benefit |
 | E3 | Hybrid RRF (dense + BM25) | Same | Same | Fusion benefit |
 | E4 | Hybrid + cross-encoder rerank | Same | Same + rerank latency | Ranking improvement vs cost |
 | E5 | Chunking C1–C4 (on the best retriever from E1–E4) | Same queries, same embedding model | Chunk stats + retrieval + faithfulness | Chunking effect |
@@ -23,7 +23,6 @@ Every experiment changes one major component. The corpus, gold set, and remainin
 | E9 | Linear pipeline vs full LangGraph (validator + retry + fallback) | Same | Unsupported-claim rate, fallback accuracy, retry rate, latency | Value of orchestration |
 | E10 | Main corpus vs held-out cities (Nashville, Reno) | Same method | Metric degradation | Generalization |
 | E11 | Profile off vs on | Same | Preference satisfaction, nDCG@5 | Personalization value |
-| E12 | Qdrant exact vs HNSW | Same collection, queries | Recall@10, latency, nDCG@5 | Storage backend trade-off |
 
 Experiment dependencies:
 
@@ -34,7 +33,6 @@ Experiment dependencies:
 - E9 requires both a linear runner and the graph runner.
 - E10 requires a second index built over the held-out cities.
 - E11 requires the profile definitions.
-- E12 requires the chunk collection and the gold queries.
 
 Ordering: E0 → E1–E4 → E5 → E9 (with the best retriever) → E6 → E7 → E8 → E10 → E11. This front-loads the retrieval contribution, which is the strongest part of the project.
 

@@ -26,7 +26,6 @@ from dinewise.config import data_path, load_config  # noqa: E402
 from dinewise.eval.metrics import evaluate_ranking, mean_metrics  # noqa: E402
 from dinewise.image.clip import CUISINE_MAP, CLIPZeroShot  # noqa: E402
 from dinewise.image.visual_index import build_visual_index  # noqa: E402
-from dinewise.rag.vectorstore import store_from_config  # noqa: E402
 
 VISUAL_QUERIES: list[tuple[str, str, list[str]]] = [
     ("V01", "romantic interior for a date", ["romantic", "intimate", "candle", "cozy", "dim"]),
@@ -129,22 +128,9 @@ def main() -> int:
     parser.add_argument("--config", default=None)
     parser.add_argument("--clip-per-class", type=int, default=3)
     parser.add_argument("--skip-clip", action="store_true")
-    parser.add_argument(
-        "--clip-only",
-        action="store_true",
-        help="run CLIP evaluation only and write a standalone result",
-    )
     args = parser.parse_args()
 
     cfg = load_config(args.config)
-    if args.clip_only:
-        result = run_clip_eval(cfg, per_class=args.clip_per_class)
-        output = ROOT / "results" / "tables" / "clip_E6_latest.json"
-        output.parent.mkdir(parents=True, exist_ok=True)
-        output.write_text(json.dumps(result, indent=2) + "\n")
-        print(json.dumps(result, indent=2))
-        return 0
-
     restaurants = pd.read_parquet(data_path(cfg, "processed_dir", "restaurants.parquet"))
     model = SentenceTransformer(
         cfg["embedding"]["model"], device=cfg["embedding"]["device"]
@@ -152,8 +138,7 @@ def main() -> int:
     model.max_seq_length = int(cfg["embedding"]["max_seq_length"])
 
     started = time.perf_counter()
-    store = store_from_config(cfg)
-    retriever = build_visual_index(restaurants, model, store)
+    retriever = build_visual_index(restaurants, model)
     build_seconds = time.perf_counter() - started
     rows = retriever.rows
 
@@ -185,11 +170,7 @@ def main() -> int:
     }
 
     clip_result = {"status": "skipped"}
-    if args.skip_clip:
-        cached = ROOT / "results" / "tables" / "clip_E6_latest.json"
-        if cached.exists():
-            clip_result = json.loads(cached.read_text())
-    elif not args.skip_clip:
+    if not args.skip_clip:
         print("Running CLIP zero-shot evaluation ...")
         clip_result = run_clip_eval(cfg, per_class=args.clip_per_class)
         print(json.dumps(clip_result, indent=2))

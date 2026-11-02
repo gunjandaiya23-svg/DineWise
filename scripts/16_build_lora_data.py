@@ -26,7 +26,6 @@ from dinewise.rag.bm25_index import load_bm25  # noqa: E402
 from dinewise.rag.constraints import Constraints  # noqa: E402
 from dinewise.rag.pipeline import retrieve_with_config  # noqa: E402
 from dinewise.rag.search import load_retriever  # noqa: E402
-from dinewise.rag.vectorstore import load_chunks  # noqa: E402
 
 CUISINES = [
     "Italian", "Mexican", "Chinese", "Japanese", "Thai", "Indian",
@@ -127,7 +126,7 @@ def build_examples(n: int = 400, seed: int = 42) -> list[dict]:
     cfg = load_config(None)
     name = cfg["chunking"]["active"]
     restaurants = pd.read_parquet(data_path(cfg, "processed_dir", "restaurants.parquet"))
-    chunks = load_chunks(cfg, name)
+    chunks = pd.read_parquet(data_path(cfg, "index_dir", "faiss", name, "chunks.parquet"))
     retriever = load_retriever(cfg, name)
     bm25 = load_bm25(cfg, name)
     rng = random.Random(seed)
