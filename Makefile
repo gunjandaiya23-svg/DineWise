@@ -26,8 +26,14 @@ chunks:
 index: chunks
 	$(PY) scripts/05_build_index.py
 
-query:
-	$(PY) scripts/06_query.py "$(Q)"
+bm25:
+	$(PY) scripts/09_build_bm25.py
+
+queries:
+	$(PY) scripts/08_run_queries.py
+
+experiments:
+	$(PY) scripts/10_retrieval_experiments.py
 
 app:
 	$(PY) -m streamlit run app/streamlit_app.py

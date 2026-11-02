@@ -16,8 +16,8 @@ This is a research prototype over a static dataset. It is **not** a booking syst
 | P2 Documents | Done: TXT, PDF, DOCX generated |
 | P3 Chunking + index | Done: C2 chunks, BGE embeddings, FAISS |
 | P4 Retrieval + generation | Done: filtered retrieval, Qwen answer, validators, 15-query suite |
-| P5 BM25 + hybrid + reranker | Not started |
-| P6 Gold set + metrics | Not started (15 queries run, no relevance judgments yet) |
+| P5 BM25 + hybrid + reranker | BM25 + RRF done (E1–E3 harness); reranker not started |
+| P6 Gold set + metrics | Harness ready; relevance judgments not started |
 | P7 LangGraph + Streamlit | Not started |
 
 ### Pilot results (500 Philadelphia restaurants, filtered retrieval)
@@ -28,6 +28,7 @@ This is a research prototype over a static dataset. It is **not** a booking syst
 | Reviews | 75,323 |
 | Chunks (C2, 400/60) | 500, 0 cross-restaurant |
 | 15-query suite | 12 answered, 3 correctly refused (live availability, Las Vegas, rooftop pool) |
+| E1/E2/E3 comparison | BM25 vs dense Jaccard 0.128; dense vs hybrid 0.33; compliance 12/12 all modes |
 | Retrieval compliance | All answered queries satisfy hard constraints |
 | Generation check | Sampled answer: validation PASSED |
 
@@ -50,7 +51,9 @@ make prep         # clean the data and build data/processed/restaurants.parquet
 make docs         # generate TXT, PDF, and DOCX knowledge-base documents
 make chunks       # restaurant-aware token chunking
 make index        # BGE embeddings + FAISS index
-make query Q="Find Italian restaurants in Philadelphia"
+make bm25         # BM25 lexical index over the same chunks
+make queries      # 15-query suite (12 answered + 3 refusals)
+make experiments  # E1/E2/E3: BM25 vs dense vs hybrid comparison
 ```
 
 Then:

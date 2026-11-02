@@ -1,0 +1,1021 @@
+{
+  "experiment": "E1/E2/E3",
+  "chunk_config": "C2",
+  "pool": 30,
+  "k": 5,
+  "queries": [
+    {
+      "query_id": "Q01",
+      "facet": "cuisine",
+      "query": "Find Italian restaurants with good reviews in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "fN12ywQpLXQ93bpwe1N_Ww",
+            "RZtGWDLCAtuipwaZ-UfjmQ",
+            "3lBooCffgkW7tVSG5kILBA",
+            "gQCKrqkalAc--4cuW_C_Ow",
+            "DRr5xdfHtqgWfhmdTU1B8Q"
+          ],
+          "names": [
+            "Pietro's Coal Oven Pizzeria",
+            "LaScala's",
+            "Porcini",
+            "Tacconelli's Pizzeria",
+            "London Grill"
+          ],
+          "timings": {
+            "search": 0.0004668179990403587
+          },
+          "wall_seconds": 0.011,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "arKiXax3ScSM_z3O-0CIyw",
+            "sVZb87xjhbCWHQ2UXOGLrA",
+            "2WGnykxiM-Mp-qIm2u7iAw",
+            "cFSyJluKa2SHtgMMvlx6SQ",
+            "lKU_kljhbEQKIPaM1Zbqiw"
+          ],
+          "names": [
+            "Spasso Italian Grill",
+            "Giorgio On Pine",
+            "Maggiano's Little Italy",
+            "Angelo's Pizzeria",
+            "Little Nonna's"
+          ],
+          "timings": {
+            "search": 0.12077869200038549
+          },
+          "wall_seconds": 0.127,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "3lBooCffgkW7tVSG5kILBA",
+            "2WGnykxiM-Mp-qIm2u7iAw",
+            "9_B5sCqKBOKDAmYpByiFFg",
+            "arKiXax3ScSM_z3O-0CIyw",
+            "_LOJW0XkOpj4O348GVRDeQ"
+          ],
+          "names": [
+            "Porcini",
+            "Maggiano's Little Italy",
+            "Branzino Italian Ristorante",
+            "Spasso Italian Grill",
+            "Zavino"
+          ],
+          "timings": {
+            "dense": 0.005342174999896088,
+            "bm25": 0.0005996130003040889,
+            "fusion": 0.0036767410001630196
+          },
+          "wall_seconds": 0.015,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.0,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.111,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q02",
+      "facet": "budget",
+      "query": "Recommend restaurants under $$ in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "zU5PPd9j4bYC_MepNSEDcA",
+            "7pAgxBMUjrVPH7xh3fn-gw",
+            "mVV95BIwhFOa7TNH9pVMGA",
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "jxEMFqwDJXjCxmcm5t5jVQ"
+          ],
+          "names": [
+            "Dim Sum House",
+            "Oh Brother Philly",
+            "Philadelphia Chutney Company",
+            "Philadelphia Museum of Art",
+            "Cleavers"
+          ],
+          "timings": {
+            "search": 0.00038524400042661
+          },
+          "wall_seconds": 0.005,
+          "candidates_after_filter": 439,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "Gr6nYrQ_-3p4LcE4M84lTw",
+            "s2JiYzE7i68cXIV6YEcVTw",
+            "KHQXmUFiAD0FHvrMSakJBA",
+            "jxEMFqwDJXjCxmcm5t5jVQ"
+          ],
+          "names": [
+            "Philadelphia Museum of Art",
+            "Dave & Buster's",
+            "Local 44",
+            "Fare",
+            "Cleavers"
+          ],
+          "timings": {
+            "search": 0.005694086999938008
+          },
+          "wall_seconds": 0.009,
+          "candidates_after_filter": 439,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "jxEMFqwDJXjCxmcm5t5jVQ",
+            "Gr6nYrQ_-3p4LcE4M84lTw",
+            "trwHwsXOVV-ZmF-MtP98BA",
+            "3lBooCffgkW7tVSG5kILBA"
+          ],
+          "names": [
+            "Philadelphia Museum of Art",
+            "Cleavers",
+            "Dave & Buster's",
+            "High Street Philadelphia",
+            "Porcini"
+          ],
+          "timings": {
+            "dense": 0.005136219999258174,
+            "bm25": 0.0003560620007192483,
+            "fusion": 0.0040673650000826456
+          },
+          "wall_seconds": 0.012,
+          "candidates_after_filter": 439,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.25,
+        "dense_hybrid_jaccard": 0.429,
+        "bm25_hybrid_jaccard": 0.25,
+        "same_top1_dense_hybrid": true,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q03",
+      "facet": "review_aspect",
+      "query": "Which restaurants have the best food quality according to reviews?",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "0oSSjekU-3GR8gselReWnA",
+            "mf0OyZ6DX2iKUFIV9TqFRQ",
+            "gQCKrqkalAc--4cuW_C_Ow",
+            "uJZgom8HpK74xz8IojpT0A",
+            "qcn10016DUkbgCbQi9L1WA"
+          ],
+          "names": [
+            "Butcher and Singer",
+            "Moriarty's Restaurant and Irish Pub",
+            "Tacconelli's Pizzeria",
+            "Pizzeria Beddia",
+            "Bassetts Ice Cream"
+          ],
+          "timings": {
+            "search": 0.0006434529987018323
+          },
+          "wall_seconds": 0.002,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "dChRGpit9fM_kZK5pafNyA",
+            "bjPUhanWoinHi2kywvVzBA",
+            "khH0QtNyUjcExh9i2CwGfg",
+            "trwHwsXOVV-ZmF-MtP98BA"
+          ],
+          "names": [
+            "a.kitchen",
+            "The Love",
+            "Mercato BYOB",
+            "Serpico",
+            "High Street Philadelphia"
+          ],
+          "timings": {
+            "search": 0.004975891000867705
+          },
+          "wall_seconds": 0.006,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "6zEWIsb6Lhr3BeoC3gm1lw",
+            "Ea4G-2lAbodTM7FBaSO-tQ",
+            "0oSSjekU-3GR8gselReWnA",
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "dChRGpit9fM_kZK5pafNyA"
+          ],
+          "names": [
+            "Chickie's and Pete's",
+            "Del Rossi's Cheesesteak",
+            "Butcher and Singer",
+            "a.kitchen",
+            "The Love"
+          ],
+          "timings": {
+            "dense": 0.0048301730003004195,
+            "bm25": 0.0005871119992661988,
+            "fusion": 0.004985947000022861
+          },
+          "wall_seconds": 0.011,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.0,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.111,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q04",
+      "facet": "ambience",
+      "query": "Find restaurants with positive ambience reviews in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "0oSSjekU-3GR8gselReWnA",
+            "Jg9kkOl4sx2AXJVohbpSiw",
+            "XQWZQjC73fCTRGWnD18-Eg",
+            "rgeuy1qbw6Z8B6CSVANHIA",
+            "d28lZlSps97FHhXZazJ8zA"
+          ],
+          "names": [
+            "Butcher and Singer",
+            "South Philly Barbacoa",
+            "Mac Mart",
+            "Federal Donuts",
+            "Misconduct Tavern"
+          ],
+          "timings": {
+            "search": 0.0005412110003817361
+          },
+          "wall_seconds": 0.002,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "T_6e0SgNuKotySgVS8O1UQ",
+            "L_Rwy6oSAnMUY3NCDspxmA",
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "s2JiYzE7i68cXIV6YEcVTw"
+          ],
+          "names": [
+            "a.kitchen",
+            "Fond",
+            "The Good King Tavern",
+            "Philadelphia Museum of Art",
+            "Local 44"
+          ],
+          "timings": {
+            "search": 0.004838760998609359
+          },
+          "wall_seconds": 0.006,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "jxEMFqwDJXjCxmcm5t5jVQ",
+            "0oSSjekU-3GR8gselReWnA",
+            "Jg9kkOl4sx2AXJVohbpSiw",
+            "T_6e0SgNuKotySgVS8O1UQ"
+          ],
+          "names": [
+            "a.kitchen",
+            "Cleavers",
+            "Butcher and Singer",
+            "South Philly Barbacoa",
+            "Fond"
+          ],
+          "timings": {
+            "dense": 0.004694264000136172,
+            "bm25": 0.0005083659998490475,
+            "fusion": 0.004730984999696375
+          },
+          "wall_seconds": 0.011,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.0,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.25,
+        "same_top1_dense_hybrid": true,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q05",
+      "facet": "personalization",
+      "query": "Recommend a restaurant for a family dinner in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "zU5PPd9j4bYC_MepNSEDcA",
+            "7pAgxBMUjrVPH7xh3fn-gw",
+            "rgSHLh2Le0Un82FDxbq0mg",
+            "JHRlwxxKY0JJcU97rJ-Bug",
+            "9-tZDrMjJYBbpCJoU3WXAQ"
+          ],
+          "names": [
+            "Dim Sum House",
+            "Oh Brother Philly",
+            "The Little Lion",
+            "Cuba Libre Restaurant & Rum Bar - Philadelphia",
+            "Indian Restaurant"
+          ],
+          "timings": {
+            "search": 0.0004371049999463139
+          },
+          "wall_seconds": 0.006,
+          "candidates_after_filter": 202,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "KHQXmUFiAD0FHvrMSakJBA",
+            "2WGnykxiM-Mp-qIm2u7iAw",
+            "7pAgxBMUjrVPH7xh3fn-gw",
+            "zRjUMHQJ5gAmFhcXZtLacA",
+            "R0JUjyjGEzUlY3auVhY_tg"
+          ],
+          "names": [
+            "Fare",
+            "Maggiano's Little Italy",
+            "Oh Brother Philly",
+            "Vietnam Restaurant",
+            "North Bowl"
+          ],
+          "timings": {
+            "search": 0.005197067999688443
+          },
+          "wall_seconds": 0.01,
+          "candidates_after_filter": 202,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "7pAgxBMUjrVPH7xh3fn-gw",
+            "R3FDYMQBrMpkUquwE-eniQ",
+            "zU5PPd9j4bYC_MepNSEDcA",
+            "KHQXmUFiAD0FHvrMSakJBA",
+            "rgSHLh2Le0Un82FDxbq0mg"
+          ],
+          "names": [
+            "Oh Brother Philly",
+            "The Continental Restaurant and Martini Bar",
+            "Dim Sum House",
+            "Fare",
+            "The Little Lion"
+          ],
+          "timings": {
+            "dense": 0.005321276001268416,
+            "bm25": 0.0004960420010320377,
+            "fusion": 0.0035032159994443646
+          },
+          "wall_seconds": 0.013,
+          "candidates_after_filter": 202,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.111,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.429,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q06",
+      "facet": "comparison",
+      "query": "Compare two Italian restaurants in Philadelphia based on reviews.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "3lBooCffgkW7tVSG5kILBA",
+            "Wtr51cNrv1pYyIRg_IawYQ",
+            "9_B5sCqKBOKDAmYpByiFFg",
+            "elSnD7Vuxnlg5_9gTqBqmA",
+            "I1H5s9cVCGh1nH-4bhsSDA"
+          ],
+          "names": [
+            "Porcini",
+            "The Victor Cafe",
+            "Branzino Italian Ristorante",
+            "Barra Rossa Ristorante",
+            "Santucci's Original Square Pizza"
+          ],
+          "timings": {
+            "search": 0.0006339079991448671
+          },
+          "wall_seconds": 0.007,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "3lBooCffgkW7tVSG5kILBA",
+            "erz6oUEJdx787WyOlxMARw",
+            "9_B5sCqKBOKDAmYpByiFFg",
+            "2WGnykxiM-Mp-qIm2u7iAw",
+            "sVZb87xjhbCWHQ2UXOGLrA"
+          ],
+          "names": [
+            "Porcini",
+            "Dante & Luigi's",
+            "Branzino Italian Ristorante",
+            "Maggiano's Little Italy",
+            "Giorgio On Pine"
+          ],
+          "timings": {
+            "search": 0.005171441998754744
+          },
+          "wall_seconds": 0.011,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "3lBooCffgkW7tVSG5kILBA",
+            "9_B5sCqKBOKDAmYpByiFFg",
+            "arKiXax3ScSM_z3O-0CIyw",
+            "I1H5s9cVCGh1nH-4bhsSDA",
+            "sVZb87xjhbCWHQ2UXOGLrA"
+          ],
+          "names": [
+            "Porcini",
+            "Branzino Italian Ristorante",
+            "Spasso Italian Grill",
+            "Santucci's Original Square Pizza",
+            "Giorgio On Pine"
+          ],
+          "timings": {
+            "dense": 0.005297706000419566,
+            "bm25": 0.0006693980012641987,
+            "fusion": 0.0036972400012018625
+          },
+          "wall_seconds": 0.015,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.25,
+        "dense_hybrid_jaccard": 0.429,
+        "bm25_hybrid_jaccard": 0.429,
+        "same_top1_dense_hybrid": true,
+        "same_top1_bm25_dense": true
+      }
+    },
+    {
+      "query_id": "Q07",
+      "facet": "dessert",
+      "query": "Which restaurants in Philadelphia are praised for their desserts?",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "0oSSjekU-3GR8gselReWnA",
+            "qjGS_7iaQDpbVhS6W8qkHQ",
+            "vVfy055EfLMdd0yJYHxiMQ",
+            "jkGQQ4_LgJx3hwPtCFkzbQ",
+            "ZewrmVIdr77Kinj-njv6RQ"
+          ],
+          "names": [
+            "Butcher and Singer",
+            "The Sweet Life Bakeshop",
+            "A La Mousse",
+            "Max Brenner - Philadelphia",
+            "Insomnia Cookies"
+          ],
+          "timings": {
+            "search": 0.0004868479991273489
+          },
+          "wall_seconds": 0.002,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "U2y7fsqDgxAXskoJNVxbwg",
+            "vVfy055EfLMdd0yJYHxiMQ",
+            "jkGQQ4_LgJx3hwPtCFkzbQ",
+            "qcguEeAMP0XwFLYqhwX2hg",
+            "qjGS_7iaQDpbVhS6W8qkHQ"
+          ],
+          "names": [
+            "Happily Ever After",
+            "A La Mousse",
+            "Max Brenner - Philadelphia",
+            "Sweet Freedom Bakery",
+            "The Sweet Life Bakeshop"
+          ],
+          "timings": {
+            "search": 0.005651191999277216
+          },
+          "wall_seconds": 0.007,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "vVfy055EfLMdd0yJYHxiMQ",
+            "qjGS_7iaQDpbVhS6W8qkHQ",
+            "jkGQQ4_LgJx3hwPtCFkzbQ",
+            "qcguEeAMP0XwFLYqhwX2hg",
+            "6ajnOk0GcY9xbb5Ocaw8Gw"
+          ],
+          "names": [
+            "A La Mousse",
+            "The Sweet Life Bakeshop",
+            "Max Brenner - Philadelphia",
+            "Sweet Freedom Bakery",
+            "Barbuzzo"
+          ],
+          "timings": {
+            "dense": 0.004946760998791433,
+            "bm25": 0.00041414400038775057,
+            "fusion": 0.004527058999883593
+          },
+          "wall_seconds": 0.011,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.429,
+        "dense_hybrid_jaccard": 0.667,
+        "bm25_hybrid_jaccard": 0.429,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q08",
+      "facet": "dietary",
+      "query": "Find restaurants with vegetarian options in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "0oSSjekU-3GR8gselReWnA",
+            "hkirr3WzSTx2d9cdP_NKSQ",
+            "YqmClmk7oLcDzPWKHzgA-Q",
+            "LgAuYz5cQe3zTxuteJ4VyQ",
+            "QhgrhVKlXZtSY6gRThf8zA"
+          ],
+          "names": [
+            "Butcher and Singer",
+            "Mama's Vegetarian",
+            "South Philadelphia Tap Room",
+            "Fuel Center City",
+            "Bing Bing Dim Sum"
+          ],
+          "timings": {
+            "search": 0.00044361199979903176
+          },
+          "wall_seconds": 0.002,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "Dv6RfXLYe1atjgz3Xf4GGw",
+            "muCelHtTlX5PrJd8JKkf_w",
+            "wuH4TPUo8oJo4E59xZKsNg",
+            "JPfe9B-RLrE5Nz75kcKImQ",
+            "bgxDswHIdFP0Go0pNfyAAw"
+          ],
+          "names": [
+            "HipCityVeg",
+            "New Harmony Vegetarian Restaurant",
+            "&pizza - Walnut",
+            "Govinda's Vegetarian",
+            "Hummus Grill"
+          ],
+          "timings": {
+            "search": 0.005040072999690892
+          },
+          "wall_seconds": 0.007,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "hkirr3WzSTx2d9cdP_NKSQ",
+            "muCelHtTlX5PrJd8JKkf_w",
+            "wuH4TPUo8oJo4E59xZKsNg",
+            "2CDI713ATuxHfnB5b-sBdw",
+            "LgAuYz5cQe3zTxuteJ4VyQ"
+          ],
+          "names": [
+            "Mama's Vegetarian",
+            "New Harmony Vegetarian Restaurant",
+            "&pizza - Walnut",
+            "Vedge",
+            "Fuel Center City"
+          ],
+          "timings": {
+            "dense": 0.004819488998691668,
+            "bm25": 0.00048783600141177885,
+            "fusion": 0.004276244000720908
+          },
+          "wall_seconds": 0.011,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.0,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.25,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q09",
+      "facet": "image",
+      "query": "Show restaurants similar to this uploaded pizza photo in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "FD7gMovIYQmhdn23Iq91zQ",
+            "g2zwbLIqxtN9nGGuL43trg",
+            "wuH4TPUo8oJo4E59xZKsNg",
+            "M_EpyAH1CZZVlhxfYBLOqg",
+            "I1H5s9cVCGh1nH-4bhsSDA"
+          ],
+          "names": [
+            "Lorenzo & Sons Pizza",
+            "Pizza Brain",
+            "&pizza - Walnut",
+            "Nomad Pizza Company",
+            "Santucci's Original Square Pizza"
+          ],
+          "timings": {
+            "search": 0.0006080610000935849
+          },
+          "wall_seconds": 0.006,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "u7_3L1NBWgxhBM_B-cmmnA",
+            "I1H5s9cVCGh1nH-4bhsSDA",
+            "gQCKrqkalAc--4cuW_C_Ow",
+            "cFSyJluKa2SHtgMMvlx6SQ",
+            "wuH4TPUo8oJo4E59xZKsNg"
+          ],
+          "names": [
+            "Pizzeria Vetri",
+            "Santucci's Original Square Pizza",
+            "Tacconelli's Pizzeria",
+            "Angelo's Pizzeria",
+            "&pizza - Walnut"
+          ],
+          "timings": {
+            "search": 0.005448951998914708
+          },
+          "wall_seconds": 0.011,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "g2zwbLIqxtN9nGGuL43trg",
+            "FD7gMovIYQmhdn23Iq91zQ",
+            "I1H5s9cVCGh1nH-4bhsSDA",
+            "wuH4TPUo8oJo4E59xZKsNg",
+            "fN12ywQpLXQ93bpwe1N_Ww"
+          ],
+          "names": [
+            "Pizza Brain",
+            "Lorenzo & Sons Pizza",
+            "Santucci's Original Square Pizza",
+            "&pizza - Walnut",
+            "Pietro's Coal Oven Pizzeria"
+          ],
+          "timings": {
+            "dense": 0.005052100999819231,
+            "bm25": 0.0006841159993200563,
+            "fusion": 0.0030267730016930727
+          },
+          "wall_seconds": 0.014,
+          "candidates_after_filter": 71,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.25,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.667,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q10",
+      "facet": "visual",
+      "query": "Find restaurants with attractive interiors in Philadelphia.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "hkirr3WzSTx2d9cdP_NKSQ",
+            "0oSSjekU-3GR8gselReWnA",
+            "PYUI1OJVksGUbCrteU68bw",
+            "jxEMFqwDJXjCxmcm5t5jVQ",
+            "gQCKrqkalAc--4cuW_C_Ow"
+          ],
+          "names": [
+            "Mama's Vegetarian",
+            "Butcher and Singer",
+            "Bourbon & Branch",
+            "Cleavers",
+            "Tacconelli's Pizzeria"
+          ],
+          "timings": {
+            "search": 0.00046733599992876407
+          },
+          "wall_seconds": 0.002,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "T_6e0SgNuKotySgVS8O1UQ",
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "U2y7fsqDgxAXskoJNVxbwg",
+            "7lwe7n-Yc-V9E_HfLAeylg"
+          ],
+          "names": [
+            "Philadelphia Museum of Art",
+            "Fond",
+            "a.kitchen",
+            "Happily Ever After",
+            "Pub & Kitchen"
+          ],
+          "timings": {
+            "search": 0.004971708000084618
+          },
+          "wall_seconds": 0.006,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "jxEMFqwDJXjCxmcm5t5jVQ",
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "hkirr3WzSTx2d9cdP_NKSQ",
+            "0oSSjekU-3GR8gselReWnA",
+            "T_6e0SgNuKotySgVS8O1UQ"
+          ],
+          "names": [
+            "Cleavers",
+            "Philadelphia Museum of Art",
+            "Mama's Vegetarian",
+            "Butcher and Singer",
+            "Fond"
+          ],
+          "timings": {
+            "dense": 0.004682562001107726,
+            "bm25": 0.0004579209999064915,
+            "fusion": 0.00482366500000353
+          },
+          "wall_seconds": 0.011,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.0,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.429,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q11",
+      "facet": "ranking",
+      "query": "Which restaurant in Philadelphia offers the best value for money?",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "_V6hl1oGkTV2KbGeax_HPA",
+            "_LOJW0XkOpj4O348GVRDeQ",
+            "YN4Kk751tmdvoarGo8z7_A",
+            "IcLm9Z1zphLnzUvrFK6aiA",
+            "5nqWNo7uVU1Zxm4tjnvkUw"
+          ],
+          "names": [
+            "Sang Kee Peking Duck House",
+            "Zavino",
+            "New Delhi Indian Restaurant",
+            "Erawan Thai Cuisine",
+            "Hai Street Kitchen & Co"
+          ],
+          "timings": {
+            "search": 0.0005033609995734878
+          },
+          "wall_seconds": 0.002,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "T_6e0SgNuKotySgVS8O1UQ",
+            "Qw7tz-UkPrpXaVidWuab4Q",
+            "3eJMsl41qwhcYlvoTF1ElQ",
+            "dChRGpit9fM_kZK5pafNyA",
+            "vtSisxaozZ7HWpBl_W7VaQ"
+          ],
+          "names": [
+            "Fond",
+            "Philadelphia Museum of Art",
+            "a.kitchen",
+            "The Love",
+            "Time"
+          ],
+          "timings": {
+            "search": 0.004824428000574699
+          },
+          "wall_seconds": 0.006,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "_LOJW0XkOpj4O348GVRDeQ",
+            "pVHbXwsqLxNzAx9rdwy2EA",
+            "T_6e0SgNuKotySgVS8O1UQ",
+            "_V6hl1oGkTV2KbGeax_HPA",
+            "Qw7tz-UkPrpXaVidWuab4Q"
+          ],
+          "names": [
+            "Zavino",
+            "Marmont Steakhouse & Bar",
+            "Fond",
+            "Sang Kee Peking Duck House",
+            "Philadelphia Museum of Art"
+          ],
+          "timings": {
+            "dense": 0.004699209999671439,
+            "bm25": 0.0005407970002124785,
+            "fusion": 0.004804999000043608
+          },
+          "wall_seconds": 0.011,
+          "candidates_after_filter": 500,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.0,
+        "dense_hybrid_jaccard": 0.25,
+        "bm25_hybrid_jaccard": 0.25,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    },
+    {
+      "query_id": "Q12",
+      "facet": "multi_constraint",
+      "query": "Family-friendly Mexican restaurant in Philadelphia under $$.",
+      "modes": {
+        "bm25": {
+          "ids": [
+            "I5KZm-NnxYeEQsmp6nK5_w",
+            "qRgeV1CMZawRblc2qjHo_g",
+            "VwZ5NDbIu3elGQI6MzcXBA",
+            "i6DlLLxZ2iwQRxhUDx3TTg",
+            "Pl_9HzOa8uy_YOUxgonzGw"
+          ],
+          "names": [
+            "Las Cazuelas Restaurant BYOB",
+            "El Jarocho",
+            "Blue Corn",
+            "The Adobe Cafe",
+            "Los Gallos Mexican Taqueria"
+          ],
+          "timings": {
+            "search": 0.0004376599990791874
+          },
+          "wall_seconds": 0.009,
+          "candidates_after_filter": 20,
+          "compliance_failed": []
+        },
+        "dense": {
+          "ids": [
+            "f2RHDdXezLHILvM7v1xOVA",
+            "qRgeV1CMZawRblc2qjHo_g",
+            "oqy15jhe1lOXttEvd4Srog",
+            "Pl_9HzOa8uy_YOUxgonzGw",
+            "j6usntbtSzFyuwx4n2mn1g"
+          ],
+          "names": [
+            "Taqueria La Veracruzana",
+            "El Jarocho",
+            "El Poquito",
+            "Los Gallos Mexican Taqueria",
+            "Las Bugambilias"
+          ],
+          "timings": {
+            "search": 0.005336052998245577
+          },
+          "wall_seconds": 0.013,
+          "candidates_after_filter": 20,
+          "compliance_failed": []
+        },
+        "hybrid": {
+          "ids": [
+            "qRgeV1CMZawRblc2qjHo_g",
+            "I5KZm-NnxYeEQsmp6nK5_w",
+            "f2RHDdXezLHILvM7v1xOVA",
+            "Pl_9HzOa8uy_YOUxgonzGw",
+            "VwZ5NDbIu3elGQI6MzcXBA"
+          ],
+          "names": [
+            "El Jarocho",
+            "Las Cazuelas Restaurant BYOB",
+            "Taqueria La Veracruzana",
+            "Los Gallos Mexican Taqueria",
+            "Blue Corn"
+          ],
+          "timings": {
+            "dense": 0.005326867998519447,
+            "bm25": 0.0005207150006754091,
+            "fusion": 0.002760256000328809
+          },
+          "wall_seconds": 0.016,
+          "candidates_after_filter": 20,
+          "compliance_failed": []
+        }
+      },
+      "agreement": {
+        "bm25_dense_jaccard": 0.25,
+        "dense_hybrid_jaccard": 0.429,
+        "bm25_hybrid_jaccard": 0.667,
+        "same_top1_dense_hybrid": false,
+        "same_top1_bm25_dense": false
+      }
+    }
+  ],
+  "summary": {
+    "modes": {
+      "bm25": {
+        "mean_wall_seconds": 0.005,
+        "max_wall_seconds": 0.011,
+        "queries_with_compliance_failure": 0,
+        "queries_with_empty_result": 0
+      },
+      "dense": {
+        "mean_wall_seconds": 0.018,
+        "max_wall_seconds": 0.127,
+        "queries_with_compliance_failure": 0,
+        "queries_with_empty_result": 0
+      },
+      "hybrid": {
+        "mean_wall_seconds": 0.013,
+        "max_wall_seconds": 0.016,
+        "queries_with_compliance_failure": 0,
+        "queries_with_empty_result": 0
+      }
+    },
+    "agreement_means": {
+      "bm25_dense_jaccard": 0.128,
+      "dense_hybrid_jaccard": 0.33,
+      "bm25_hybrid_jaccard": 0.356,
+      "same_top1_dense_hybrid": 3,
+      "same_top1_bm25_dense": 1
+    }
+  }
+}
